@@ -1968,6 +1968,11 @@ body.booking-open{overflow:hidden}
 
                 </h2>
 
+                <!-- ONLINE BOOKING DISCOUNT NOTICE -->
+                <div class="online-discount-alert" role="status" aria-live="polite">
+                    <span class="discount-bell" aria-hidden="true">🔔</span>
+                    <span>BOOK YOUR APPOINTMENT ONLINE AND ENJOY 10%–20% OFF!</span>
+                </div>
 
 
                 <!-- SERVICES -->
@@ -2639,6 +2644,64 @@ body.booking-open{overflow:hidden}
     overflow:visible !important;
     min-height:56px !important;
   }
+}
+
+
+/* ================= ONLINE BOOKING DISCOUNT NOTICE ================= */
+.online-discount-alert{
+    width:100%;
+    max-width:330px;
+    margin:-4px auto 16px;
+    padding:10px 13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:1px solid rgba(255,226,132,.95);
+    border-radius:12px;
+    background:linear-gradient(135deg,#fff6cf,#e9b849,#fff0b0);
+    color:#24303b;
+    font-size:12px;
+    font-weight:800;
+    line-height:1.45;
+    text-align:center;
+    letter-spacing:.35px;
+    box-shadow:0 8px 20px rgba(219,167,49,.30);
+    animation:onlineDiscountBlink 1.15s ease-in-out infinite;
+}
+.online-discount-alert .discount-bell{
+    flex:0 0 auto;
+    font-size:18px;
+    animation:discountBellShake .8s ease-in-out infinite alternate;
+}
+@keyframes onlineDiscountBlink{
+    0%,100%{opacity:1;transform:scale(1);box-shadow:0 8px 20px rgba(219,167,49,.28)}
+    50%{opacity:.72;transform:scale(1.025);box-shadow:0 0 0 5px rgba(255,224,123,.18),0 12px 28px rgba(219,167,49,.48)}
+}
+@keyframes discountBellShake{
+    0%{transform:rotate(-12deg) scale(1)}
+    100%{transform:rotate(12deg) scale(1.12)}
+}
+
+/* Keep the two main columns visually balanced on desktop */
+@media(min-width:769px){
+    .main{align-items:stretch;}
+    .intro,.salon-card{height:100%;}
+    .intro{display:flex;flex-direction:column;}
+    .welcome-message{flex:1;}
+}
+
+@media(max-width:768px){
+    .online-discount-alert{
+        max-width:100%;
+        margin:0 auto 14px;
+        font-size:11px;
+        padding:10px 11px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .online-discount-alert,.online-discount-alert .discount-bell{animation:none;}
 }
 </style>
 
