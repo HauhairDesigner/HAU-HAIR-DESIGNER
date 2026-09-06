@@ -1862,6 +1862,19 @@ footer{
 }
 </style>
 
+
+<!-- FINAL MOBILE SHADOW FIX: keep the blue page background visually uniform -->
+<style id="mobile-salon-shadow-fix">
+/* Desktop design is unchanged. On phones, remove only the outside shadow
+   from the gray salon card so it does not create a darker patch on the
+   continuous blue page background. */
+@media (max-width:650px){
+    .salon-card{
+        box-shadow:none !important;
+    }
+}
+</style>
+
 </head>
 
 
