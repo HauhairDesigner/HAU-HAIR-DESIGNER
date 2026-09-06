@@ -26,21 +26,30 @@
         }
 
 
+        /* =========================
+           WEBSITE BACKGROUND
+        ========================= */
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
+
+            /* XANH THAN NHẠT */
+            background: #dfeaf0;
+
             color: #222222;
         }
 
 
         /* =========================
-           HEADER
+           HEADER - WHITE
         ========================= */
 
         header {
             background: #ffffff;
+
             border-top: 3px solid #cda64d;
-            border-bottom: 1px solid #e5e0d8;
+
+            border-bottom: 1px solid #d9e0e3;
         }
 
 
@@ -61,7 +70,9 @@
         }
 
 
-        /* MENU */
+        /* =========================
+           MENU
+        ========================= */
 
         .nav-left {
 
@@ -91,7 +102,9 @@
         }
 
 
-        /* LOGO */
+        /* =========================
+           LOGO
+        ========================= */
 
         .logo {
             text-align: center;
@@ -108,7 +121,9 @@
         }
 
 
-        /* BOOK BUTTON */
+        /* =========================
+           BOOK APPOINTMENT BUTTON
+        ========================= */
 
         .book-btn {
 
@@ -124,7 +139,7 @@
 
             padding: 15px 30px;
 
-            border-radius: 6px;
+            border-radius: 8px;
 
             font-size: 17px;
 
@@ -132,12 +147,17 @@
 
             transition: 0.3s;
 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.12);
         }
 
 
         .book-btn:hover {
+
             transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.18);
         }
 
 
@@ -155,7 +175,7 @@
 
             letter-spacing: 2px;
 
-            padding: 25px 20px 70px;
+            padding: 35px 20px 70px;
 
             color: #222222;
         }
@@ -209,7 +229,7 @@
 
             margin-bottom: 15px;
 
-            color: #3d3d3d;
+            color: #35424a;
         }
 
 
@@ -237,25 +257,68 @@
 
             margin: 16px 0;
 
-            color: #333333;
+            color: #303b42;
         }
 
+
+        /* =========================
+           RED GOOGLE MAPS STYLE PIN
+        ========================= */
+
+        .map-pin {
+
+            display: inline-block;
+
+            width: 14px;
+
+            height: 18px;
+
+            background: #e53935;
+
+            border-radius: 50% 50% 50% 0;
+
+            transform: rotate(-45deg);
+
+            margin-right: 12px;
+
+            vertical-align: -3px;
+
+            position: relative;
+
+            box-shadow:
+                0 2px 5px rgba(0,0,0,0.18);
+        }
+
+
+        .map-pin::after {
+
+            content: "";
+
+            width: 5px;
+
+            height: 5px;
+
+            background: #ffffff;
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: 5px;
+
+            left: 5px;
+        }
+
+
+        /* =========================
+           PHONE ICON
+        ========================= */
 
         .gold-icon {
 
             color: #cda64d;
 
             margin-right: 8px;
-        }
-
-
-
-        /* RED GOOGLE-MAPS-STYLE LOCATION PIN */
-        .map-pin {
-            color: #e53935;
-            margin-right: 8px;
-            font-size: 20px;
-            vertical-align: -1px;
         }
 
 
@@ -291,14 +354,17 @@
 
             font-weight: bold;
 
-            border-radius: 5px;
+            border-radius: 6px;
 
             transition: 0.3s;
+
+            box-shadow:
+                0 5px 12px rgba(0,0,0,0.12);
         }
 
 
         .direction {
-            background: #292929;
+            background: #27343b;
         }
 
 
@@ -321,7 +387,7 @@
 
 
         /* =========================
-           RIGHT PROMO
+           RIGHT PROMO BOX
         ========================= */
 
         .hero-box {
@@ -340,18 +406,19 @@
 
             align-items: center;
 
-            /* ĐỔI NỀN ĐEN THÀNH TRẮNG */
-
+            /* GIỮ KHUNG MÀU TRẮNG */
             background: #ffffff;
 
-            border: 1px solid #e7e2d9;
+            border: 1px solid #d4dde1;
 
             box-shadow:
-                0 20px 40px rgba(0,0,0,0.12);
+                0 20px 40px rgba(35,55,65,0.18);
         }
 
 
-        /* HIỆU ỨNG ÁNH SÁNG NHẸ */
+        /* =========================
+           GOLD LIGHT EFFECT
+        ========================= */
 
         .hero-box::before {
 
@@ -360,6 +427,7 @@
             position: absolute;
 
             width: 600px;
+
             height: 600px;
 
             border-radius: 50%;
@@ -367,11 +435,12 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(205,166,77,0.10),
+                    rgba(205,166,77,0.12),
                     transparent 65%
                 );
 
             top: -300px;
+
             right: -200px;
         }
 
@@ -388,13 +457,13 @@
 
             text-align: center;
 
-            /* CHỮ MÀU ĐEN */
-
             color: #222222;
         }
 
 
-        /* BIG LOGO */
+        /* =========================
+           BIG LOGO
+        ========================= */
 
         .hero-logo {
 
@@ -408,13 +477,15 @@
         }
 
 
+        /* =========================
+           BRAND NAME
+        ========================= */
+
         .hero-brand {
 
             font-size: 30px;
 
             font-weight: bold;
-
-            /* ĐỔI CHỮ TRẮNG THÀNH ĐEN */
 
             color: #222222;
 
@@ -424,11 +495,16 @@
         }
 
 
+        /* =========================
+           SERVICE BOX
+        ========================= */
+
         .service-box {
 
             display: inline-block;
 
             background:
+
                 linear-gradient(
                     90deg,
                     #f3d98f,
@@ -445,30 +521,33 @@
 
             line-height: 1.55;
 
-            border-radius: 4px;
+            border-radius: 6px;
 
             box-shadow:
                 0 8px 20px rgba(0,0,0,0.10);
         }
 
 
-        /* Ô THÔNG TIN MÀU NHẸ NHÀNG */
+        /* =========================
+           CONTACT BOX
+        ========================= */
 
         .contact-box {
 
-            background: #f7f5f1;
+            /* MÀU NHẸ NHÀNG */
+            background: #edf3f5;
 
-            color: #333333;
+            color: #303b42;
 
             margin-top: 30px;
 
-            padding: 20px 25px;
+            padding: 22px 25px;
 
             text-align: left;
 
             line-height: 1.8;
 
-            font-size: 15px;
+            font-size: 16px;
 
             max-width: 430px;
 
@@ -476,17 +555,28 @@
 
             margin-right: auto;
 
-            border-radius: 6px;
+            border-radius: 10px;
 
-            border: 1px solid #e9e4db;
+            border: 1px solid #d5e0e4;
+
+            box-shadow:
+                0 8px 18px rgba(0,0,0,0.06);
         }
 
+
+        .contact-box strong {
+
+            color: #222222;
+        }
+
+
+        /* =========================
+           WEBSITE NAME
+        ========================= */
 
         .website-name {
 
             margin-top: 28px;
-
-            /* ĐỔI CHỮ TRẮNG THÀNH ĐEN */
 
             color: #333333;
 
@@ -690,7 +780,9 @@
             <p>
 
                 Located in the heart of Hoi An,
+
                 <strong>H.A.U HAIR DESIGNER</strong>
+
                 offers professional haircuts, coloring,
                 perming and hair treatments in a clean,
                 welcoming and comfortable space.
@@ -701,7 +793,9 @@
             <p>
 
                 Known for attentive service and skilled stylists,
+
                 <strong>H.A.U HAIR DESIGNER</strong>
+
                 is the perfect place to refresh your look,
                 relax and enjoy a beautiful hair experience
                 in Hoi An.
@@ -718,7 +812,7 @@
 
             <div class="address">
 
-                <span class="map-pin" aria-label="Location">📍</span>
+                <span class="map-pin" aria-label="Location"></span>
 
                 173 Nguyen Duy Hieu,
                 Hoi An, TP Da Nang, Viet Nam
@@ -740,24 +834,21 @@
             <div class="buttons">
 
 
-                <a href="#direction"
-                    class="btn direction">
+                <a href="#direction" class="btn direction">
 
                     🧭 Get direction
 
                 </a>
 
 
-                <a href="#"
-                    class="btn message">
+                <a href="#" class="btn message">
 
                     💬 Message Us
 
                 </a>
 
 
-                <a href="#"
-                    class="btn chat">
+                <a href="#" class="btn chat">
 
                     🟢 Start Chat
 
@@ -803,7 +894,9 @@
 
                 <div class="contact-box">
 
-                    <span class="map-pin">📍</span><strong>H.A.U HAIR DESIGNER</strong>
+                    <span class="map-pin"></span>
+
+                    <strong>H.A.U HAIR DESIGNER</strong>
 
                     <br>
 
