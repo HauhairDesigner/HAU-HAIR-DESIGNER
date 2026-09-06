@@ -2277,13 +2277,16 @@ body.booking-open{overflow:hidden}
         const submitBtn = form.querySelector('.booking-submit');
         success.classList.remove('show', 'error');
 
-        // Validate the selected appointment against the current local time.
-        // Customers may choose ANY time on a future date, but on today they
-        // cannot choose a time that has already passed.
         const selectedDate = dateInput.value;
         const selectedHour12 = parseInt(hourInput.value, 10);
         const selectedMinute = parseInt(minuteInput.value, 10);
         const selectedPeriod = periodInput.value;
+
+        if (!selectedDate || !selectedHour12 || Number.isNaN(selectedMinute) || !selectedPeriod) {
+            success.textContent = 'Please select a valid appointment date and time.';
+            success.classList.add('show', 'error');
+            return;
+        }
 
         let selectedHour24 = selectedHour12;
         if (selectedPeriod === 'AM' && selectedHour12 === 12) selectedHour24 = 0;
@@ -2310,11 +2313,16 @@ body.booking-open{overflow:hidden}
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
-        success.classList.remove('show');
 
-        try{
-            // Google Apps Script Web App: send a simple POST request.
-            // text/plain keeps this request CORS-safe for a public Apps Script Web App.
+        try {
+            /*
+             * Send exactly the JSON format expected by your current Apps Script:
+             * JSON.parse(e.postData.contents)
+             *
+             * no-cors is required for a public Google Apps Script Web App when
+             * called directly from a static website. The browser cannot read the
+             * response, but the request is still sent to Google.
+             */
             await fetch(SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -2325,25 +2333,24 @@ body.booking-open{overflow:hidden}
                 body: JSON.stringify(bookingData)
             });
 
-            success.textContent = `Thank you, ${bookingData.fullName}! Your appointment request for ${bookingData.service} on ${bookingData.visitDate} at ${bookingData.visitTime} has been sent successfully. We will contact you soon to confirm your appointment.`;
+            success.textContent =
+                `Thank you, ${bookingData.fullName}! Your appointment request has been sent successfully. We will contact you soon to confirm your appointment.`;
             success.classList.remove('error');
             success.classList.add('show');
 
             submitBtn.textContent = 'Booking Sent ✓';
-
-            // Clear the form only after the request has been sent.
             form.reset();
+            updateMinimumDate();
 
             setTimeout(()=>{
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Book Now';
             }, 3000);
 
-        }catch(error){
+        } catch(error) {
             console.error('Booking error:', error);
-            success.textContent = 'Something went wrong. Please try again or contact us directly.';
-            success.classList.remove('error');
-            success.classList.add('show');
+            success.textContent = 'Unable to send your appointment request. Please try again.';
+            success.classList.add('show', 'error');
             submitBtn.disabled = false;
             submitBtn.textContent = 'Book Now';
         }
@@ -2377,8 +2384,6 @@ body.booking-open{overflow:hidden}
   .booking-time-picker select{padding:0 8px !important;font-size:15px;}
 }
 </style>
-</body>
-</html>
 <style id="booking-ios-equal-width-final">
 /* ============================================================
    FINAL iPHONE / MOBILE BOOKING FIX
@@ -2502,3 +2507,34 @@ body.booking-open{overflow:hidden}
   }
 }
 </style>
+
+<style id="booking-mobile-compatibility">
+/* PC + Mobile booking compatibility */
+.booking-time-picker select{
+  -webkit-appearance:auto;
+  appearance:auto;
+  background-color:#fff;
+  color:#26384b;
+}
+#bookingDate{
+  color:#26384b;
+  background-color:#fff;
+}
+@media(max-width:620px){
+  .booking-time-picker{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) minmax(0,1.25fr) !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .booking-time-picker select{
+    display:block !important;
+    min-width:0 !important;
+    width:100% !important;
+    touch-action:manipulation;
+  }
+}
+</style>
+
+</body>
+</html>
