@@ -1756,6 +1756,64 @@ body.booking-open{overflow:hidden}
 /* GOOGLE MAPS REVIEWS SLIDER */
 .google-reviews-section{width:100%;background:#c9d8e6;padding:34px 20px 40px;overflow:hidden}.google-reviews-inner{width:min(1280px,100%);margin:auto}.google-reviews-title{text-align:center;color:#26384b;font-size:24px;font-weight:800;margin:0 0 22px}.google-reviews-title span{display:inline-flex;padding:10px 18px;border:1px solid #d9b35d;border-radius:999px;background:linear-gradient(135deg,#fff9e9,#f5dfaa);box-shadow:0 6px 18px rgba(184,137,45,.15)}.google-reviews-viewport{overflow:hidden;border-radius:18px}.google-reviews-track{display:flex;will-change:transform;transition:transform .75s cubic-bezier(.22,.61,.36,1)}.google-review-slide{flex:0 0 calc(100% / 3);padding:0 10px;min-width:0}.google-review-card{overflow:hidden;border-radius:16px;background:#f5f5f5;box-shadow:0 8px 22px rgba(38,56,75,.14)}.google-review-card img{display:block;width:100%;height:270px;object-fit:cover}@media(max-width:850px){.google-review-slide{flex-basis:50%}.google-review-card img{height:260px}}@media(max-width:650px){.google-reviews-section{padding:26px 12px 30px}.google-reviews-title{font-size:18px;margin-bottom:16px}.google-review-slide{flex-basis:100%;padding:0 4px}.google-review-card{border-radius:14px}.google-review-card img{height:auto;object-fit:contain}}
 </style>
+
+<style id="final-welcome-google-reviews-fix">
+/* ============================================================
+   FINAL FIX
+   1) Welcome message: elegant white rounded frame.
+   2) Google review screenshots: never crop names/text on PC or mobile.
+   ============================================================ */
+
+.welcome-message{
+    background:rgba(255,255,255,.96) !important;
+    border:1px solid rgba(255,255,255,.98) !important;
+    border-radius:22px !important;
+    padding:24px 26px !important;
+    box-shadow:0 12px 30px rgba(38,56,75,.14) !important;
+}
+
+.welcome-message p,
+.welcome-message .welcome-title,
+.welcome-message .tagline{
+    color:#34485b;
+}
+
+.welcome-message .welcome-title{
+    color:#26384b;
+}
+
+/* Show the COMPLETE Google review screenshot. No fixed height and no crop. */
+.google-review-card{
+    display:flex !important;
+    align-items:flex-start;
+    justify-content:center;
+    overflow:visible !important;
+    background:#fff !important;
+}
+
+.google-review-card img{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    object-fit:contain !important;
+    object-position:center top !important;
+}
+
+/* Keep the slider itself clean while allowing every screenshot to retain its full content. */
+.google-reviews-viewport{
+    overflow:hidden !important;
+}
+
+@media(max-width:650px){
+    .welcome-message{
+        padding:18px 17px !important;
+        border-radius:18px !important;
+    }
+}
+</style>
+
 </head>
 
 
