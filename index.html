@@ -5,6 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>H.A.U HAIR DESIGNER | Hoi An</title>
+<!-- Always open the website at the top after refresh so the navigation menu is visible -->
+<script>
+(function(){
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    function goToTop(){
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+
+    // Run immediately and again after the browser finishes restoring the page.
+    goToTop();
+    window.addEventListener('DOMContentLoaded', goToTop);
+    window.addEventListener('load', function(){
+        goToTop();
+        setTimeout(goToTop, 50);
+        setTimeout(goToTop, 250);
+    });
+    window.addEventListener('pageshow', function(){
+        goToTop();
+        setTimeout(goToTop, 50);
+    });
+})();
+</script>
+
 
 <style>
 
@@ -346,6 +372,47 @@ header{
 
 
 /* ================= LEFT SIDE ================= */
+
+.welcome-message{
+    width:100%;
+    padding:22px 24px;
+    margin-bottom:22px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:14px;
+    background:rgba(255,255,255,.10);
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.welcome-message p{
+    margin:0 0 18px;
+    line-height:1.55;
+}
+
+.welcome-message p:last-child{
+    margin-bottom:0;
+}
+
+.welcome-message .welcome-title{
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:.2px;
+}
+
+.welcome-message .tagline{
+    font-weight:600;
+}
+
+@media(max-width:768px){
+    .welcome-message{
+        padding:16px;
+        margin-bottom:16px;
+        border-radius:12px;
+    }
+
+    .welcome-message .welcome-title{
+        font-size:17px;
+    }
+}
 
 .intro h2{
     font-size:32px;
@@ -1244,208 +1311,6 @@ body.booking-open{overflow:hidden}
     .booking-submit{height:58px;font-size:17px}
 }
 
-
-
-
-/* =========================================================
-   FINAL MOBILE BOOKING OPTIMIZATION
-   Fixes: popup being cut off on iPhone/Android, safe scrolling,
-   dynamic mobile browser height, and all fields staying accessible.
-   ========================================================= */
-.booking-modal{
-    overscroll-behavior:contain;
-}
-
-.booking-dialog{
-    overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
-}
-
-@media (max-width: 620px){
-
-    /* The overlay itself can scroll safely on every mobile browser */
-    .booking-modal{
-        position:fixed;
-        inset:0;
-        z-index:99999;
-
-        width:100vw;
-        height:100vh;
-        height:100dvh;
-
-        padding:
-            max(10px, env(safe-area-inset-top))
-            10px
-            max(10px, env(safe-area-inset-bottom));
-
-        box-sizing:border-box;
-
-        display:none;
-        overflow-y:auto;
-        overflow-x:hidden;
-
-        align-items:flex-start;
-        justify-content:center;
-
-        -webkit-overflow-scrolling:touch;
-        overscroll-behavior:contain;
-    }
-
-    .booking-modal.active{
-        display:flex;
-    }
-
-    /* Dialog never extends outside the visible phone viewport */
-    .booking-dialog{
-        width:100%;
-        max-width:100%;
-        max-height:calc(100dvh - 20px);
-        margin:auto 0;
-
-        padding:24px 16px 24px;
-
-        box-sizing:border-box;
-        overflow-y:auto;
-        overflow-x:hidden;
-
-        border-radius:24px;
-
-        -webkit-overflow-scrolling:touch;
-        overscroll-behavior:contain;
-    }
-
-    /* Extra support for older Safari versions */
-    @supports (-webkit-touch-callout:none){
-        .booking-modal{
-            min-height:-webkit-fill-available;
-        }
-
-        .booking-dialog{
-            max-height:calc(100vh - 20px);
-        }
-    }
-
-    .booking-head{
-        margin:2px 40px 18px;
-    }
-
-    .booking-head h2{
-        font-size:22px;
-        line-height:1.25;
-    }
-
-    .booking-head p{
-        font-size:14px;
-        line-height:1.45;
-    }
-
-    .booking-close{
-        position:sticky;
-        float:right;
-        top:0;
-        right:0;
-
-        width:34px;
-        height:34px;
-        margin:-4px -4px 0 8px;
-
-        font-size:23px;
-        z-index:5;
-    }
-
-    .booking-form{
-        display:grid;
-        grid-template-columns:minmax(0,1fr);
-        gap:14px;
-        clear:both;
-    }
-
-    .booking-field,
-    .booking-field.full,
-    .booking-submit,
-    .booking-note,
-    .booking-success{
-        grid-column:1 / -1;
-        width:100%;
-        min-width:0;
-    }
-
-    .booking-field{
-        gap:7px;
-    }
-
-    .booking-field label{
-        font-size:15px;
-        line-height:1.3;
-    }
-
-    .booking-field input,
-    .booking-field select{
-        display:block;
-        width:100%;
-        max-width:100%;
-        min-width:0;
-
-        height:54px;
-        padding:0 14px;
-
-        box-sizing:border-box;
-
-        border-radius:14px;
-        font-size:16px;
-    }
-
-    input[type="date"],
-    input[type="time"]{
-        width:100%;
-        min-width:0;
-        max-width:100%;
-    }
-
-    .booking-submit{
-        min-height:56px;
-        height:56px;
-        margin-top:4px;
-        border-radius:15px;
-        font-size:17px;
-    }
-
-    .booking-note{
-        padding-bottom:4px;
-        line-height:1.45;
-    }
-}
-
-/* Very narrow phones */
-@media (max-width: 390px){
-    .booking-modal{
-        padding-left:8px;
-        padding-right:8px;
-    }
-
-    .booking-dialog{
-        padding:20px 13px 22px;
-        border-radius:21px;
-    }
-
-    .booking-head{
-        margin:2px 36px 16px;
-    }
-
-    .booking-head h2{
-        font-size:20px;
-    }
-
-    .booking-head p{
-        font-size:13px;
-    }
-
-    .booking-field input,
-    .booking-field select{
-        height:52px;
-        font-size:16px;
-    }
-}
 </style>
 </head>
 
@@ -1526,44 +1391,24 @@ body.booking-open{overflow:hidden}
 
     <div class="intro">
 
-        <h2>
+        <!-- UPDATED WELCOME MESSAGE -->
+        <div class="welcome-message">
+            <p class="welcome-title">✨ Welcome to H.A.U HAIR DESIGNER – Your Beauty Destination in Hoi An! ✨</p>
 
-            H.A.U HAIR DESIGNER —<br>
+            <p>
+                Located near the heart of Hoi An, we offer professional Hair, Spa &amp; Nail services
+                in a beautiful, relaxing, European-inspired space. 💇‍♀️💅✨
+            </p>
 
-            STYLE &amp; COMFORT IN HOI AN
+            <p>
+                From haircuts and coloring to balayage, highlights, perms, straightening, and hair extensions —
+                our experienced team is here to help you look and feel your best! ❤️
+            </p>
 
-        </h2>
-
-
-        <p>
-
-            Located in the heart of Hoi An,
-
-            <strong>H.A.U HAIR DESIGNER</strong>
-
-            offers professional haircuts, coloring, perming and hair treatments
-            in a clean, welcoming and comfortable space.
-
-        </p>
-
-
-        <p>
-
-            Known for attentive service and skilled stylists,
-
-            <strong>H.A.U HAIR DESIGNER</strong>
-
-            is the perfect place to refresh your look, relax and enjoy
-            a beautiful hair experience in Hoi An.
-
-        </p>
-
-
-        <p class="tagline">
-
-            Great Hair, Relaxed Vibes.
-
-        </p>
+            <p class="tagline">
+                📍 H.A.U HAIR DESIGNER – Beauty, Relaxation &amp; Confidence in Hoi An.
+            </p>
+        </div>
 
 
 
@@ -1879,19 +1724,14 @@ body.booking-open{overflow:hidden}
       <div class="booking-field full">
         <label for="bookingService">Select a Service</label>
         <select id="bookingService" name="service" required>
-          <option value="Men's Haircut" selected>Men's Haircut</option>
-          <option value="Women's Haircut">Women's Haircut</option>
-          <option value="Spa">Spa</option>
-          <option value="Men">Men</option>
-          <option value="Foils">Foils</option>
-          <option value="Women">Women</option>
-          <option value="Ombre Balayage">Ombre Balayage</option>
-          <option value="Hair Wash &amp; Style">Hair Wash &amp; Style</option>
-          <option value="Perm/Straightening">Perm/Straightening</option>
-          <option value="Color">Color</option>
-          <option value="Nails">Nails</option>
-          <option value="Treatment">Treatment</option>
-          <option value="Keratin">Keratin</option>
+          <option value="">Choose a service</option>
+          <option>Hair Cutting</option>
+          <option>Hair Coloring</option>
+          <option>Perming</option>
+          <option>Hair Treatment</option>
+          <option>Hair Straightening</option>
+          <option>Hair Extensions</option>
+          <option>Consultation</option>
         </select>
       </div>
       <button class="booking-submit" type="submit">Book Now</button>
@@ -1941,9 +1781,6 @@ body.booking-open{overflow:hidden}
 
     function openBooking(e){
         if(e) e.preventDefault();
-        modal.scrollTop = 0;
-        const bookingDialog = modal.querySelector('.booking-dialog');
-        if(bookingDialog) bookingDialog.scrollTop = 0;
         modal.classList.add('active');
         modal.setAttribute('aria-hidden','false');
         document.body.classList.add('booking-open');
