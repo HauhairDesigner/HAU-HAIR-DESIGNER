@@ -1172,6 +1172,78 @@ footer{
     }
 }
 
+
+
+/* ================= PREMIUM BOOKING MODAL ================= */
+.booking-modal{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(12,18,24,.62);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+.booking-modal.active{display:flex;animation:bookingFade .22s ease-out}
+@keyframes bookingFade{from{opacity:0}to{opacity:1}}
+.booking-dialog{
+    width:min(760px,100%);
+    max-height:min(90vh,820px);
+    overflow:auto;
+    position:relative;
+    padding:34px;
+    border-radius:28px;
+    background:linear-gradient(145deg,#ffffff,#f4f6f8);
+    border:1px solid rgba(188,139,67,.58);
+    box-shadow:0 28px 80px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.booking-dialog::-webkit-scrollbar{width:7px}
+.booking-dialog::-webkit-scrollbar-thumb{background:#c99845;border-radius:20px}
+.booking-close{
+    position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+    border:1px solid #b8c0c8;background:#fff;color:#27333e;font-size:25px;line-height:32px;
+    cursor:pointer;transition:.2s ease;box-shadow:0 5px 16px rgba(0,0,0,.1);
+}
+.booking-close:hover{transform:rotate(90deg);background:#29343d;color:#fff}
+.booking-head{text-align:center;margin:0 42px 26px}
+.booking-head h2{margin:0;color:#263746;font-size:27px;letter-spacing:.8px}
+.booking-head p{margin:8px 0 0;color:#6d7780;font-size:15px}
+.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.booking-field{display:flex;flex-direction:column;gap:8px}
+.booking-field.full{grid-column:1/-1}
+.booking-field label{font-size:15px;font-weight:700;color:#2d3c49}
+.booking-field input,.booking-field select{
+    width:100%;height:58px;box-sizing:border-box;padding:0 17px;border-radius:16px;
+    border:1.5px solid #d8b06b;background:rgba(255,255,255,.78);color:#263746;
+    font-size:16px;outline:none;transition:.2s ease;
+}
+.booking-field input:focus,.booking-field select:focus{
+    border-color:#c48a2b;box-shadow:0 0 0 4px rgba(204,151,61,.14);background:#fff;
+}
+.booking-submit{grid-column:1/-1;margin-top:6px;height:62px;border:0;border-radius:17px;cursor:pointer;
+    color:#fff;font-size:18px;font-weight:800;letter-spacing:.3px;
+    background:linear-gradient(135deg,#d09a3b,#efc469,#bd8126);
+    box-shadow:0 12px 26px rgba(190,129,38,.28);transition:.2s ease;
+}
+.booking-submit:hover{transform:translateY(-2px);box-shadow:0 17px 30px rgba(190,129,38,.36)}
+.booking-submit:active{transform:translateY(0)}
+.booking-note{grid-column:1/-1;text-align:center;margin:0;color:#7a838b;font-size:12px}
+.booking-success{display:none;grid-column:1/-1;text-align:center;padding:18px;border-radius:16px;background:#edf8f0;border:1px solid #b9dec3;color:#27633b;font-weight:700}
+.booking-success.show{display:block}
+body.booking-open{overflow:hidden}
+@media(max-width:620px){
+    .booking-modal{padding:12px;align-items:flex-end}
+    .booking-dialog{max-height:92vh;padding:28px 18px 22px;border-radius:25px 25px 20px 20px}
+    .booking-head{margin:4px 38px 22px}.booking-head h2{font-size:22px}
+    .booking-form{grid-template-columns:1fr;gap:14px}
+    .booking-field.full,.booking-submit,.booking-note,.booking-success{grid-column:auto}
+    .booking-field input,.booking-field select{height:55px;border-radius:14px}
+    .booking-submit{height:58px;font-size:17px}
+}
+
 </style>
 </head>
 
@@ -1218,8 +1290,8 @@ footer{
         <div class="nav-right">
 
             <a
-            href="tel:0333093033"
-            class="book-btn">
+            href="#booking"
+            class="book-btn" id="headerBookBtn">
 
             📅 Book Appointment
 
@@ -1572,6 +1644,57 @@ footer{
 
 
 
+
+<!-- ================= BOOKING POPUP ================= -->
+<div class="booking-modal" id="bookingModal" aria-hidden="true">
+  <div class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <button class="booking-close" id="bookingClose" type="button" aria-label="Close booking form">×</button>
+    <div class="booking-head">
+      <h2 id="bookingTitle">Book an Appointment</h2>
+      <p>Choose your preferred service, date and time.</p>
+    </div>
+    <form class="booking-form" id="bookingForm">
+      <div class="booking-field">
+        <label for="bookingName">Your Full Name</label>
+        <input id="bookingName" name="name" type="text" placeholder="Your Full Name" required autocomplete="name">
+      </div>
+      <div class="booking-field">
+        <label for="bookingPhone">Your Phone</label>
+        <input id="bookingPhone" name="phone" type="tel" placeholder="Your Phone" required autocomplete="tel">
+      </div>
+      <div class="booking-field full">
+        <label for="bookingEmail">Your Email</label>
+        <input id="bookingEmail" name="email" type="email" placeholder="Your Email" required autocomplete="email">
+      </div>
+      <div class="booking-field">
+        <label for="bookingDate">Visit Date</label>
+        <input id="bookingDate" name="date" type="date" required>
+      </div>
+      <div class="booking-field">
+        <label for="bookingTime">Visit Time</label>
+        <input id="bookingTime" name="time" type="time" required min="08:00" max="21:00" step="1800">
+      </div>
+      <div class="booking-field full">
+        <label for="bookingService">Select a Service</label>
+        <select id="bookingService" name="service" required>
+          <option value="">Choose a service</option>
+          <option>Hair Cutting</option>
+          <option>Hair Coloring</option>
+          <option>Perming</option>
+          <option>Hair Treatment</option>
+          <option>Hair Straightening</option>
+          <option>Hair Extensions</option>
+          <option>Consultation</option>
+        </select>
+      </div>
+      <button class="booking-submit" type="submit">Book Now</button>
+      <div class="booking-success" id="bookingSuccess" aria-live="polite"></div>
+      <p class="booking-note">Please enter your information correctly so the salon can confirm your appointment.</p>
+    </form>
+  </div>
+</div>
+
+
 <!-- ================= FOOTER ================= -->
 
 <footer>
@@ -1583,7 +1706,7 @@ footer{
 
 <!-- ================= FLOATING BOOK APPOINTMENT ================= -->
 <div class="floating-book-wrap" id="floatingBookWrap">
-    <a href="tel:0333093033" class="floating-book-btn" aria-label="Book Appointment">
+    <a href="#booking" class="floating-book-btn" id="floatingBookBtn" aria-label="Book Appointment">
         <span class="booking-icon" aria-hidden="true">🖊️<span class="notebook">📔</span></span>
         <span class="booking-text">
             <span class="book-word">Book</span>
@@ -1596,12 +1719,53 @@ footer{
 <script>
 (function(){
     const wrap = document.getElementById('floatingBookWrap');
-    const close = document.getElementById('floatingBookClose');
-    if(!wrap || !close) return;
+    const floatingClose = document.getElementById('floatingBookClose');
+    const modal = document.getElementById('bookingModal');
+    const dialogClose = document.getElementById('bookingClose');
+    const headerBtn = document.getElementById('headerBookBtn');
+    const floatingBtn = document.getElementById('floatingBookBtn');
+    const form = document.getElementById('bookingForm');
+    const dateInput = document.getElementById('bookingDate');
+    const success = document.getElementById('bookingSuccess');
 
-    // Chỉ ẩn trong phiên xem hiện tại. Khi khách tải lại trang (F5), nút sẽ xuất hiện lại.
-    close.addEventListener('click', function(){
-        wrap.style.display = 'none';
+    const today = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    dateInput.min = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+
+    function openBooking(e){
+        if(e) e.preventDefault();
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden','false');
+        document.body.classList.add('booking-open');
+        setTimeout(()=>document.getElementById('bookingName').focus(),150);
+    }
+    function closeBooking(){
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden','true');
+        document.body.classList.remove('booking-open');
+    }
+
+    headerBtn && headerBtn.addEventListener('click', openBooking);
+    floatingBtn && floatingBtn.addEventListener('click', openBooking);
+    dialogClose && dialogClose.addEventListener('click', closeBooking);
+
+    floatingClose && floatingClose.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        if(wrap) wrap.style.display = 'none';
+    });
+
+    modal.addEventListener('click', function(e){ if(e.target === modal) closeBooking(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('active')) closeBooking(); });
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        const data = new FormData(form);
+        success.textContent = `Thank you, ${data.get('name')}! Your booking request for ${data.get('service')} on ${data.get('date')} at ${data.get('time')} has been recorded. We will contact you to confirm.`;
+        success.classList.add('show');
+        form.querySelector('.booking-submit').textContent = 'Booking Request Sent ✓';
+        form.querySelector('.booking-submit').disabled = true;
+        setTimeout(()=>{ form.querySelector('.booking-submit').disabled=false; form.querySelector('.booking-submit').textContent='Book Now'; },2500);
     });
 })();
 </script>
