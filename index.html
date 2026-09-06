@@ -2117,10 +2117,6 @@ body.booking-open{overflow:hidden}
         <label for="bookingPhone">Your Phone</label>
         <input id="bookingPhone" name="phone" type="tel" placeholder="Your Phone" required autocomplete="tel">
       </div>
-      <div class="booking-field full">
-        <label for="bookingEmail">Your Email</label>
-        <input id="bookingEmail" name="email" type="email" placeholder="Your Email" required autocomplete="email">
-      </div>
       <div class="booking-field">
         <label for="bookingDate">Visit Date</label>
         <input id="bookingDate" name="date" type="date" required>
@@ -2350,7 +2346,7 @@ body.booking-open{overflow:hidden}
         const bookingData = {
             fullName: document.getElementById('bookingName').value.trim(),
             phone: document.getElementById('bookingPhone').value.trim(),
-            email: document.getElementById('bookingEmail').value.trim(),
+            email: '',
             visitDate: selectedDate,
             visitTime: `${hourInput.value}:${minuteInput.value} ${selectedPeriod}`,
             service: document.getElementById('bookingService').value
