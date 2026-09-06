@@ -1709,6 +1709,49 @@ body.booking-open{overflow:hidden}
 }
 </style>
 
+
+<style id="booking-layout-no-phone-final">
+/* ============================================================
+   FINAL BOOKING LAYOUT
+   Phone field removed.
+   Full Name and Service use the full width.
+   Visit Date and Visit Time sit side-by-side on desktop.
+   Mobile automatically uses one clean column.
+   ============================================================ */
+
+@media (min-width:621px){
+    .booking-form{
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+        gap:20px 24px;
+    }
+
+    .booking-name-field{
+        grid-column:1 / -1;
+    }
+
+    .booking-field.full{
+        grid-column:1 / -1;
+    }
+
+    .booking-field input,
+    .booking-field select{
+        height:60px;
+    }
+
+    .booking-time-picker{
+        min-width:0;
+    }
+}
+
+@media (max-width:620px){
+    .booking-name-field,
+    .booking-field.full{
+        width:100% !important;
+        max-width:100% !important;
+    }
+}
+</style>
+
 </head>
 
 
@@ -2109,13 +2152,9 @@ body.booking-open{overflow:hidden}
       <p>Choose your preferred service, date and time.</p>
     </div>
     <form class="booking-form" id="bookingForm">
-      <div class="booking-field">
+      <div class="booking-field full booking-name-field">
         <label for="bookingName">Your Full Name</label>
         <input id="bookingName" name="name" type="text" placeholder="Your Full Name" required autocomplete="name">
-      </div>
-      <div class="booking-field">
-        <label for="bookingPhone">Your Phone</label>
-        <input id="bookingPhone" name="phone" type="tel" placeholder="Your Phone" required autocomplete="tel">
       </div>
       <div class="booking-field">
         <label for="bookingDate">Visit Date</label>
@@ -2345,7 +2384,7 @@ body.booking-open{overflow:hidden}
 
         const bookingData = {
             fullName: document.getElementById('bookingName').value.trim(),
-            phone: document.getElementById('bookingPhone').value.trim(),
+            phone: '', 
             email: '',
             visitDate: selectedDate,
             visitTime: `${hourInput.value}:${minuteInput.value} ${selectedPeriod}`,
