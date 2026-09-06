@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>H.A.U HAIR DESIGNER | Hoi An</title>
+
+<!-- Browser tab logo / favicon -->
+<link rel="icon" type="image/png" href="LOGO%20HAU%20HAIR%20DEESIGNER.png">
+<link rel="shortcut icon" type="image/png" href="LOGO%20HAU%20HAIR%20DEESIGNER.png">
+<link rel="apple-touch-icon" href="LOGO%20HAU%20HAIR%20DEESIGNER.png">
 <!-- Always open the website at the top after refresh so the navigation menu is visible -->
 <script>
 (function(){
@@ -1496,6 +1501,176 @@ body.booking-open{overflow:hidden}
     .floating-appointment strong{
         font-size:10px !important;
     }
+}
+</style>
+
+
+<style id="booking-mobile-final-fix">
+/* ================= FINAL BOOKING RESPONSIVE FIX =================
+   Keeps every booking field exactly the same width and prevents clipping.
+*/
+.booking-dialog,
+.booking-form,
+.booking-field,
+.booking-field.full{
+    box-sizing:border-box;
+}
+.booking-field input,
+.booking-field select,
+.booking-submit{
+    box-sizing:border-box;
+}
+
+@media (max-width:620px){
+    .booking-modal{
+        width:100%;
+        height:100dvh;
+        min-height:100vh;
+        inset:0;
+        padding:
+            max(10px, env(safe-area-inset-top))
+            max(10px, env(safe-area-inset-right))
+            max(10px, env(safe-area-inset-bottom))
+            max(10px, env(safe-area-inset-left));
+        align-items:flex-start;
+        justify-content:center;
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+
+    .booking-dialog{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        height:auto;
+        max-height:none;
+        margin:0 auto;
+        padding:24px 16px 22px;
+        border-radius:24px;
+        overflow:visible;
+    }
+
+    .booking-head{
+        margin:2px 36px 20px;
+    }
+
+    .booking-form{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        display:grid;
+        grid-template-columns:minmax(0,1fr);
+        gap:14px;
+    }
+
+    .booking-field,
+    .booking-field.full{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        grid-column:1 / -1;
+    }
+
+    .booking-field input,
+    .booking-field select{
+        display:block;
+        width:100% !important;
+        max-width:100% !important;
+        min-width:0 !important;
+        height:56px;
+        margin:0;
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .booking-field input[type="date"],
+    .booking-field input[type="time"]{
+        min-width:0;
+    }
+
+    .booking-submit,
+    .booking-note,
+    .booking-success{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        grid-column:1 / -1;
+    }
+}
+
+@media (max-width:390px){
+    .booking-modal{padding:8px;}
+    .booking-dialog{padding:20px 13px 20px;border-radius:21px;}
+    .booking-head{margin:2px 32px 16px;}
+    .booking-head h2{font-size:20px;}
+    .booking-head p{font-size:13px;line-height:1.45;}
+    .booking-field input,
+    .booking-field select{height:54px;font-size:16px;}
+}
+</style>
+
+
+<style id="booking-equal-width-absolute-fix">
+/* ABSOLUTE EQUAL-WIDTH FIX: every booking box uses the exact same container width */
+.booking-dialog *,
+.booking-dialog *::before,
+.booking-dialog *::after{
+  box-sizing:border-box;
+}
+.booking-form{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+}
+.booking-field,
+.booking-field.full{
+  min-width:0;
+}
+.booking-field input,
+.booking-field select{
+  display:block;
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:620px){
+  /* Use one single column so Name, Phone, Email, Date, Time and Service are 100% identical */
+  .booking-form{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    width:100% !important;
+    max-width:100% !important;
+    gap:14px !important;
+  }
+  .booking-field,
+  .booking-field.full{
+    display:flex !important;
+    flex-direction:column !important;
+    align-self:stretch !important;
+    flex:0 0 auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  .booking-field input,
+  .booking-field select{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    flex:0 0 auto !important;
+  }
+  .booking-submit,
+  .booking-note,
+  .booking-success{
+    align-self:stretch !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
 }
 </style>
 
