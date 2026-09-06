@@ -1752,6 +1752,10 @@ body.booking-open{overflow:hidden}
 }
 </style>
 
+<style>
+/* GOOGLE MAPS REVIEWS SLIDER */
+.google-reviews-section{width:100%;background:#fff;padding:34px 20px 40px;overflow:hidden}.google-reviews-inner{width:min(1280px,100%);margin:auto}.google-reviews-title{text-align:center;color:#26384b;font-size:24px;font-weight:800;margin:0 0 22px}.google-reviews-title span{display:inline-flex;padding:10px 18px;border:1px solid #d9b35d;border-radius:999px;background:linear-gradient(135deg,#fff9e9,#f5dfaa);box-shadow:0 6px 18px rgba(184,137,45,.15)}.google-reviews-viewport{overflow:hidden;border-radius:18px}.google-reviews-track{display:flex;will-change:transform;transition:transform .75s cubic-bezier(.22,.61,.36,1)}.google-review-slide{flex:0 0 calc(100% / 3);padding:0 10px;min-width:0}.google-review-card{overflow:hidden;border-radius:16px;background:#f5f5f5;box-shadow:0 8px 22px rgba(38,56,75,.14)}.google-review-card img{display:block;width:100%;height:270px;object-fit:cover}@media(max-width:850px){.google-review-slide{flex-basis:50%}.google-review-card img{height:260px}}@media(max-width:650px){.google-reviews-section{padding:26px 12px 30px}.google-reviews-title{font-size:18px;margin-bottom:16px}.google-review-slide{flex-basis:100%;padding:0 4px}.google-review-card{border-radius:14px}.google-review-card img{height:auto;object-fit:contain}}
+</style>
 </head>
 
 
@@ -2143,6 +2147,21 @@ body.booking-open{overflow:hidden}
 
 
 
+
+<!-- GOOGLE MAPS REVIEWS -->
+<section class="google-reviews-section" aria-label="Google Maps Reviews"><div class="google-reviews-inner"><h2 class="google-reviews-title"><span>⭐ Google Maps Reviews ⭐</span></h2><div class="google-reviews-viewport"><div class="google-reviews-track" id="googleReviewsTrack">
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/1.jpg" alt="Google Maps review 1" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/2.jpg" alt="Google Maps review 2" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/3.jpg" alt="Google Maps review 3" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/4.jpg" alt="Google Maps review 4" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/5.jpg" alt="Google Maps review 5" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/6.jpg" alt="Google Maps review 6" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/7.jpg" alt="Google Maps review 7" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/8.jpg" alt="Google Maps review 8" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/9.jpg" alt="Google Maps review 9" loading="lazy"></div></div>
+        <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/10.jpg" alt="Google Maps review 10" loading="lazy"></div></div>
+      </div></div></div></section>
+
 <!-- ================= BOOKING POPUP ================= -->
 <div class="booking-modal" id="bookingModal" aria-hidden="true">
   <div class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
@@ -2293,6 +2312,11 @@ body.booking-open{overflow:hidden}
     </a>
     <button class="floating-close" id="floatingBookClose" type="button" aria-label="Close booking button">×</button>
 </div>
+
+
+<script id="google-maps-reviews-slider">
+(function(){const t=document.getElementById('googleReviewsTrack');if(!t)return;const n=t.children.length;let v=3,i=0,timer;const get=()=>matchMedia('(max-width:650px)').matches?1:matchMedia('(max-width:850px)').matches?2:3;function setup(){v=get();t.querySelectorAll('[data-google-clone]').forEach(x=>x.remove());const a=Array.from(t.children).slice(0,n);for(let k=0;k<v;k++){const c=a[k].cloneNode(true);c.dataset.googleClone='1';t.appendChild(c)}i=0;t.style.transition='none';t.style.transform='translateX(0)';requestAnimationFrame(()=>t.style.transition='transform .75s cubic-bezier(.22,.61,.36,1)')}function next(){i++;t.style.transform=`translateX(-${i*(100/v)}%)`;if(i>=n)setTimeout(()=>{t.style.transition='none';i=0;t.style.transform='translateX(0)';requestAnimationFrame(()=>requestAnimationFrame(()=>t.style.transition='transform .75s cubic-bezier(.22,.61,.36,1)'))},780)}function start(){clearInterval(timer);timer=setInterval(next,3000)}setup();start();let r;addEventListener('resize',()=>{clearTimeout(r);r=setTimeout(()=>{if(get()!=v){setup();start()}},180)});document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):start())})();
+</script>
 
 <script>
 (function(){
