@@ -98,29 +98,79 @@ header{
 }
 
 .book-btn{
+    position:relative;
     background:linear-gradient(135deg,#ffe49a,#d7a43d);
-
     color:#26303b;
-
     text-decoration:none;
-
     padding:16px 26px;
-
     border-radius:7px;
-
     font-size:17px;
     font-weight:700;
-
     box-shadow:0 7px 20px rgba(183,130,32,.18);
-
     transition:.25s;
     white-space:nowrap;
+
+    /* Hiệu ứng nháy nhẹ để khách dễ chú ý */
+    animation:appointmentPulse 1.35s ease-in-out infinite;
+}
+
+/* Bàn tay nằm bên trái và chỉ sang phải vào nút */
+.book-btn::after{
+    content:"👉";
+    position:absolute;
+    left:-46px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    line-height:1;
+    pointer-events:none;
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,.22));
+    animation:appointmentHand 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes appointmentPulse{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 7px 20px rgba(183,130,32,.22);
+    }
+    50%{
+        transform:scale(1.045);
+        box-shadow:0 0 0 7px rgba(255,211,110,.20),0 10px 28px rgba(183,130,32,.38);
+    }
+}
+
+@keyframes appointmentHand{
+    0%{
+        transform:translate(-5px,-50%) scale(1);
+        opacity:.72;
+    }
+    100%{
+        transform:translate(8px,-50%) scale(1.13);
+        opacity:1;
+    }
 }
 
 .book-btn:hover{
-    transform:translateY(-2px);
+    animation:none;
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 10px 24px rgba(183,130,32,.35);
+}
 
-    box-shadow:0 10px 24px rgba(183,130,32,.28);
+/* Mobile: vẫn giữ hiệu ứng nháy và bàn tay chỉ liên tục */
+@media(max-width:650px){
+    .book-btn{
+        animation:appointmentPulse 1.35s ease-in-out infinite;
+    }
+
+    .book-btn::after{
+        left:-34px;
+        font-size:25px;
+        animation:appointmentHand 0.8s ease-in-out infinite alternate;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .book-btn,.book-btn::after{animation:none}
 }
 
 
