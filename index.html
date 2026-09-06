@@ -2313,9 +2313,12 @@ body.booking-open{overflow:hidden}
         success.classList.remove('show');
 
         try{
+            // Google Apps Script Web App: send a simple POST request.
+            // text/plain keeps this request CORS-safe for a public Apps Script Web App.
             await fetch(SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
+                cache: 'no-store',
                 headers: {
                     'Content-Type': 'text/plain;charset=utf-8'
                 },
