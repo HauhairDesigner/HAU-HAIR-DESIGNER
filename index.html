@@ -1320,6 +1320,115 @@ body.booking-open{overflow:hidden}
 }
 
 </style>
+
+<style id="floating-book-final-adjust">
+/* FINAL FLOATING BOOK BUTTON ADJUSTMENT */
+.floating-booking,
+.floating-book,
+.floating-appointment,
+#floatingBooking,
+#floating-booking{
+    box-sizing:border-box;
+}
+
+/* Keep the icons clearly above the text and make the whole button more balanced */
+.floating-booking .floating-icons,
+.floating-book .floating-icons,
+.floating-appointment .floating-icons,
+#floatingBooking .floating-icons,
+#floating-booking .floating-icons{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+    margin-top:-5px;
+    margin-bottom:7px;
+    transform:translateY(-3px);
+    z-index:2;
+}
+
+.floating-booking .floating-text,
+.floating-book .floating-text,
+.floating-appointment .floating-text,
+#floatingBooking .floating-text,
+#floating-booking .floating-text{
+    position:relative;
+    display:block;
+    line-height:1.15;
+    margin:0;
+    clear:both;
+    z-index:1;
+}
+
+/* Responsive compact size */
+@media (min-width:621px){
+    .floating-booking,
+    .floating-book,
+    .floating-appointment,
+    #floatingBooking,
+    #floating-booking{
+        min-width:116px;
+        max-width:116px;
+        padding:10px 8px 9px;
+    }
+}
+
+@media (max-width:620px){
+    .floating-booking,
+    .floating-book,
+    .floating-appointment,
+    #floatingBooking,
+    #floating-booking{
+        min-width:104px;
+        max-width:104px;
+        padding:9px 6px 8px;
+    }
+
+    .floating-booking .floating-icons,
+    .floating-book .floating-icons,
+    .floating-appointment .floating-icons,
+    #floatingBooking .floating-icons,
+    #floating-booking .floating-icons{
+        margin-top:-6px;
+        margin-bottom:6px;
+        transform:translateY(-4px);
+    }
+}
+</style>
+
+
+<style id="floating-book-targeted-adjust">
+/* Keep pencil/notebook above BOOK APPOINTMENT without overlap */
+.floating-booking .floating-icon,
+.floating-book .floating-icon,
+.floating-appointment .floating-icon{
+    display:block;
+    position:relative;
+    top:-4px;
+    margin-bottom:5px;
+    line-height:1;
+}
+
+.floating-booking strong,
+.floating-book strong,
+.floating-appointment strong{
+    display:block;
+    position:relative;
+    top:0;
+    font-size:11px !important;
+    line-height:1.2 !important;
+    white-space:nowrap;
+}
+@media (max-width:620px){
+    .floating-booking strong,
+    .floating-book strong,
+    .floating-appointment strong{
+        font-size:10px !important;
+    }
+}
+</style>
+
 </head>
 
 
