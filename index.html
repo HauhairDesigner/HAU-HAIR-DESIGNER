@@ -3279,5 +3279,28 @@ footer{
 })();
 </script>
 
+
+<!-- ================= GOOGLE MAPS REVIEWS: REMOVE ALL CSS SHADOWS ================= -->
+<style id="google-reviews-no-shadow-final">
+/* Remove 100% of CSS-generated shadows from the Google Maps review carousel only.
+   PC + mobile. Slider, swipe, auto-play and all other functions stay unchanged. */
+.google-reviews-section .google-review-card,
+.google-reviews-section .google-review-card img,
+.google-reviews-section .google-review-slide,
+.google-reviews-section .google-review-slide::before,
+.google-reviews-section .google-review-slide::after,
+.google-reviews-section .google-review-card::before,
+.google-reviews-section .google-review-card::after{
+    box-shadow:none !important;
+    filter:none !important;
+    text-shadow:none !important;
+}
+
+/* Keep the clean rounded corners without any cast shadow. */
+.google-reviews-section .google-review-card{
+    box-shadow:none !important;
+}
+</style>
+
 </body>
 </html>
