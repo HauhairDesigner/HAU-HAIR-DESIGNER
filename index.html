@@ -2570,5 +2570,112 @@ body.booking-open{overflow:hidden}
 }
 </style>
 
+
+
+<!-- ================= MOBILE SELECT DROPDOWN FIX ================= -->
+<style id="mobile-select-real-options-fix">
+/*
+   IMPORTANT: Android/iPhone browsers can show “No options” when native
+   <select> controls are inside clipped/scrolling modal containers.
+   This override keeps the real native dropdown and its options available.
+*/
+.booking-modal,
+.booking-dialog,
+.booking-form,
+.booking-field,
+.booking-time-picker{
+  contain:none !important;
+}
+
+.booking-field select,
+.booking-time-picker select,
+#bookingService,
+#bookingHour,
+#bookingMinute,
+#bookingPeriod{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+  -webkit-appearance:menulist !important;
+  appearance:auto !important;
+  position:relative !important;
+  z-index:2147483000 !important;
+  background-color:#fff !important;
+  color:#26384b !important;
+  touch-action:auto !important;
+}
+
+.booking-field select option,
+.booking-time-picker select option,
+#bookingService option,
+#bookingHour option,
+#bookingMinute option,
+#bookingPeriod option{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  color:#26384b !important;
+  background:#fff !important;
+}
+
+@media(max-width:620px){
+  /* Do NOT clip native select popups on mobile */
+  .booking-field,
+  .booking-field.full,
+  .booking-dialog,
+  .booking-form{
+    overflow:visible !important;
+  }
+
+  .booking-time-picker{
+    overflow:visible !important;
+    position:relative !important;
+    z-index:2147483000 !important;
+  }
+
+  .booking-field select,
+  .booking-time-picker select{
+    overflow:visible !important;
+    min-height:56px !important;
+  }
+}
+</style>
+
+<script>
+/* Extra safety: rebuild the option lists on mobile if a browser/plugin has removed them. */
+(function(){
+  function ensureOptions(){
+    const hour = document.getElementById('bookingHour');
+    const minute = document.getElementById('bookingMinute');
+    const period = document.getElementById('bookingPeriod');
+    const service = document.getElementById('bookingService');
+
+    if(hour && hour.options.length < 13){
+      hour.innerHTML = '<option value="">HH</option>' +
+        Array.from({length:12},(_,i)=>{const v=String(i+1).padStart(2,'0');return `<option value="${v}">${v}</option>`}).join('');
+    }
+    if(minute && minute.options.length < 61){
+      minute.innerHTML = '<option value="">MM</option>' +
+        Array.from({length:60},(_,i)=>{const v=String(i).padStart(2,'0');return `<option value="${v}">${v}</option>`}).join('');
+    }
+    if(period && period.options.length < 3){
+      period.innerHTML = '<option value="">AM / PM</option><option value="AM">AM</option><option value="PM">PM</option>';
+    }
+    if(service && service.options.length < 2){
+      service.innerHTML = `
+        <option value="">Choose a service</option>
+        <option>Men's Haircut</option><option>Women's Haircut</option><option>Spa</option>
+        <option>Hair Cutting</option><option>Hair Coloring</option><option>Perming</option>
+        <option>Hair Treatment</option><option>Hair Straightening</option>
+        <option>Hair Extensions</option><option>Consultation</option>`;
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureOptions);
+  else ensureOptions();
+  window.addEventListener('pageshow', ensureOptions);
+})();
+</script>
+
 </body>
 </html>
