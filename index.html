@@ -2169,15 +2169,62 @@ body.booking-open{overflow:hidden}
     modal.addEventListener('click', function(e){ if(e.target === modal) closeBooking(); });
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('active')) closeBooking(); });
 
-    form.addEventListener('submit', function(e){
+    /* ================= GOOGLE SHEETS BOOKING CONNECTION ================= */
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzHOTOC2J6YLvcsUdhgdtsZ3Bm5Cjmwalo6cTTQUfiDBy6_IdJ2ibSozSjmY7q6HIGj/exec';
+
+    form.addEventListener('submit', async function(e){
         e.preventDefault();
-        if(!form.checkValidity()){ form.reportValidity(); return; }
-        const data = new FormData(form);
-        success.textContent = `Thank you, ${data.get('name')}! Your booking request for ${data.get('service')} on ${data.get('date')} at ${data.get('time')} has been recorded. We will contact you to confirm.`;
-        success.classList.add('show');
-        form.querySelector('.booking-submit').textContent = 'Booking Request Sent ✓';
-        form.querySelector('.booking-submit').disabled = true;
-        setTimeout(()=>{ form.querySelector('.booking-submit').disabled=false; form.querySelector('.booking-submit').textContent='Book Now'; },2500);
+
+        if(!form.checkValidity()){
+            form.reportValidity();
+            return;
+        }
+
+        const submitBtn = form.querySelector('.booking-submit');
+
+        const bookingData = {
+            fullName: document.getElementById('bookingName').value.trim(),
+            phone: document.getElementById('bookingPhone').value.trim(),
+            email: document.getElementById('bookingEmail').value.trim(),
+            visitDate: document.getElementById('bookingDate').value,
+            visitTime: document.getElementById('bookingTime').value,
+            service: document.getElementById('bookingService').value
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        success.classList.remove('show');
+
+        try{
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify(bookingData)
+            });
+
+            success.textContent = `Thank you, ${bookingData.fullName}! Your appointment request for ${bookingData.service} on ${bookingData.visitDate} at ${bookingData.visitTime} has been sent successfully. We will contact you soon to confirm your appointment.`;
+            success.classList.add('show');
+
+            submitBtn.textContent = 'Booking Sent ✓';
+
+            // Clear the form only after the request has been sent.
+            form.reset();
+
+            setTimeout(()=>{
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Book Now';
+            }, 3000);
+
+        }catch(error){
+            console.error('Booking error:', error);
+            success.textContent = 'Something went wrong. Please try again or contact us directly.';
+            success.classList.add('show');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Book Now';
+        }
     });
 })();
 </script>
