@@ -2184,3 +2184,126 @@ body.booking-open{overflow:hidden}
 
 </body>
 </html>
+<style id="booking-ios-equal-width-final">
+/* ============================================================
+   FINAL iPHONE / MOBILE BOOKING FIX
+   Every field is locked to ONE identical width.
+   Date and time native controls are prevented from overflowing.
+   ============================================================ */
+.booking-dialog,
+.booking-form,
+.booking-field,
+.booking-field.full{
+  box-sizing:border-box !important;
+}
+
+@media (max-width:620px){
+  .booking-modal{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    padding:10px !important;
+    padding-top:max(10px, env(safe-area-inset-top)) !important;
+    padding-right:max(10px, env(safe-area-inset-right)) !important;
+    padding-bottom:max(10px, env(safe-area-inset-bottom)) !important;
+    padding-left:max(10px, env(safe-area-inset-left)) !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    align-items:flex-start !important;
+  }
+
+  .booking-dialog{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    max-height:calc(100dvh - 20px) !important;
+    margin:0 auto !important;
+    padding:22px 16px 20px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    border-radius:24px !important;
+  }
+
+  /* One master width for the entire form */
+  .booking-form{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    gap:14px !important;
+  }
+
+  .booking-field,
+  .booking-field.full{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    grid-column:auto !important;
+  }
+
+  .booking-field label{
+    display:block !important;
+    width:100% !important;
+    margin-bottom:8px !important;
+  }
+
+  /* EXACT SAME WIDTH for ALL six booking boxes */
+  .booking-field input,
+  .booking-field select,
+  .booking-field input[type="text"],
+  .booking-field input[type="tel"],
+  .booking-field input[type="email"],
+  .booking-field input[type="date"],
+  .booking-field input[type="time"]{
+    display:block !important;
+    inline-size:100% !important;
+    width:100% !important;
+    min-inline-size:0 !important;
+    min-width:0 !important;
+    max-inline-size:100% !important;
+    max-width:100% !important;
+    height:56px !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+
+  /* iOS Safari can give date/time controls an intrinsic width – remove it */
+  .booking-field input[type="date"],
+  .booking-field input[type="time"]{
+    -webkit-appearance:none !important;
+    appearance:none !important;
+  }
+
+  .booking-field input[type="date"]::-webkit-date-and-time-value,
+  .booking-field input[type="time"]::-webkit-date-and-time-value{
+    min-width:0 !important;
+    width:100% !important;
+    text-align:left !important;
+  }
+
+  .booking-field input[type="date"]::-webkit-calendar-picker-indicator,
+  .booking-field input[type="time"]::-webkit-calendar-picker-indicator{
+    opacity:1 !important;
+    flex:none !important;
+  }
+
+  .booking-submit,
+  .booking-note,
+  .booking-success{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    align-self:stretch !important;
+  }
+}
+</style>
