@@ -1782,13 +1782,15 @@ body.booking-open{overflow:hidden}
     color:#26384b;
 }
 
-/* Show the COMPLETE Google review screenshot. No fixed height and no crop. */
+/* Show the COMPLETE Google review screenshot with elegant rounded corners. */
 .google-review-card{
     display:flex !important;
     align-items:flex-start;
     justify-content:center;
-    overflow:visible !important;
+    overflow:hidden !important;
+    border-radius:24px !important;
     background:#fff !important;
+    box-shadow:0 10px 28px rgba(38,56,75,.16) !important;
 }
 
 .google-review-card img{
@@ -1799,6 +1801,11 @@ body.booking-open{overflow:hidden}
     max-height:none !important;
     object-fit:contain !important;
     object-position:center top !important;
+    border-radius:24px !important;
+}
+
+.google-review-slide{
+    overflow:visible !important;
 }
 
 /* Keep the slider itself clean while allowing every screenshot to retain its full content. */
@@ -1809,6 +1816,11 @@ body.booking-open{overflow:hidden}
 @media(max-width:650px){
     .welcome-message{
         padding:18px 17px !important;
+        border-radius:18px !important;
+    }
+
+    .google-review-card,
+    .google-review-card img{
         border-radius:18px !important;
     }
 }
