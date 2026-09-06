@@ -69,6 +69,12 @@ header{
     width:100%;
     background:#fff;
     border-bottom:1px solid #e4e4e4;
+
+    /* Keep the white navigation bar visible while the page content scrolls */
+    position:sticky;
+    top:0;
+    z-index:5000;
+    box-shadow:0 4px 16px rgba(38,56,75,.10);
 }
 
 .navbar{
@@ -104,6 +110,26 @@ header{
 
 .nav-left a:hover{
     color:#c99b38;
+}
+
+/* Home is highlighted as a refined rounded navigation button */
+.nav-left .home-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 20px;
+    border:1px solid #d5b166;
+    border-radius:999px;
+    background:linear-gradient(135deg,#fff9e9,#f5dfaa);
+    color:#26384b;
+    box-shadow:0 5px 14px rgba(184,137,45,.16);
+}
+
+.nav-left .home-link:hover{
+    color:#26384b;
+    background:linear-gradient(135deg,#ffe9ad,#d8a943);
+    transform:translateY(-1px);
+    box-shadow:0 8px 18px rgba(184,137,45,.25);
 }
 
 
@@ -908,6 +934,14 @@ footer{
 }
 
 
+/* Keep the sticky navigation comfortable on phones and tablets */
+@media(max-width:650px){
+    .nav-left .home-link{
+        padding:8px 15px;
+        border-radius:14px;
+    }
+}
+
 /* ================= TABLET ================= */
 
 @media(max-width:1150px){
@@ -1689,7 +1723,7 @@ body.booking-open{overflow:hidden}
 
         <nav class="nav-left">
 
-            <a href="#home">Home</a>
+            <a href="./" class="home-link" aria-label="Reload Home page">Home</a>
 
             <a
             href="https://www.google.com/maps/search/?api=1&query=173+Nguyen+Duy+Hieu+Hoi+An+TP+Da+Nang+Viet+Nam"
