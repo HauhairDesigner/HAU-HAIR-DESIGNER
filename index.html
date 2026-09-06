@@ -10,7 +10,7 @@
     <title>H.A.U HAIR DESIGNER | Hair Salon in Hoi An</title>
 
     <meta name="description"
-        content="H.A.U HAIR DESIGNER - Professional Hair Salon in Hoi An. Hair cutting, coloring, perming, hair extensions and beauty services.">
+        content="H.A.U HAIR DESIGNER - Professional Hair Salon in Hoi An. Hair cutting, coloring, perming and hair treatments.">
 
     <style>
 
@@ -26,16 +26,9 @@
         }
 
 
-        /* =========================
-           WEBSITE BACKGROUND
-        ========================= */
-
         body {
             font-family: Arial, Helvetica, sans-serif;
-
-            /* XANH THAN NHẠT */
-            background: #dfeaf0;
-
+            background: #dbe8ee;
             color: #222222;
         }
 
@@ -45,28 +38,32 @@
         ========================= */
 
         header {
+
             background: #ffffff;
 
             border-top: 3px solid #cda64d;
 
-            border-bottom: 1px solid #d9e0e3;
+            border-bottom: 1px solid #d6dde0;
         }
 
 
         .navbar {
 
             width: 100%;
-            max-width: 1350px;
+
+            max-width: 1500px;
 
             margin: auto;
 
             min-height: 115px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
-            padding: 10px 35px;
+            padding: 10px 70px;
         }
 
 
@@ -77,9 +74,10 @@
         .nav-left {
 
             display: flex;
+
             align-items: center;
 
-            gap: 42px;
+            gap: 45px;
         }
 
 
@@ -89,7 +87,7 @@
 
             text-decoration: none;
 
-            font-size: 16px;
+            font-size: 17px;
 
             font-weight: bold;
 
@@ -98,6 +96,7 @@
 
 
         .nav-left a:hover {
+
             color: #cda64d;
         }
 
@@ -107,6 +106,13 @@
         ========================= */
 
         .logo {
+
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
             text-align: center;
         }
 
@@ -115,40 +121,40 @@
 
             width: 115px;
 
-            height: 90px;
+            height: 95px;
 
             object-fit: contain;
         }
 
 
         /* =========================
-           BOOK APPOINTMENT BUTTON
+           BOOK BUTTON
         ========================= */
 
         .book-btn {
 
             background: linear-gradient(
                 135deg,
-                #f5d477,
-                #d6a94f
+                #f8d982,
+                #d9a846
             );
 
-            color: #1e1e1e;
+            color: #222222;
 
             text-decoration: none;
 
-            padding: 15px 30px;
+            padding: 18px 35px;
 
             border-radius: 8px;
 
-            font-size: 17px;
+            font-size: 18px;
 
             font-weight: bold;
 
-            transition: 0.3s;
-
             box-shadow:
-                0 5px 15px rgba(0,0,0,0.12);
+                0 5px 18px rgba(0,0,0,0.12);
+
+            transition: 0.3s;
         }
 
 
@@ -157,47 +163,63 @@
             transform: translateY(-3px);
 
             box-shadow:
-                0 8px 20px rgba(0,0,0,0.18);
+                0 8px 22px rgba(0,0,0,0.18);
         }
 
 
         /* =========================
-           PAGE TITLE
+           MAIN BACKGROUND
+        ========================= */
+
+        main {
+
+            background: #dbe8ee;
+
+            min-height: 100vh;
+
+            padding-bottom: 80px;
+        }
+
+
+        /* =========================
+           TITLE
         ========================= */
 
         .page-title {
 
             text-align: center;
 
-            font-size: 38px;
+            font-size: 42px;
 
             font-weight: 800;
 
-            letter-spacing: 2px;
+            letter-spacing: 3px;
 
-            padding: 35px 20px 70px;
+            padding: 45px 20px 70px;
 
-            color: #222222;
+            color: #202a30;
         }
 
 
         /* =========================
-           MAIN SECTION
+           MAIN CONTENT
         ========================= */
 
         .container {
 
-            max-width: 1350px;
+            width: 100%;
+
+            max-width: 1450px;
 
             margin: auto;
 
-            padding: 0 35px 80px;
+            padding: 0 70px;
 
             display: grid;
 
             grid-template-columns: 1fr 1fr;
 
-            gap: 60px;
+            gap: 70px;
 
             align-items: center;
         }
@@ -209,116 +231,130 @@
 
         .info h1 {
 
-            font-size: 40px;
+            font-size: 42px;
 
             line-height: 1.35;
 
-            margin-bottom: 25px;
+            margin-bottom: 28px;
 
             font-weight: 800;
 
-            color: #222222;
+            color: #202a30;
         }
 
 
         .info p {
 
-            font-size: 18px;
+            font-size: 19px;
 
-            line-height: 1.75;
+            line-height: 1.8;
 
-            margin-bottom: 15px;
+            margin-bottom: 18px;
 
-            color: #35424a;
+            color: #34434b;
         }
 
 
         .info strong {
-            color: #222222;
+
+            color: #202a30;
         }
 
 
         .slogan {
 
-            font-size: 20px;
+            font-size: 21px;
 
             font-weight: bold;
 
-            margin: 25px 0;
+            margin: 28px 0;
 
-            color: #222222;
+            color: #202a30;
         }
 
 
-        .address,
+        /* =========================
+           ADDRESS
+        ========================= */
+
+        .address {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 18px;
+
+            line-height: 1.5;
+
+            color: #303c43;
+
+            margin: 18px 0;
+        }
+
+
+        /* =========================
+           GOOGLE MAPS STYLE ICON
+        ========================= */
+
+        .location-icon {
+
+            width: 24px;
+
+            height: 24px;
+
+            min-width: 24px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .location-icon svg {
+
+            width: 24px;
+
+            height: 24px;
+
+            fill: #e53935;
+
+            filter:
+                drop-shadow(
+                    0 2px 2px rgba(0,0,0,0.15)
+                );
+        }
+
+
+        /* =========================
+           PHONE
+        ========================= */
+
         .phone {
 
-            font-size: 17px;
+            display: flex;
 
-            margin: 16px 0;
+            align-items: center;
 
-            color: #303b42;
+            gap: 10px;
+
+            font-size: 18px;
+
+            margin-top: 20px;
+
+            color: #303c43;
         }
 
 
-        /* =========================
-           RED GOOGLE MAPS STYLE PIN
-        ========================= */
+        .phone-icon {
 
-        .map-pin {
-
-            display: inline-block;
-
-            width: 14px;
-
-            height: 18px;
-
-            background: #e53935;
-
-            border-radius: 50% 50% 50% 0;
-
-            transform: rotate(-45deg);
-
-            margin-right: 12px;
-
-            vertical-align: -3px;
-
-            position: relative;
-
-            box-shadow:
-                0 2px 5px rgba(0,0,0,0.18);
-        }
-
-
-        .map-pin::after {
-
-            content: "";
-
-            width: 5px;
-
-            height: 5px;
-
-            background: #ffffff;
-
-            border-radius: 50%;
-
-            position: absolute;
-
-            top: 5px;
-
-            left: 5px;
-        }
-
-
-        /* =========================
-           PHONE ICON
-        ========================= */
-
-        .gold-icon {
+            font-size: 22px;
 
             color: #cda64d;
-
-            margin-right: 8px;
         }
 
 
@@ -330,19 +366,19 @@
 
             display: flex;
 
+            flex-wrap: wrap;
+
             gap: 18px;
 
-            margin-top: 28px;
-
-            flex-wrap: wrap;
+            margin-top: 32px;
         }
 
 
         .btn {
 
-            min-width: 190px;
-
             padding: 15px 25px;
+
+            min-width: 180px;
 
             text-align: center;
 
@@ -350,31 +386,34 @@
 
             color: white;
 
-            font-size: 17px;
+            font-size: 16px;
 
             font-weight: bold;
 
-            border-radius: 6px;
+            border-radius: 7px;
 
             transition: 0.3s;
 
             box-shadow:
-                0 5px 12px rgba(0,0,0,0.12);
+                0 5px 15px rgba(0,0,0,0.12);
         }
 
 
         .direction {
-            background: #27343b;
+
+            background: #263840;
         }
 
 
         .message {
-            background: #4965c6;
+
+            background: #4c67bd;
         }
 
 
         .chat {
-            background: #22b957;
+
+            background: #25b95b;
         }
 
 
@@ -387,38 +426,33 @@
 
 
         /* =========================
-           RIGHT PROMO BOX
+           RIGHT BOX
         ========================= */
 
         .hero-box {
 
-            min-height: 530px;
+            min-height: 570px;
 
-            border-radius: 18px;
+            background: #ffffff;
 
-            overflow: hidden;
+            border-radius: 20px;
 
-            position: relative;
+            border: 1px solid #cbd8dd;
 
             display: flex;
 
-            justify-content: center;
-
             align-items: center;
 
-            /* GIỮ KHUNG MÀU TRẮNG */
-            background: #ffffff;
+            justify-content: center;
 
-            border: 1px solid #d4dde1;
+            position: relative;
+
+            overflow: hidden;
 
             box-shadow:
-                0 20px 40px rgba(35,55,65,0.18);
+                0 18px 45px rgba(30,55,65,0.18);
         }
 
-
-        /* =========================
-           GOLD LIGHT EFFECT
-        ========================= */
 
         .hero-box::before {
 
@@ -426,30 +460,26 @@
 
             position: absolute;
 
-            width: 600px;
+            width: 650px;
 
-            height: 600px;
+            height: 650px;
 
             border-radius: 50%;
 
             background:
                 radial-gradient(
                     circle,
-                    rgba(205,166,77,0.12),
+                    rgba(205,166,77,0.15),
                     transparent 65%
                 );
 
-            top: -300px;
+            top: -320px;
 
-            right: -200px;
+            right: -220px;
         }
 
 
         .hero-content {
-
-            position: relative;
-
-            z-index: 2;
 
             width: 100%;
 
@@ -457,7 +487,9 @@
 
             text-align: center;
 
-            color: #222222;
+            position: relative;
+
+            z-index: 2;
         }
 
 
@@ -467,9 +499,9 @@
 
         .hero-logo {
 
-            width: 220px;
+            width: 230px;
 
-            height: 170px;
+            height: 190px;
 
             object-fit: contain;
 
@@ -478,25 +510,25 @@
 
 
         /* =========================
-           BRAND NAME
+           BRAND
         ========================= */
 
         .hero-brand {
 
-            font-size: 30px;
+            font-size: 34px;
 
             font-weight: bold;
 
-            color: #222222;
+            letter-spacing: 2px;
 
-            letter-spacing: 1px;
+            color: #202a30;
 
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
 
 
         /* =========================
-           SERVICE BOX
+           SERVICES
         ========================= */
 
         .service-box {
@@ -504,24 +536,23 @@
             display: inline-block;
 
             background:
-
                 linear-gradient(
                     90deg,
-                    #f3d98f,
-                    #fff1c8
+                    #f0cb67,
+                    #fff0bd
                 );
 
-            color: #222222;
+            color: #242b30;
 
-            padding: 18px 30px;
+            padding: 20px 34px;
 
-            font-size: 19px;
+            font-size: 20px;
 
             font-weight: bold;
 
-            line-height: 1.55;
+            line-height: 1.6;
 
-            border-radius: 6px;
+            border-radius: 7px;
 
             box-shadow:
                 0 8px 20px rgba(0,0,0,0.10);
@@ -534,39 +565,64 @@
 
         .contact-box {
 
-            /* MÀU NHẸ NHÀNG */
-            background: #edf3f5;
+            max-width: 500px;
 
-            color: #303b42;
+            margin: 32px auto 0;
 
-            margin-top: 30px;
+            padding: 25px 28px;
 
-            padding: 22px 25px;
+            background: #eef4f6;
 
-            text-align: left;
-
-            line-height: 1.8;
-
-            font-size: 16px;
-
-            max-width: 430px;
-
-            margin-left: auto;
-
-            margin-right: auto;
+            border: 1px solid #d3dfe3;
 
             border-radius: 10px;
 
-            border: 1px solid #d5e0e4;
+            text-align: left;
+
+            color: #303c43;
+
+            font-size: 17px;
+
+            line-height: 1.8;
 
             box-shadow:
-                0 8px 18px rgba(0,0,0,0.06);
+                0 8px 20px rgba(0,0,0,0.06);
         }
 
 
-        .contact-box strong {
+        .contact-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 5px;
+
+            font-weight: bold;
 
             color: #222222;
+        }
+
+
+        .contact-address {
+
+            margin-left: 34px;
+        }
+
+
+        .contact-phone {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 18px;
+
+            font-size: 17px;
         }
 
 
@@ -576,47 +632,25 @@
 
         .website-name {
 
-            margin-top: 28px;
+            margin-top: 30px;
 
-            color: #333333;
+            color: #303c43;
 
-            font-size: 15px;
+            font-size: 16px;
 
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
 
         /* =========================
-           MOBILE
+           RESPONSIVE
         ========================= */
 
-        @media (max-width: 950px) {
+        @media (max-width: 1000px) {
 
             .navbar {
 
-                flex-direction: column;
-
-                gap: 18px;
-
-                padding: 20px;
-            }
-
-
-            .nav-left {
-
-                gap: 20px;
-
-                flex-wrap: wrap;
-
-                justify-content: center;
-            }
-
-
-            .page-title {
-
-                font-size: 28px;
-
-                padding-bottom: 40px;
+                padding: 15px 30px;
             }
 
 
@@ -624,33 +658,57 @@
 
                 grid-template-columns: 1fr;
 
-                gap: 40px;
+                padding: 0 30px;
 
-                padding: 0 20px 60px;
+                gap: 50px;
             }
 
 
-            .info h1 {
+            .logo {
 
-                font-size: 30px;
+                position: static;
+
+                transform: none;
             }
 
 
-            .hero-box {
+            .navbar {
 
-                min-height: 480px;
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+
+            .page-title {
+
+                font-size: 32px;
             }
 
         }
 
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                padding: 20px;
+            }
+
 
             .nav-left {
 
-                gap: 15px;
+                gap: 18px;
 
-                font-size: 14px;
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .nav-left a {
+
+                font-size: 15px;
             }
 
 
@@ -664,25 +722,59 @@
 
             .page-title {
 
-                font-size: 24px;
+                font-size: 27px;
+
+                padding: 35px 15px 45px;
+            }
+
+
+            .container {
+
+                padding: 0 18px;
             }
 
 
             .info h1 {
 
-                font-size: 27px;
+                font-size: 30px;
+            }
+
+
+            .info p {
+
+                font-size: 17px;
+            }
+
+
+            .hero-brand {
+
+                font-size: 26px;
+            }
+
+
+            .hero-content {
+
+                padding: 30px 18px;
+            }
+
+
+            .service-box {
+
+                font-size: 17px;
+
+                padding: 16px 20px;
+            }
+
+
+            .buttons {
+
+                flex-direction: column;
             }
 
 
             .btn {
 
                 width: 100%;
-            }
-
-
-            .hero-content {
-
-                padding: 25px 15px;
             }
 
         }
@@ -695,16 +787,12 @@
 <body>
 
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+    <!-- HEADER -->
 
     <header>
 
         <nav class="navbar">
 
-
-            <!-- LEFT MENU -->
 
             <div class="nav-left">
 
@@ -719,18 +807,14 @@
             </div>
 
 
-            <!-- LOGO -->
-
             <div class="logo">
 
                 <img
                     src="LOGO%20HAU%20HAIR%20DEESIGNER.png"
-                    alt="H.A.U HAIR DESIGNER Logo">
+                    alt="H.A.U HAIR DESIGNER">
 
             </div>
 
-
-            <!-- BOOK APPOINTMENT -->
 
             <a href="#booking" class="book-btn">
 
@@ -745,175 +829,138 @@
 
 
 
-    <!-- =========================
-         TITLE
-    ========================= -->
+    <!-- MAIN -->
 
-    <div class="page-title">
-
-        H.A.U HAIR DESIGNER
-
-    </div>
+    <main>
 
 
+        <div class="page-title">
 
-    <!-- =========================
-         HOME
-    ========================= -->
-
-    <section class="container" id="home">
-
-
-        <!-- LEFT SIDE -->
-
-        <div class="info">
-
-
-            <h1>
-
-                H.A.U HAIR DESIGNER –
-                STYLE & COMFORT IN HOI AN
-
-            </h1>
-
-
-            <p>
-
-                Located in the heart of Hoi An,
-
-                <strong>H.A.U HAIR DESIGNER</strong>
-
-                offers professional haircuts, coloring,
-                perming and hair treatments in a clean,
-                welcoming and comfortable space.
-
-            </p>
-
-
-            <p>
-
-                Known for attentive service and skilled stylists,
-
-                <strong>H.A.U HAIR DESIGNER</strong>
-
-                is the perfect place to refresh your look,
-                relax and enjoy a beautiful hair experience
-                in Hoi An.
-
-            </p>
-
-
-            <div class="slogan">
-
-                Great Hair, Relaxed Vibes.
-
-            </div>
-
-
-            <div class="address">
-
-                <span class="map-pin" aria-label="Location"></span>
-
-                173 Nguyen Duy Hieu,
-                Hoi An, TP Da Nang, Viet Nam
-
-            </div>
-
-
-            <div class="phone">
-
-                <span class="gold-icon">📞</span>
-
-                Hotline: <strong>0333 093 033</strong>
-
-            </div>
-
-
-            <!-- BUTTONS -->
-
-            <div class="buttons">
-
-
-                <a href="#direction" class="btn direction">
-
-                    🧭 Get direction
-
-                </a>
-
-
-                <a href="#" class="btn message">
-
-                    💬 Message Us
-
-                </a>
-
-
-                <a href="#" class="btn chat">
-
-                    🟢 Start Chat
-
-                </a>
-
-
-            </div>
-
+            H.A.U HAIR DESIGNER
 
         </div>
 
 
 
-        <!-- RIGHT SIDE -->
-
-        <div class="hero-box">
+        <section class="container" id="home">
 
 
-            <div class="hero-content">
+            <!-- LEFT -->
+
+            <div class="info">
 
 
-                <img
-                    src="LOGO%20HAU%20HAIR%20DEESIGNER.png"
-                    class="hero-logo"
-                    alt="H.A.U HAIR DESIGNER">
+                <h1>
+
+                    H.A.U HAIR DESIGNER –
+                    STYLE & COMFORT IN HOI AN
+
+                </h1>
 
 
-                <div class="hero-brand">
+                <p>
 
-                    H.A.U HAIR DESIGNER
-
-                </div>
-
-
-                <div class="service-box">
-
-                    HAIR CUTTING, PERMING,<br>
-
-                    COLORING & TREATMENT
-
-                </div>
-
-
-                <div class="contact-box">
-
-                    <span class="map-pin"></span>
+                    Located in the heart of Hoi An,
 
                     <strong>H.A.U HAIR DESIGNER</strong>
 
-                    <br>
+                    offers professional haircuts, coloring,
+                    perming and hair treatments in a clean,
+                    welcoming and comfortable space.
 
-                    173 Nguyen Duy Hieu,
-                    Hoi An, TP Da Nang, Viet Nam
+                </p>
 
-                    <br><br>
 
-                    📞 Hotline:
-                    <strong>0333 093 033</strong>
+                <p>
+
+                    Known for attentive service and skilled stylists,
+
+                    <strong>H.A.U HAIR DESIGNER</strong>
+
+                    is the perfect place to refresh your look,
+                    relax and enjoy a beautiful hair experience
+                    in Hoi An.
+
+                </p>
+
+
+                <div class="slogan">
+
+                    Great Hair, Relaxed Vibes.
 
                 </div>
 
 
-                <div class="website-name">
 
-                    H.A.U HAIR DESIGNER • HOI AN
+                <!-- ADDRESS -->
+
+                <div class="address">
+
+
+                    <span class="location-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+
+                        </svg>
+
+                    </span>
+
+
+                    <span>
+
+                        173 Nguyen Duy Hieu, Hoi An, TP Da Nang, Viet Nam
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="phone">
+
+                    <span class="phone-icon">📞</span>
+
+                    <span>
+
+                        Hotline:
+                        <strong>0333 093 033</strong>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- BUTTONS -->
+
+                <div class="buttons">
+
+
+                    <a href="#direction" class="btn direction">
+
+                        🧭 Get Direction
+
+                    </a>
+
+
+                    <a href="#" class="btn message">
+
+                        💬 Message Us
+
+                    </a>
+
+
+                    <a href="#" class="btn chat">
+
+                        🟢 Start Chat
+
+                    </a>
+
 
                 </div>
 
@@ -921,10 +968,111 @@
             </div>
 
 
-        </div>
+
+            <!-- RIGHT -->
+
+            <div class="hero-box">
 
 
-    </section>
+                <div class="hero-content">
+
+
+                    <img
+                        src="LOGO%20HAU%20HAIR%20DEESIGNER.png"
+                        class="hero-logo"
+                        alt="H.A.U HAIR DESIGNER">
+
+
+                    <div class="hero-brand">
+
+                        H.A.U HAIR DESIGNER
+
+                    </div>
+
+
+                    <div class="service-box">
+
+                        HAIR CUTTING, PERMING,<br>
+
+                        COLORING & TREATMENT
+
+                    </div>
+
+
+
+                    <!-- CONTACT BOX -->
+
+                    <div class="contact-box">
+
+
+                        <div class="contact-title">
+
+
+                            <span class="location-icon">
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+
+                                </svg>
+
+                            </span>
+
+
+                            H.A.U HAIR DESIGNER
+
+
+                        </div>
+
+
+                        <div class="contact-address">
+
+                            173 Nguyen Duy Hieu, Hoi An, TP Da Nang, Viet Nam
+
+                        </div>
+
+
+                        <div class="contact-phone">
+
+                            <span class="phone-icon">
+
+                                📞
+
+                            </span>
+
+
+                            <span>
+
+                                Hotline:
+                                <strong>0333 093 033</strong>
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="website-name">
+
+                        H.A.U HAIR DESIGNER • HOI AN
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
 
 
 </body>
