@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HAU HAIR DEESIGNER | Hair Salon in Hoi An</title>
+
+    <meta name="description"
+          content="HAU HAIR DEESIGNER - Professional Hair Salon in Hoi An. Hair cutting, coloring, perming, hair extensions and beauty services.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f3f1;
+            color: #252525;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #151515;
+            border-top: 3px solid #cda64d;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 1350px;
+            margin: auto;
+
+            min-height: 115px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 10px 35px;
+        }
+
+
+        /* MENU */
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 42px;
+        }
+
+        .nav-left a {
+            color: #eeeeee;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-left a:hover {
+            color: #d9ad4d;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo img {
+            width: 115px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+
+        /* BOOK BUTTON */
+
+        .book-btn {
+            background: linear-gradient(
+                135deg,
+                #f5d477,
+                #c99035
+            );
+
+            color: #1e1e1e;
+
+            text-decoration: none;
+
+            padding: 15px 30px;
+
+            border-radius: 4px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .book-btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           PAGE TITLE
+        ========================== */
+
+        .page-title {
+            text-align: center;
+
+            font-size: 38px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            padding: 25px 20px 70px;
+
+            color: #282828;
+        }
+
+
+        /* =========================
+           MAIN SECTION
+        ========================== */
+
+        .container {
+
+            max-width: 1350px;
+
+            margin: auto;
+
+            padding: 0 35px 80px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        /* =========================
+           LEFT CONTENT
+        ========================== */
+
+        .info h1 {
+
+            font-size: 40px;
+
+            line-height: 1.35;
+
+            margin-bottom: 25px;
+
+            font-weight: 800;
+        }
+
+
+        .info p {
+
+            font-size: 18px;
+
+            line-height: 1.75;
+
+            margin-bottom: 15px;
+
+            color: #3d3d3d;
+        }
+
+
+        .info strong {
+            color: #222;
+        }
+
+
+        .slogan {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin: 25px 0;
+
+            color: #222;
+        }
+
+
+        .address,
+        .phone {
+
+            font-size: 17px;
+
+            margin: 16px 0;
+
+            color: #333;
+        }
+
+
+        .gold-icon {
+
+            color: #cda64d;
+
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+
+            display: flex;
+
+            gap: 18px;
+
+            margin-top: 28px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+
+            min-width: 190px;
+
+            padding: 15px 25px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+        }
+
+
+        .direction {
+            background: #292929;
+        }
+
+        .message {
+            background: #4965c6;
+        }
+
+        .chat {
+            background: #22b957;
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-3px);
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           RIGHT PROMO
+        ========================== */
+
+        .hero-box {
+
+            min-height: 530px;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    #303030,
+                    #070707 55%
+                );
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.25);
+        }
+
+
+        /* LIGHT EFFECT */
+
+        .hero-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(205,166,77,0.18),
+                    transparent 65%
+                );
+
+            top: -300px;
+            right: -200px;
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            padding: 45px;
+
+            text-align: center;
+
+            color: white;
+        }
+
+
+        /* BIG LOGO */
+
+        .hero-logo {
+
+            width: 220px;
+
+            height: 170px;
+
+            object-fit: contain;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero-brand {
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: white;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .service-box {
+
+            display: inline-block;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #d5a641,
+                    #ffe69a
+                );
+
+            color: #222;
+
+            padding: 18px 30px;
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            line-height: 1.55;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.35);
+        }
+
+
+        .contact-box {
+
+            background: rgba(255,255,255,0.96);
+
+            color: #333;
+
+            margin-top: 30px;
+
+            padding: 20px 25px;
+
+            text-align: left;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+
+            max-width: 430px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+        }
+
+
+        .website-name {
+
+            margin-top: 28px;
+
+            color: #dddddd;
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 20px;
+            }
+
+
+            .nav-left {
+
+                gap: 20px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .page-title {
+
+                font-size: 28px;
+
+                padding-bottom: 40px;
+            }
+
+
+            .container {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+                padding: 0 20px 60px;
+            }
+
+
+            .info h1 {
+
+                font-size: 30px;
+            }
+
+
+            .hero-box {
+
+                min-height: 480px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .nav-left {
+
+                gap: 15px;
+
+                font-size: 14px;
+            }
+
+
+            .book-btn {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+
+            .page-title {
+
+                font-size: 24px;
+            }
+
+
+            .info h1 {
+
+                font-size: 27px;
+            }
+
+
+            .btn {
+
+                width: 100%;
+            }
+
+
+            .hero-content {
+
+                padding: 25px 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <!-- LEFT MENU -->
+
+        <div class="nav-left">
+
+            <a href="#home">Home</a>
+
+            <a href="#direction">Get Direction</a>
+
+            <a href="#price">Price List</a>
+
+            <a href="#blog">Blog</a>
+
+        </div>
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img
+                src="LOGO%20HAU%20HAIR%20DEESIGNER.png"
+                alt="HAU HAIR DEESIGNER Logo">
+
+        </div>
+
+
+        <!-- BOOK APPOINTMENT -->
+
+        <a href="#booking" class="book-btn">
+
+            📅 Book Appointment
+
+        </a>
+
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     TITLE
+========================= -->
+
+<div class="page-title">
+
+    HAU HAIR DEESIGNER
+
+</div>
+
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section class="container" id="home">
+
+
+    <!-- LEFT SIDE -->
+
+    <div class="info">
+
+
+        <h1>
+
+            HAU HAIR DEESIGNER –
+            STYLE & COMFORT IN HOI AN
+
+        </h1>
+
+
+        <p>
+
+            Located in the heart of Hoi An,
+            <strong>HAU HAIR DEESIGNER</strong>
+            offers professional haircuts, coloring,
+            perming and hair treatments in a clean,
+            welcoming and comfortable space.
+
+        </p>
+
+
+        <p>
+
+            Known for attentive service and skilled stylists,
+            <strong>HAU HAIR DEESIGNER</strong>
+            is the perfect place to refresh your look,
+            relax and enjoy a beautiful hair experience
+            in Hoi An.
+
+        </p>
+
+
+        <div class="slogan">
+
+            Great Hair, Relaxed Vibes.
+
+        </div>
+
+
+        <div class="address">
+
+            <span class="gold-icon">📍</span>
+
+            173 Nguyen Duy Hieu,
+            Hoi An, Viet Nam
+
+        </div>
+
+
+        <div class="phone">
+
+            <span class="gold-icon">📞</span>
+
+            Hotline: 000.000.000
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+
+            <a href="#direction"
+               class="btn direction">
+
+                🧭 Get direction
+
+            </a>
+
+
+            <a href="#"
+               class="btn message">
+
+                💬 Message Us
+
+            </a>
+
+
+            <a href="#"
+               class="btn chat">
+
+                🟢 Start Chat
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="hero-box">
+
+
+        <div class="hero-content">
+
+
+            <img
+                src="LOGO%20HAU%20HAIR%20DEESIGNER.png"
+                class="hero-logo"
+                alt="HAU HAIR DEESIGNER">
+
+
+            <div class="hero-brand">
+
+                HAU HAIR DEESIGNER
+
+            </div>
+
+
+            <div class="service-box">
+
+                HAIR CUTTING, PERMING,<br>
+
+                COLORING & TREATMENT
+
+            </div>
+
+
+            <div class="contact-box">
+
+                📍 <strong>HAU HAIR DEESIGNER</strong>
+
+                <br>
+
+                173 Nguyen Duy Hieu,
+                Hoi An, Viet Nam
+
+                <br><br>
+
+                📞 Hotline:
+                <strong>0333 093 033</strong>
+
+            </div>
+
+
+            <div class="website-name">
+
+                HAU HAIR DEESIGNER • HOI AN
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</body>
+</html>
