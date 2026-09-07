@@ -2871,8 +2871,8 @@ footer{
       </div>
       <div class="booking-field">
         <label for="bookingHour">Visit Time</label>
-        <div class="booking-time-picker" role="group" aria-label="Visit Time">
-          <select id="bookingHour" required aria-label="Hour">
+        <div class="booking-time-picker notranslate" role="group" aria-label="Visit Time" translate="no">
+          <select id="bookingHour" class="notranslate" required aria-label="Hour" translate="no">
             <option value="" selected>HH</option>
             <option value="01">01</option>
             <option value="02">02</option>
@@ -2888,7 +2888,7 @@ footer{
             <option value="12">12</option>
           </select>
           <span class="booking-time-colon">:</span>
-          <select id="bookingMinute" required aria-label="Minute">
+          <select id="bookingMinute" class="notranslate" required aria-label="Minute" translate="no">
             <option value="" selected>MM</option>
             <option value="00">00</option>
             <option value="01">01</option>
@@ -2951,7 +2951,7 @@ footer{
             <option value="58">58</option>
             <option value="59">59</option>
           </select>
-          <select id="bookingPeriod" required aria-label="AM or PM">
+          <select id="bookingPeriod" class="notranslate" required aria-label="AM or PM" translate="no">
             <option value="" selected>AM / PM</option>
             <option value="AM">AM</option>
             <option value="PM">PM</option>
@@ -3779,5 +3779,133 @@ footer{
 }
 </style>
 
+
+
+<!-- ================= FINAL PREMIUM BOOKING UI ================= -->
+<style id="final-premium-booking-ui">
+/* ============================================================
+   FINAL BOOKING DESIGN – PC + MOBILE
+   Keeps all booking JavaScript and form functionality unchanged.
+   ============================================================ */
+
+/* Red circular close button – identical on PC and mobile */
+.booking-close{
+    width:44px !important;
+    height:44px !important;
+    top:16px !important;
+    right:16px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:50% !important;
+    background:linear-gradient(135deg,#e94b4b 0%,#c9162f 55%,#a90f24 100%) !important;
+    color:#fff !important;
+    font-size:28px !important;
+    font-weight:500 !important;
+    line-height:1 !important;
+    box-shadow:0 8px 20px rgba(185,22,47,.30) !important;
+    text-shadow:none !important;
+    transition:transform .22s ease,box-shadow .22s ease,filter .22s ease !important;
+    z-index:10 !important;
+}
+.booking-close:hover{
+    transform:rotate(90deg) scale(1.06) !important;
+    background:linear-gradient(135deg,#f35a5a 0%,#cf1834 55%,#ad1026 100%) !important;
+    color:#fff !important;
+    box-shadow:0 10px 24px rgba(185,22,47,.38) !important;
+    filter:brightness(1.04) !important;
+}
+.booking-close:active{transform:rotate(90deg) scale(.96) !important;}
+.booking-close:focus-visible{
+    outline:3px solid rgba(255,255,255,.85) !important;
+    outline-offset:2px !important;
+}
+
+/* Visit Time always keeps English labels/options */
+.booking-time-picker,
+.booking-time-picker select{
+    font-family:inherit !important;
+}
+.booking-time-picker select option{
+    unicode-bidi:plaintext;
+}
+
+/* Luxury Book Now button inside the appointment form */
+.booking-submit{
+    position:relative !important;
+    overflow:hidden !important;
+    color:#fff !important;
+    background:linear-gradient(135deg,#231815 0%,#513326 42%,#8c5b2b 72%,#c59a4a 100%) !important;
+    border:1px solid rgba(241,209,137,.72) !important;
+    box-shadow:0 10px 24px rgba(54,34,24,.30),inset 0 1px 0 rgba(255,255,255,.16) !important;
+    animation:bookingLuxuryPulse 1.8s ease-in-out infinite !important;
+}
+.booking-submit::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.18) 48%,transparent 76%);
+    transform:translateX(-130%);
+    animation:bookingLuxuryShine 3.2s ease-in-out infinite;
+    pointer-events:none;
+}
+.booking-submit:hover{
+    transform:translateY(-2px) scale(1.01) !important;
+    box-shadow:0 15px 30px rgba(54,34,24,.40),0 0 0 4px rgba(218,177,89,.13) !important;
+}
+
+/* Both external Book Appointment buttons: PC + mobile */
+.book-btn,
+.floating-book-btn{
+    animation:bookingLuxuryPulse 1.8s ease-in-out infinite !important;
+    will-change:transform,box-shadow,filter;
+}
+.floating-book-btn::before{
+    animation:bookingLuxuryShine 3.2s ease-in-out infinite !important;
+}
+
+@keyframes bookingLuxuryPulse{
+    0%,100%{
+        transform:scale(1);
+        filter:brightness(1);
+    }
+    50%{
+        transform:scale(1.018);
+        filter:brightness(1.045);
+    }
+}
+@keyframes bookingLuxuryShine{
+    0%,62%{transform:translateX(-130%);}
+    82%,100%{transform:translateX(130%);}
+}
+
+/* Keep hover behaviour pleasant without changing click functionality */
+.book-btn:hover,
+.floating-book-btn:hover{
+    animation-play-state:paused !important;
+}
+
+@media(max-width:620px){
+    .booking-close{
+        width:42px !important;
+        height:42px !important;
+        top:14px !important;
+        right:14px !important;
+        font-size:27px !important;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .booking-submit,
+    .booking-submit::before,
+    .book-btn,
+    .floating-book-btn,
+    .floating-book-btn::before{
+        animation:none !important;
+    }
+}
+</style>
 </body>
 </html>
