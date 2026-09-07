@@ -2416,6 +2416,17 @@ footer{
 }
 </style>
 
+
+<!-- PRICE LIST: added only -->
+<style id="price-list-only-addition">
+.price-list-section{background:#c9d8e6;padding:10px 20px 34px;text-align:center;}
+.price-list-box{display:inline-flex;align-items:center;justify-content:center;gap:14px;max-width:420px;width:100%;padding:12px 18px;border-radius:16px;background:linear-gradient(135deg,#fffdf7,#f5dfaa);border:1px solid #d9b35d;box-sizing:border-box;}
+.price-list-title{margin:0;font-size:20px;font-weight:800;color:#26384b;letter-spacing:.4px;}
+.usd-bill{width:58px;height:30px;display:block;flex:0 0 auto;animation:usdBillBlink 1.8s ease-in-out infinite alternate;}
+.usd-bill.right{animation-delay:.9s;}
+@keyframes usdBillBlink{from{opacity:.58;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
+@media(max-width:650px){.price-list-section{padding:8px 12px 26px}.price-list-box{max-width:330px;gap:10px;padding:10px 12px;border-radius:14px}.price-list-title{font-size:17px}.usd-bill{width:48px;height:25px}}
+</style>
 </head>
 
 
@@ -2858,6 +2869,14 @@ footer{
         <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/9.jpg" alt="Google Maps review 9" loading="lazy"></div></div>
         <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/10.jpg" alt="Google Maps review 10" loading="lazy"></div></div>
       </div></div></div></section>
+<!-- PRICE LIST: compact addition directly below Google Maps Reviews -->
+<section class="price-list-section" id="price" aria-label="Price List">
+  <div class="price-list-box">
+    <svg class="usd-bill left" viewBox="0 0 120 64" aria-hidden="true"><rect x="3" y="3" width="114" height="58" rx="5" fill="#5c8f67" stroke="#2e5d3a" stroke-width="3"/><rect x="10" y="10" width="100" height="44" rx="3" fill="#8fbd91" stroke="#3f7448" stroke-width="2"/><circle cx="60" cy="32" r="15" fill="#6fa675" stroke="#315f3b" stroke-width="2"/><text x="60" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#f4f1d0">$</text><text x="15" y="25" font-size="13" font-weight="800" fill="#f4f1d0">100</text><text x="105" y="48" text-anchor="end" font-size="13" font-weight="800" fill="#f4f1d0">100</text><path d="M18 45h20M82 19h20" stroke="#315f3b" stroke-width="2" opacity=".8"/></svg>
+    <h2 class="price-list-title">PRICE LIST</h2>
+    <svg class="usd-bill right" viewBox="0 0 120 64" aria-hidden="true"><rect x="3" y="3" width="114" height="58" rx="5" fill="#5c8f67" stroke="#2e5d3a" stroke-width="3"/><rect x="10" y="10" width="100" height="44" rx="3" fill="#8fbd91" stroke="#3f7448" stroke-width="2"/><circle cx="60" cy="32" r="15" fill="#6fa675" stroke="#315f3b" stroke-width="2"/><text x="60" y="38" text-anchor="middle" font-size="22" font-weight="800" fill="#f4f1d0">$</text><text x="15" y="25" font-size="13" font-weight="800" fill="#f4f1d0">100</text><text x="105" y="48" text-anchor="end" font-size="13" font-weight="800" fill="#f4f1d0">100</text><path d="M18 45h20M82 19h20" stroke="#315f3b" stroke-width="2" opacity=".8"/></svg>
+  </div>
+</section>
 
 <!-- ================= BOOKING POPUP ================= -->
 <div class="booking-modal" id="bookingModal" aria-hidden="true">
