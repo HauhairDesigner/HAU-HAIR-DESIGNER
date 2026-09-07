@@ -4186,5 +4186,85 @@ footer{
 })();
 </script>
 
+
+
+<!-- ================= FINAL NO-OVERLAP BOOKING FIX ================= -->
+<style id="final-booking-no-overlap-fix">
+/* Keep all existing booking functions unchanged.
+   This final layer only fixes the date calendar/select stacking problem on PC + mobile. */
+
+/* The calendar must open inside the form flow instead of covering the time/service controls. */
+.booking-date-field{
+    z-index:auto !important;
+}
+
+@media(min-width:621px){
+    .booking-date-field{
+        grid-column:1 / -1 !important;
+    }
+}
+
+.booking-date-control{
+    display:block !important;
+}
+
+.booking-date-picker{
+    position:static !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin-top:10px !important;
+    z-index:auto !important;
+    box-sizing:border-box !important;
+}
+
+/* Remove the old emergency ultra-high stacking levels that made the time boxes sit over the calendar. */
+.booking-time-picker,
+.booking-field select,
+.booking-time-picker select,
+#bookingService,
+#bookingHour,
+#bookingMinute,
+#bookingPeriod{
+    z-index:auto !important;
+}
+
+/* Keep native select controls fully usable without forcing them above the calendar. */
+.booking-time-picker{
+    position:relative !important;
+}
+.booking-field select,
+.booking-time-picker select{
+    position:relative !important;
+}
+
+/* Mobile: one clean vertical flow, no fixed calendar layer and no button overlap. */
+@media(max-width:620px){
+    .booking-date-field,
+    .booking-field,
+    .booking-field.full,
+    .booking-date-control{
+        overflow:visible !important;
+    }
+
+    .booking-date-picker{
+        position:static !important;
+        transform:none !important;
+        width:100% !important;
+        margin-top:10px !important;
+        border-radius:20px !important;
+        box-shadow:0 14px 34px rgba(42,31,20,.18) !important;
+    }
+}
+
+/* WhatsApp remains part of the four social buttons. */
+.social-links{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+}
+.whatsapp-btn{display:flex !important;}
+</style>
 </body>
 </html>
