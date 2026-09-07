@@ -117,6 +117,7 @@ header{
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    gap:7px;
     padding:10px 20px;
     border:1px solid #d5b166;
     border-radius:999px;
@@ -125,11 +126,84 @@ header{
     box-shadow:0 5px 14px rgba(184,137,45,.16);
 }
 
+.nav-left .home-link::before{
+    content:"🏠";
+    font-size:16px;
+    line-height:1;
+}
+
 .nav-left .home-link:hover{
     color:#26384b;
     background:linear-gradient(135deg,#ffe9ad,#d8a943);
     transform:translateY(-1px);
     box-shadow:0 8px 18px rgba(184,137,45,.25);
+}
+
+/* Framed Google Maps direction button */
+.nav-left .direction-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    padding:10px 18px;
+    border:1px solid #8ab4f8;
+    border-radius:999px;
+    /* Colored background inside the Get Direction button */
+    background:linear-gradient(135deg,#e8f1ff,#cfe2ff);
+    color:#1f4f96;
+    box-shadow:0 5px 14px rgba(66,133,244,.14);
+}
+
+/* Google Maps icon: red location pin positioned above the map */
+.nav-left .direction-link::before{
+    display:none;
+}
+
+.nav-left .direction-link .direction-icon{
+    position:relative;
+    width:24px;
+    height:24px;
+    flex:0 0 24px;
+    display:inline-flex;
+    align-items:flex-end;
+    justify-content:center;
+    line-height:1;
+}
+
+.nav-left .direction-link .direction-map{
+    font-size:18px;
+    line-height:1;
+}
+
+.nav-left .direction-link .direction-pin{
+    position:absolute;
+    top:-4px;
+    left:50%;
+    transform:translateX(-50%);
+    width:14px;
+    height:19px;
+    line-height:1;
+    z-index:2;
+    display:block;
+}
+
+/* Keep the red location pin visible on hover */
+.nav-left .direction-link:hover .direction-pin{
+    filter:none;
+}
+
+.nav-left .direction-link .direction-pin svg{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.nav-left .direction-link:hover{
+    color:#ffffff;
+    background:linear-gradient(135deg,#4285f4,#1a73e8);
+    border-color:#1a73e8;
+    transform:translateY(-1px);
+    box-shadow:0 8px 18px rgba(66,133,244,.22);
 }
 
 
@@ -956,9 +1030,30 @@ footer{
 
 /* Keep the sticky navigation comfortable on phones and tablets */
 @media(max-width:650px){
-    .nav-left .home-link{
-        padding:8px 15px;
+    .nav-left .home-link,
+    .nav-left .direction-link{
+        padding:8px 13px;
         border-radius:14px;
+    }
+
+    .nav-left .home-link::before{
+        font-size:15px;
+    }
+
+    .nav-left .direction-link .direction-icon{
+        width:22px;
+        height:22px;
+        flex-basis:22px;
+    }
+
+    .nav-left .direction-link .direction-map{
+        font-size:17px;
+    }
+
+    .nav-left .direction-link .direction-pin{
+        width:13px;
+        height:18px;
+        top:-3px;
     }
 }
 
@@ -2006,10 +2101,22 @@ footer{
             <a href="./" class="home-link" aria-label="Reload Home page">Home</a>
 
             <a
-            href="https://www.google.com/maps/search/?api=1&query=173+Nguyen+Duy+Hieu+Hoi+An+TP+Da+Nang+Viet+Nam"
-            target="_blank">
+            class="direction-link"
+            href="https://maps.app.goo.gl/TMNQHTKHMk1558ip6?g_st=iz"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Google Maps directions">
 
-            Get Direction
+            <span class="direction-icon" aria-hidden="true">
+                <span class="direction-map">🗺️</span>
+                <span class="direction-pin" aria-hidden="true">
+    <svg viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.65 0 .5 5.15.5 11.5 0 20.1 12 32 12 32s12-11.9 11.5-20.5C23.5 5.15 18.35 0 12 0Z" fill="#e53935"/>
+        <circle cx="12" cy="11.5" r="4" fill="#ffffff"/>
+    </svg>
+</span>
+            </span>
+            <span>Get Direction</span>
 
             </a>
 
