@@ -2196,48 +2196,91 @@ footer{
     }
 }
 
+/* ================= MOBILE: COMPACT + AUTOMATICALLY BALANCED ================= */
 @media(max-width:650px){
     .nav-left{
         display:grid !important;
         grid-template-columns:repeat(2,minmax(0,1fr));
-        width:min(430px,100%);
-        gap:10px !important;
+        width:min(360px,calc(100vw - 28px));
+        max-width:100%;
+        margin:0 auto;
+        gap:8px !important;
+        align-items:stretch;
     }
 
     .nav-left .home-link,
     .nav-left .direction-link,
     .nav-left .price-link,
     .nav-left .youtube-link{
-        width:100%;
-        min-width:0;
-        height:46px !important;
-        min-height:46px;
-        padding:0 10px !important;
-        border-radius:14px !important;
-        font-size:14px !important;
+        width:100% !important;
+        min-width:0 !important;
+        height:44px !important;
+        min-height:44px !important;
+        padding:0 8px !important;
+        border-radius:13px !important;
+        font-size:13px !important;
+        gap:6px !important;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
 
     .price-pin{
-        top:-7px;
-        right:-5px;
-        font-size:15px;
-    }
-}
-
-@media(max-width:380px){
-    .nav-left .home-link,
-    .nav-left .direction-link,
-    .nav-left .price-link,
-    .nav-left .youtube-link{
-        font-size:13px !important;
-        gap:5px;
-        padding:0 7px !important;
+        top:-6px;
+        right:-4px;
+        font-size:14px;
     }
 
     .youtube-icon{
         width:19px;
         height:19px;
-        flex-basis:19px;
+        flex:0 0 19px;
+    }
+}
+
+/* Smaller phones: keep the same 2 x 2 layout, reduce only what is needed. */
+@media(max-width:430px){
+    .nav-left{
+        width:min(340px,calc(100vw - 24px));
+        gap:7px !important;
+    }
+
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        height:42px !important;
+        min-height:42px !important;
+        padding:0 6px !important;
+        font-size:12.5px !important;
+        gap:5px !important;
+    }
+
+    .price-icon{font-size:16px;}
+    .direction-icon{transform:scale(.92);}
+}
+
+/* Very narrow phones: still balanced and never overflow. */
+@media(max-width:360px){
+    .nav-left{
+        width:calc(100vw - 20px);
+        gap:6px !important;
+    }
+
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        height:40px !important;
+        min-height:40px !important;
+        padding:0 4px !important;
+        font-size:12px !important;
+        gap:4px !important;
+    }
+
+    .youtube-icon{
+        width:17px;
+        height:17px;
+        flex-basis:17px;
     }
 }
 </style>
