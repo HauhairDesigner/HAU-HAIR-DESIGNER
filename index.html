@@ -2091,6 +2091,157 @@ footer{
 }
 </style>
 
+
+<!-- ================= FINAL 4 NAV BUTTONS ================= -->
+<style id="final-four-balanced-nav-buttons">
+/* Four compact, balanced navigation buttons. Other site functionality is untouched. */
+.nav-left{
+    gap:12px !important;
+    flex-wrap:wrap;
+}
+
+.nav-left .home-link,
+.nav-left .direction-link,
+.nav-left .price-link,
+.nav-left .youtube-link{
+    position:relative;
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    height:48px !important;
+    min-height:48px;
+    padding:0 16px !important;
+    border-radius:16px !important;
+    font-size:15px !important;
+    font-weight:700;
+    line-height:1;
+    white-space:nowrap;
+    box-sizing:border-box;
+    text-decoration:none;
+}
+
+/* Home */
+.nav-left .home-link{
+    min-width:104px;
+}
+
+/* Get Direction */
+.nav-left .direction-link{
+    min-width:154px;
+}
+
+/* Price List: framed, colored background, price-list icon + pin in the corner */
+.nav-left .price-link{
+    min-width:122px;
+    border:1px solid #b9c8dc;
+    background:linear-gradient(135deg,#f8fbff,#dce8f6);
+    color:#29445f;
+    overflow:visible;
+}
+
+.nav-left .price-link:hover{
+    color:#20384f;
+    background:linear-gradient(135deg,#eaf3ff,#c9dcf1);
+    transform:translateY(-1px);
+}
+
+.price-icon{
+    font-size:18px;
+    line-height:1;
+}
+
+.price-pin{
+    position:absolute;
+    top:-8px;
+    right:-7px;
+    font-size:16px;
+    line-height:1;
+    transform:rotate(12deg);
+    z-index:3;
+    pointer-events:none;
+}
+
+/* YouTube: official red visual style */
+.nav-left .youtube-link{
+    min-width:124px;
+    border:1px solid #d90000;
+    background:linear-gradient(135deg,#ff1a1a,#d90000);
+    color:#fff !important;
+}
+
+.nav-left .youtube-link:hover{
+    color:#fff !important;
+    background:linear-gradient(135deg,#e60000,#b90000);
+    transform:translateY(-1px);
+}
+
+.youtube-icon{
+    width:21px;
+    height:21px;
+    flex:0 0 21px;
+    color:#fff;
+}
+
+@media(max-width:1150px){
+    .nav-left{gap:10px !important;}
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        height:46px !important;
+        min-height:46px;
+        padding:0 13px !important;
+        font-size:14px !important;
+    }
+}
+
+@media(max-width:650px){
+    .nav-left{
+        display:grid !important;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        width:min(430px,100%);
+        gap:10px !important;
+    }
+
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        width:100%;
+        min-width:0;
+        height:46px !important;
+        min-height:46px;
+        padding:0 10px !important;
+        border-radius:14px !important;
+        font-size:14px !important;
+    }
+
+    .price-pin{
+        top:-7px;
+        right:-5px;
+        font-size:15px;
+    }
+}
+
+@media(max-width:380px){
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        font-size:13px !important;
+        gap:5px;
+        padding:0 7px !important;
+    }
+
+    .youtube-icon{
+        width:19px;
+        height:19px;
+        flex-basis:19px;
+    }
+}
+</style>
+
 </head>
 
 
@@ -2127,9 +2278,23 @@ footer{
 
             </a>
 
-            <a href="#price">Price List</a>
+            <a href="#price" class="price-link" aria-label="Price List">
+                <span class="price-icon" aria-hidden="true">📋</span>
+                <span>Price List</span>
+                <span class="price-pin" aria-hidden="true">📌</span>
+            </a>
 
-            <a href="#blog">Blog</a>
+            <a
+            href="https://www.youtube.com/@hauhairdesigner"
+            class="youtube-link"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open H.A.U HAIR DESIGNER YouTube channel">
+                <svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.7V8.3l6.3 3.7-6.3 3.7Z"/>
+                </svg>
+                <span>YouTube</span>
+            </a>
 
         </nav>
 
