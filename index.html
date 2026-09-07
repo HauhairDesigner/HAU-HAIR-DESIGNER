@@ -4294,5 +4294,36 @@ footer{
 }
 .whatsapp-btn{display:flex !important;}
 </style>
+
+<!-- ================= PRICE LIST NAVIGATION: SMOOTH SCROLL ONLY ================= -->
+<script id="price-list-smooth-scroll">
+(function(){
+    const priceLink = document.querySelector('.nav-left .price-link[href="#price"]');
+    const priceSection = document.getElementById('price');
+
+    if (!priceLink || !priceSection) return;
+
+    priceLink.addEventListener('click', function(event){
+        event.preventDefault();
+
+        // Scroll smoothly to the PRICE LIST section and stop below the sticky header.
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.getBoundingClientRect().height : 0;
+        const targetTop = priceSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+
+        window.scrollTo({
+            top: Math.max(0, targetTop),
+            left: 0,
+            behavior: 'smooth'
+        });
+
+        // Keep the URL anchor in sync without triggering another jump.
+        if (history && history.replaceState) {
+            history.replaceState(null, '', '#price');
+        }
+    });
+})();
+</script>
+
 </body>
 </html>
