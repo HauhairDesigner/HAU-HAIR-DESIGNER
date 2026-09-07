@@ -118,7 +118,7 @@ header{
     align-items:center;
     justify-content:center;
     gap:7px;
-    padding:10px 20px;
+    padding:0 20px;
     border:1px solid #d5b166;
     border-radius:999px;
     background:linear-gradient(135deg,#fff9e9,#f5dfaa);
@@ -139,13 +139,19 @@ header{
     box-shadow:0 8px 18px rgba(184,137,45,.25);
 }
 
+/* Keep Home and Get Direction exactly the same height */
+.nav-left .home-link,
+.nav-left .direction-link{
+    height:56px;
+}
+
 /* Framed Google Maps direction button */
 .nav-left .direction-link{
     display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:7px;
-    padding:10px 18px;
+    padding:0 18px;
     border:1px solid #8ab4f8;
     border-radius:999px;
     /* Colored background inside the Get Direction button */
@@ -1032,7 +1038,8 @@ footer{
 @media(max-width:650px){
     .nav-left .home-link,
     .nav-left .direction-link{
-        padding:8px 13px;
+        height:48px;
+        padding:0 13px;
         border-radius:14px;
     }
 
