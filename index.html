@@ -528,47 +528,59 @@ header{
 .social-links{
     margin-top:26px;
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:14px;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
     width:100%;
 }
 
 .social-btn{
-    min-height:58px;
+    min-width:0;
+    min-height:52px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
-    padding:12px 14px;
+    gap:7px;
+    padding:10px 8px;
     border-radius:10px;
     text-decoration:none;
     color:#fff;
-    font-size:16px;
+    font-size:14px;
     font-weight:700;
-    box-shadow:0 8px 18px rgba(38,56,75,.16);
+    white-space:nowrap;
+    box-shadow:0 7px 16px rgba(38,56,75,.14);
     transition:transform .22s, box-shadow .22s, filter .22s;
 }
 
 .social-btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 12px 24px rgba(38,56,75,.24);
+    box-shadow:0 11px 22px rgba(38,56,75,.22);
     filter:brightness(1.04);
 }
 
 .social-btn svg{
-    width:22px;
-    height:22px;
-    flex-shrink:0;
+    width:20px;
+    height:20px;
+    flex:0 0 auto;
     fill:currentColor;
 }
 
+.whatsapp-btn{
+    background:#25D366;
+    border:1px solid rgba(255,255,255,.22);
+}
+
 .facebook-btn{ background:#1877f2; }
-.instagram-btn{ background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045); }
+
+.instagram-btn{
+    background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045);
+}
+
 .tiktok-btn{
     background:linear-gradient(135deg,#111318,#34383f 50%,#17191d);
     border:1px solid rgba(255,255,255,.16);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 8px 18px rgba(38,56,75,.16);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 7px 16px rgba(38,56,75,.14);
 }
+
 .tiktok-btn svg{
     color:#ffffff;
     filter:drop-shadow(-2px 0 #25f4ee) drop-shadow(2px 0 #fe2c55);
@@ -576,31 +588,39 @@ header{
 
 @media(max-width:650px){
     .social-links{
-        gap:10px;
+        gap:8px;
         margin-top:22px;
     }
 
     .social-btn{
-        min-height:54px;
-        padding:10px 8px;
-        gap:6px;
-        font-size:13px;
+        min-height:48px;
+        padding:8px 5px;
+        gap:5px;
+        font-size:12px;
     }
 
     .social-btn svg{
-        width:19px;
-        height:19px;
+        width:18px;
+        height:18px;
     }
 }
 
 @media(max-width:390px){
     .social-links{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        gap:5px;
     }
 
     .social-btn{
-        min-height:52px;
-        font-size:15px;
+        min-height:46px;
+        padding:7px 2px;
+        gap:3px;
+        font-size:10px;
+    }
+
+    .social-btn svg{
+        width:16px;
+        height:16px;
     }
 }
 
@@ -2142,8 +2162,19 @@ footer{
 
         <!-- ================= SOCIAL MEDIA ================= -->
 
-        <!-- Thay 3 đường link href bên dưới bằng link Facebook / Instagram / TikTok của bạn -->
+        <!-- WhatsApp / Facebook / Instagram / TikTok -->
         <div class="social-links">
+
+            <a class="social-btn whatsapp-btn"
+               href="https://wa.me/84333093033?text=Hello%21%20I%20would%20like%20to%20book%20an%20appointment%20at%20H.A.U%20HAIR%20DESIGNER"
+               target="_blank"
+               rel="noopener"
+               aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L0 24l6.5-1.7a11.8 11.8 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.4zM12.1 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.7 9.7 0 0 1-1.5-5.1C2 6.4 6.5 2 12.1 2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.5-4.5 9.9-9.8 9.9zm5.4-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.1 8.1 0 0 1-2.4-1.5 9.1 9.1 0 0 1-1.7-2.1c-.2-.3 0-.4.1-.6l.5-.5c.2-.2.2-.3.3-.5s0-.4 0-.5c-.1-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1 2.9 1.1 3.1c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4s.3-1.3.2-1.4-.2-.2-.5-.4z"/>
+                </svg>
+                <span>WhatsApp</span>
+            </a>
 
             <a class="social-btn facebook-btn"
                href="https://www.facebook.com/hau.xavan.5/"
