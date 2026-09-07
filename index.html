@@ -2420,12 +2420,12 @@ footer{
 <!-- PRICE LIST: added only -->
 <style id="price-list-only-addition">
 .price-list-section{background:#c9d8e6;padding:10px 20px 34px;text-align:center;}
-.price-list-box{display:inline-flex;align-items:center;justify-content:center;gap:14px;max-width:420px;width:100%;padding:12px 18px;border-radius:16px;background:linear-gradient(135deg,#fffdf7,#f5dfaa);border:1px solid #d9b35d;box-sizing:border-box;}
+.price-list-box{display:inline-flex;align-items:center;justify-content:center;gap:14px;max-width:380px;width:100%;padding:12px 18px;border-radius:16px;background:linear-gradient(135deg,#fffdf7,#f5dfaa);border:1px solid #d9b35d;box-sizing:border-box;}
 .price-list-title{margin:0;font-size:20px;font-weight:800;color:#26384b;letter-spacing:.4px;}
 .usd-bill{width:58px;height:30px;display:block;flex:0 0 auto;animation:usdBillBlink 1.8s ease-in-out infinite alternate;}
 .usd-bill.right{animation-delay:.9s;}
 @keyframes usdBillBlink{from{opacity:.58;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
-@media(max-width:650px){.price-list-section{padding:8px 12px 26px}.price-list-box{max-width:330px;gap:10px;padding:10px 12px;border-radius:14px}.price-list-title{font-size:17px}.usd-bill{width:48px;height:25px}}
+@media(max-width:650px){.price-list-section{padding:8px 12px 26px}.price-list-box{max-width:310px;gap:10px;padding:10px 12px;border-radius:14px}.price-list-title{font-size:17px}.usd-bill{width:48px;height:25px}}
 </style>
 
 <!-- SIGNATURE HAIR LOOKS: additive styles only -->
@@ -2524,7 +2524,7 @@ footer{
 <style id="signature-hair-short-colored-title">
 .signature-hair-section .signature-hair-title{
   width:auto !important;
-  max-width:min(100%, 460px) !important;
+  max-width:min(100%, 540px) !important;
   min-height:52px !important;
   padding:8px 16px !important;
   gap:12px !important;
@@ -3027,7 +3027,7 @@ footer{
 (function(){
  const cards=[...document.querySelectorAll('.signature-video-card')];
  const modal=document.getElementById('signatureVideoModal'); const player=document.getElementById('signatureVideoPlayer'); const close=document.getElementById('signatureVideoClose');
- function openVideo(id){player.src='https://www.youtube.com/embed/'+id+'?autoplay=1&mute=0&playsinline=1&rel=0&enablejsapi=1';modal.classList.add('open');modal.setAttribute('aria-hidden','false');}
+ function openVideo(id){const src='https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&playsinline=1&rel=0&enablejsapi=1';modal.classList.add('open');modal.setAttribute('aria-hidden','false');player.src=src;player.onload=()=>{try{player.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}),'*');player.contentWindow.postMessage(JSON.stringify({event:'command',func:'mute',args:[]}),'*');}catch(e){}};}
  function closeVideo(){player.src='';modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}
  cards.forEach(c=>{c.addEventListener('click',()=>openVideo(c.dataset.video));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openVideo(c.dataset.video)}})});
  close.addEventListener('click',closeVideo);modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
