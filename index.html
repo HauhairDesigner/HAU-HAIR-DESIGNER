@@ -2451,71 +2451,34 @@ footer{
 
 <!-- SIGNATURE HAIR LOOKS: FINAL REQUESTED VISUAL FIXES -->
 <style id="signature-hair-final-fixes">
-/* Keep the three main section title boxes visually equal and balanced. */
-.google-reviews-title,
-.signature-hair-title,
-.price-list-title{
+/* Scoped visual fixes for SIGNATURE HAIR LOOKS only. */
+.signature-hair-title{
+    width:min(100%,560px) !important;
     min-height:58px !important;
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
     box-sizing:border-box !important;
-}
-
-/* Long professional hair scissors and comb at both ends. */
-.signature-hair-title{
-    width:min(100%,560px) !important;
-    gap:14px !important;
+    gap:16px !important;
     padding:9px 18px !important;
 }
-.signature-tool{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    flex:0 0 auto;
-    color:#8b5a20;
-}
-.signature-tool svg{display:block;}
-.signature-scissors svg{width:54px;height:34px;}
-.signature-comb svg{width:64px;height:30px;}
+.signature-tool{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;color:#8b5a20;}
+.signature-tool svg{display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.35));}
+/* Refined salon scissors: slim blades + elegant finger rings. */
+.signature-scissors svg{width:52px;height:36px;}
+/* Refined long barber comb: rounded spine with fine teeth. */
+.signature-comb svg{width:68px;height:32px;}
 .signature-title-text{white-space:nowrap;}
 
-/* Pull every video slightly inward and give all corners a softer premium curve. */
-.signature-video-grid{
-    padding:0 14px 10px !important;
-    gap:16px !important;
-}
-.signature-video-card{
-    border-radius:24px !important;
-}
-
-/* On mobile, preserve swipe while keeping each video inset from all sides. */
+/* Pull video cards further inward without changing playback/layout logic. */
+.signature-video-grid{padding:0 24px 12px !important;gap:14px !important;}
+.signature-video-card{border-radius:28px !important;overflow:hidden !important;}
+.signature-video-card iframe{border-radius:inherit !important;}
 @media(max-width:700px){
-    .signature-hair-title{
-        min-height:54px !important;
-        width:calc(100% - 20px) !important;
-        max-width:560px !important;
-        gap:8px !important;
-        padding:8px 10px !important;
-    }
-    .signature-title-text{font-size:clamp(15px,4.2vw,18px);}
-    .signature-scissors svg{width:43px;height:28px;}
-    .signature-comb svg{width:50px;height:25px;}
-
-    .signature-video-grid{
-        padding:0 12px 10px !important;
-        gap:14px !important;
-    }
-    .signature-video-card{
-        flex:0 0 calc(78vw - 18px) !important;
-        max-width:calc(78vw - 18px) !important;
-        border-radius:24px !important;
-    }
-}
-
-/* A tap is a direct user gesture: open the chosen video and request autoplay immediately. */
-.signature-video-modal iframe{
-    background:#000;
+  .signature-video-grid{padding:0 18px 12px !important;gap:12px !important;}
+  .signature-video-card{flex-basis:72vw !important;max-width:72vw !important;border-radius:28px !important;}
+  .signature-scissors svg{width:42px;height:31px;}
+  .signature-comb svg{width:54px;height:27px;}
 }
 </style>
 
@@ -2965,13 +2928,9 @@ footer{
 <!-- ================= SIGNATURE HAIR LOOKS ================= -->
 <section class="signature-hair-section" id="signatureHairLooks" aria-label="Signature Hair Looks">
   <h2 class="signature-hair-title">
-  <span class="signature-tool signature-scissors" aria-hidden="true">
-    <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><path d="M18 14c7 0 12 5 12 12s-5 12-12 12S6 33 6 26 11 14 18 14Zm0 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 1 82 25M18 46c7 0 12-5 12-12s-5-12-12-12S6 27 6 34s5 12 12 12Zm0-7a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm14-8 68-20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="105" cy="11" r="4" fill="currentColor"/><circle cx="105" cy="47" r="4" fill="currentColor"/></svg>
-  </span>
+  <span class="signature-tool signature-scissors" aria-hidden="true"><svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="16" r="10"/><circle cx="20" cy="44" r="10"/><path d="M29 22 108 4M29 38 108 56M36 30 105 30"/><path d="M108 4 100 30 108 56"/></svg></span>
   <span class="signature-title-text">SIGNATURE HAIR LOOKS</span>
-  <span class="signature-tool signature-comb" aria-hidden="true">
-    <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg"><path d="M8 10h124a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8z" fill="none" stroke="currentColor" stroke-width="4"/><path d="M18 26v15M30 26v15M42 26v15M54 26v15M66 26v15M78 26v15M90 26v15M102 26v15M114 26v15M126 26v15" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
-  </span>
+  <span class="signature-tool signature-comb" aria-hidden="true"><svg viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14h138a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H10z"/><path d="M18 34v16M30 34v16M42 34v16M54 34v16M66 34v16M78 34v16M90 34v16M102 34v16M114 34v16M126 34v16M138 34v16"/></svg></span>
 </h2>
   <div class="signature-video-grid" id="signatureVideoGrid">
     <div class="signature-video-card" data-video="cdAhCjcBSfM" tabindex="0" role="button" aria-label="Open Signature Hair video 1"><iframe src="https://www.youtube.com/embed/cdAhCjcBSfM?autoplay=1&mute=1&playsinline=1&loop=1&playlist=cdAhCjcBSfM&controls=1&rel=0" title="Signature Hair Look 1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><span class="tap-hint">Tap to enlarge</span></div>
@@ -4455,5 +4414,29 @@ footer{
 })();
 </script>
 
+
+<script id="signature-mobile-autoplay-fix">
+(function(){
+  function forceAutoplay(){
+    var modal=document.querySelector('.signature-video-modal');
+    if(!modal) return;
+    var frame=modal.querySelector('iframe');
+    if(!frame) return;
+    try{
+      var u=new URL(frame.src);
+      u.searchParams.set('autoplay','1');
+      u.searchParams.set('mute','0');
+      u.searchParams.set('playsinline','1');
+      frame.src=u.toString();
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var card=e.target.closest && e.target.closest('.signature-video-card');
+    if(!card) return;
+    setTimeout(forceAutoplay,80);
+    setTimeout(forceAutoplay,350);
+  },true);
+})();
+</script>
 </body>
 </html>
