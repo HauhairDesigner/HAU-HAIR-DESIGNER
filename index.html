@@ -2196,16 +2196,172 @@ footer{
     }
 }
 
-/* ================= MOBILE: COMPACT + AUTOMATICALLY BALANCED ================= */
 @media(max-width:650px){
     .nav-left{
         display:grid !important;
         grid-template-columns:repeat(2,minmax(0,1fr));
-        width:min(360px,calc(100vw - 28px));
-        max-width:100%;
-        margin:0 auto;
+        width:min(430px,100%);
+        gap:10px !important;
+    }
+
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        width:100%;
+        min-width:0;
+        height:46px !important;
+        min-height:46px;
+        padding:0 10px !important;
+        border-radius:14px !important;
+        font-size:14px !important;
+    }
+
+    .price-pin{
+        top:-7px;
+        right:-5px;
+        font-size:15px;
+    }
+}
+
+@media(max-width:380px){
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        font-size:13px !important;
+        gap:5px;
+        padding:0 7px !important;
+    }
+
+    .youtube-icon{
+        width:19px;
+        height:19px;
+        flex-basis:19px;
+    }
+}
+</style>
+
+
+<!-- FINAL NAVIGATION LAYOUT FIX: 4 BUTTONS ON ONE ROW + LARGER CENTER LOGO -->
+<style id="final-navigation-layout-fix">
+/* ================= DESKTOP / TABLET ================= */
+.navbar{
+    width:min(1440px,100%) !important;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) !important;
+    column-gap:18px !important;
+    padding:10px 26px !important;
+}
+
+/* Keep all four navigation buttons on one horizontal row on PC */
+.nav-left{
+    flex-wrap:nowrap !important;
+    gap:8px !important;
+    min-width:0 !important;
+}
+
+/* Smaller, balanced desktop buttons */
+.nav-left .home-link,
+.nav-left .direction-link,
+.nav-left .price-link,
+.nav-left .youtube-link{
+    height:46px !important;
+    min-height:46px !important;
+    padding:0 11px !important;
+    border-radius:15px !important;
+    font-size:14px !important;
+    gap:6px !important;
+    flex:0 0 auto !important;
+}
+
+.nav-left .home-link{min-width:92px !important;}
+.nav-left .direction-link{min-width:132px !important;}
+.nav-left .price-link{min-width:108px !important;}
+.nav-left .youtube-link{min-width:104px !important;}
+
+.nav-left .home-link::before{font-size:15px !important;}
+.price-icon{font-size:17px !important;}
+.youtube-icon{width:19px !important;height:19px !important;flex-basis:19px !important;}
+
+/* Make the header logo larger while keeping it centered */
+.logo img{
+    width:108px !important;
+    height:88px !important;
+    max-width:108px !important;
+    object-fit:contain !important;
+}
+
+/* ================= PRICE LIST PIN ================= */
+/* Keep the pin fully inside the button so it cannot be cut on mobile. */
+.nav-left .price-link{
+    position:relative !important;
+    overflow:hidden !important;
+    padding-right:25px !important;
+}
+
+.price-pin{
+    position:absolute !important;
+    top:3px !important;
+    right:4px !important;
+    font-size:13px !important;
+    line-height:1 !important;
+    transform:rotate(14deg) !important;
+    z-index:4 !important;
+    pointer-events:none !important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1150px) and (min-width:651px){
+    .navbar{
+        padding:9px 18px !important;
+        column-gap:12px !important;
+    }
+
+    .nav-left{gap:6px !important;}
+
+    .nav-left .home-link,
+    .nav-left .direction-link,
+    .nav-left .price-link,
+    .nav-left .youtube-link{
+        height:42px !important;
+        min-height:42px !important;
+        padding:0 8px !important;
+        font-size:12px !important;
+        gap:4px !important;
+    }
+
+    .nav-left .home-link{min-width:78px !important;}
+    .nav-left .direction-link{min-width:108px !important;}
+    .nav-left .price-link{min-width:92px !important;}
+    .nav-left .youtube-link{min-width:90px !important;}
+
+    .nav-left .price-link{padding-right:22px !important;}
+    .logo img{width:94px !important;height:76px !important;max-width:94px !important;}
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:650px){
+    .navbar{
+        display:flex !important;
+        flex-direction:column !important;
+        padding:10px 12px 14px !important;
+        gap:10px !important;
+    }
+
+    .logo{order:1 !important;}
+    .logo img{
+        width:96px !important;
+        height:78px !important;
+        max-width:96px !important;
+    }
+
+    .nav-left{
+        order:2 !important;
+        display:grid !important;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        width:min(430px,100%) !important;
         gap:8px !important;
-        align-items:stretch;
+        flex-wrap:initial !important;
     }
 
     .nav-left .home-link,
@@ -2216,72 +2372,40 @@ footer{
         min-width:0 !important;
         height:44px !important;
         min-height:44px !important;
-        padding:0 8px !important;
-        border-radius:13px !important;
+        padding:0 7px !important;
+        border-radius:14px !important;
         font-size:13px !important;
-        gap:6px !important;
-        overflow:hidden;
-        text-overflow:ellipsis;
+        gap:5px !important;
+    }
+
+    .nav-left .price-link{
+        overflow:hidden !important;
+        padding-right:20px !important;
     }
 
     .price-pin{
-        top:-6px;
-        right:-4px;
-        font-size:14px;
+        top:3px !important;
+        right:3px !important;
+        font-size:12px !important;
     }
 
-    .youtube-icon{
-        width:19px;
-        height:19px;
-        flex:0 0 19px;
-    }
+    .youtube-icon{width:18px !important;height:18px !important;flex-basis:18px !important;}
 }
 
-/* Smaller phones: keep the same 2 x 2 layout, reduce only what is needed. */
-@media(max-width:430px){
-    .nav-left{
-        width:min(340px,calc(100vw - 24px));
-        gap:7px !important;
-    }
-
+@media(max-width:380px){
+    .nav-left{gap:6px !important;}
     .nav-left .home-link,
     .nav-left .direction-link,
     .nav-left .price-link,
     .nav-left .youtube-link{
         height:42px !important;
         min-height:42px !important;
-        padding:0 6px !important;
-        font-size:12.5px !important;
-        gap:5px !important;
-    }
-
-    .price-icon{font-size:16px;}
-    .direction-icon{transform:scale(.92);}
-}
-
-/* Very narrow phones: still balanced and never overflow. */
-@media(max-width:360px){
-    .nav-left{
-        width:calc(100vw - 20px);
-        gap:6px !important;
-    }
-
-    .nav-left .home-link,
-    .nav-left .direction-link,
-    .nav-left .price-link,
-    .nav-left .youtube-link{
-        height:40px !important;
-        min-height:40px !important;
-        padding:0 4px !important;
+        padding:0 5px !important;
         font-size:12px !important;
         gap:4px !important;
     }
-
-    .youtube-icon{
-        width:17px;
-        height:17px;
-        flex-basis:17px;
-    }
+    .nav-left .price-link{padding-right:18px !important;}
+    .price-pin{font-size:11px !important;right:2px !important;top:3px !important;}
 }
 </style>
 
