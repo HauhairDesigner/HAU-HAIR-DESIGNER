@@ -2427,6 +2427,26 @@ footer{
 @keyframes usdBillBlink{from{opacity:.58;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
 @media(max-width:650px){.price-list-section{padding:8px 12px 26px}.price-list-box{max-width:330px;gap:10px;padding:10px 12px;border-radius:14px}.price-list-title{font-size:17px}.usd-bill{width:48px;height:25px}}
 </style>
+
+<!-- SIGNATURE HAIR LOOKS: additive styles only -->
+<style>
+.signature-hair-section{padding:18px 16px 8px;max-width:1180px;margin:0 auto;text-align:center;}
+.signature-hair-title{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;padding:10px 18px;border:2px solid #d7a84b;border-radius:16px;background:linear-gradient(135deg,#fffaf0,#fff);font-size:clamp(18px,2.2vw,28px);letter-spacing:1px;color:#3c2b18;animation:signatureGlow 1.8s ease-in-out infinite;}
+.signature-hair-title .video-icon{font-size:1.15em;}
+@keyframes signatureGlow{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.025);filter:brightness(1.08)}}
+.signature-video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.signature-video-card{position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:18px;background:#111;cursor:pointer;border:1px solid rgba(0,0,0,.12);touch-action:pan-y;}
+.signature-video-card iframe{width:100%;height:100%;border:0;display:block;pointer-events:none;}
+.signature-video-card .tap-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(transparent,rgba(0,0,0,.22));color:#fff;font-size:14px;opacity:0;transition:.2s;pointer-events:none;}
+.signature-video-card:hover .tap-hint{opacity:1;}
+.signature-video-modal{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:22px;}
+.signature-video-modal.open{display:flex;}
+.signature-video-modal-box{position:relative;width:min(92vw,520px);height:min(90vh,900px);aspect-ratio:9/16;background:#000;border-radius:18px;overflow:hidden;}
+.signature-video-modal iframe{width:100%;height:100%;border:0;}
+.signature-video-close{position:absolute;right:10px;top:10px;z-index:2;width:48px;height:48px;border:0;border-radius:50%;background:#e53935;color:#fff;font-size:30px;line-height:48px;cursor:pointer;font-weight:700;}
+@media(max-width:700px){.signature-hair-section{padding:16px 10px 8px}.signature-video-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 2px 8px;-webkit-overflow-scrolling:touch}.signature-video-card{flex:0 0 78vw;max-width:78vw;scroll-snap-align:center}.signature-hair-title{font-size:18px;padding:9px 13px}.signature-video-card .tap-hint{opacity:.75}}
+</style>
+
 </head>
 
 
@@ -2869,6 +2889,36 @@ footer{
         <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/9.jpg" alt="Google Maps review 9" loading="lazy"></div></div>
         <div class="google-review-slide"><div class="google-review-card"><img src="GOOGLE-MAPS/10.jpg" alt="Google Maps review 10" loading="lazy"></div></div>
       </div></div></div></section>
+
+<!-- ================= SIGNATURE HAIR LOOKS ================= -->
+<section class="signature-hair-section" id="signatureHairLooks" aria-label="Signature Hair Looks">
+  <h2 class="signature-hair-title"><span class="video-icon" aria-hidden="true">🎬</span><span>SIGNATURE HAIR LOOKS</span><span class="video-icon" aria-hidden="true">✨</span></h2>
+  <div class="signature-video-grid" id="signatureVideoGrid">
+    <div class="signature-video-card" data-video="cdAhCjcBSfM" tabindex="0" role="button" aria-label="Open Signature Hair video 1"><iframe src="https://www.youtube.com/embed/cdAhCjcBSfM?autoplay=1&mute=1&playsinline=1&loop=1&playlist=cdAhCjcBSfM&controls=1&rel=0" title="Signature Hair Look 1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><span class="tap-hint">Tap to enlarge</span></div>
+    <div class="signature-video-card" data-video="VxE6RQINJdM" tabindex="0" role="button" aria-label="Open Signature Hair video 2"><iframe src="https://www.youtube.com/embed/VxE6RQINJdM?autoplay=1&mute=1&playsinline=1&loop=1&playlist=VxE6RQINJdM&controls=1&rel=0" title="Signature Hair Look 2" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><span class="tap-hint">Tap to enlarge</span></div>
+    <div class="signature-video-card" data-video="vh06BXujfqA" tabindex="0" role="button" aria-label="Open Signature Hair video 3"><iframe src="https://www.youtube.com/embed/vh06BXujfqA?autoplay=1&mute=1&playsinline=1&loop=1&playlist=vh06BXujfqA&controls=1&rel=0" title="Signature Hair Look 3" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><span class="tap-hint">Tap to enlarge</span></div>
+  </div>
+</section>
+<div class="signature-video-modal" id="signatureVideoModal" aria-hidden="true">
+ <div class="signature-video-modal-box">
+  <button class="signature-video-close" id="signatureVideoClose" aria-label="Close full video">×</button>
+  <iframe id="signatureVideoPlayer" title="Full Signature Hair video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+ </div>
+</div>
+<script>
+(function(){
+ const cards=[...document.querySelectorAll('.signature-video-card')];
+ const modal=document.getElementById('signatureVideoModal'); const player=document.getElementById('signatureVideoPlayer'); const close=document.getElementById('signatureVideoClose');
+ function openVideo(id){player.src='https://www.youtube.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0';modal.classList.add('open');modal.setAttribute('aria-hidden','false');}
+ function closeVideo(){player.src='';modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}
+ cards.forEach(c=>{c.addEventListener('click',()=>openVideo(c.dataset.video));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openVideo(c.dataset.video)}})});
+ close.addEventListener('click',closeVideo);modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
+ // Mobile carousel: Wi-Fi 10 seconds, mobile data 3 seconds when Network Information API is available.
+ const grid=document.getElementById('signatureVideoGrid');
+ if(grid && window.matchMedia('(max-width:700px)').matches){let index=0;const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;const slow=connection && !/wifi/i.test(connection.type||'') && /cellular/i.test(connection.type||'');const delay=slow?3000:10000;setInterval(()=>{index=(index+1)%cards.length;cards[index].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});},delay);}
+})();
+</script>
+
 <!-- PRICE LIST: compact addition directly below Google Maps Reviews -->
 <section class="price-list-section" id="price" aria-label="Price List">
   <div class="price-list-box">
