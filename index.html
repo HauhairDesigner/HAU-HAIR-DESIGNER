@@ -2872,9 +2872,24 @@ footer{
         <label for="bookingName">Your Full Name</label>
         <input id="bookingName" name="name" type="text" placeholder="Your Full Name" required autocomplete="name">
       </div>
-      <div class="booking-field">
-        <label for="bookingDate">Visit Date</label>
-        <input id="bookingDate" name="date" type="date" required>
+      <div class="booking-field booking-date-field">
+        <label for="bookingDateDisplay">Visit Date</label>
+        <div class="booking-date-control" id="bookingDateControl">
+          <input id="bookingDateDisplay" type="text" placeholder="Select a date" readonly aria-haspopup="dialog" aria-expanded="false">
+          <input id="bookingDate" name="date" type="hidden" required>
+          <button class="booking-date-trigger" id="bookingDateTrigger" type="button" aria-label="Choose visit date">📅</button>
+          <div class="booking-date-picker" id="bookingDatePicker" role="dialog" aria-label="Choose visit date" hidden>
+            <div class="booking-calendar-header">
+              <button type="button" class="booking-calendar-nav" id="bookingCalendarPrev" aria-label="Previous month">‹</button>
+              <div class="booking-calendar-title" id="bookingCalendarTitle">September 2026</div>
+              <button type="button" class="booking-calendar-nav" id="bookingCalendarNext" aria-label="Next month">›</button>
+            </div>
+            <div class="booking-calendar-weekdays" aria-hidden="true">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="booking-calendar-grid" id="bookingCalendarGrid"></div>
+          </div>
+        </div>
       </div>
       <div class="booking-field">
         <label for="bookingHour">Visit Time</label>
@@ -3914,5 +3929,262 @@ footer{
     }
 }
 </style>
+
+
+<!-- ================= ENGLISH DATE PICKER + LIGHT LUXURY BOOK NOW ================= -->
+<style id="english-date-picker-and-light-book-now">
+/* The native mobile date sheet follows the phone locale and cannot be forced reliably.
+   This custom picker keeps the booking date interface 100% English on PC + mobile. */
+.booking-date-field{position:relative !important;z-index:30;}
+.booking-date-control{position:relative;width:100%;}
+#bookingDateDisplay{
+    width:100% !important;
+    height:58px;
+    box-sizing:border-box !important;
+    padding:0 56px 0 17px !important;
+    cursor:pointer;
+    caret-color:transparent;
+    -webkit-user-select:none;
+    user-select:none;
+}
+.booking-date-trigger{
+    position:absolute;
+    top:50%;
+    right:14px;
+    transform:translateY(-50%);
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:12px;
+    background:rgba(218,176,93,.14);
+    color:#8c6427;
+    font-size:18px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.booking-date-picker{
+    position:absolute;
+    left:0;
+    right:0;
+    top:calc(100% + 8px);
+    z-index:2147483647;
+    padding:14px;
+    border-radius:20px;
+    border:1px solid rgba(196,145,59,.42);
+    background:rgba(255,255,255,.98);
+    box-shadow:0 20px 46px rgba(42,31,20,.22);
+    color:#263746;
+}
+.booking-date-picker[hidden]{display:none !important;}
+.booking-calendar-header{
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr) 42px;
+    align-items:center;
+    gap:6px;
+    margin-bottom:12px;
+}
+.booking-calendar-title{
+    text-align:center;
+    font-weight:800;
+    font-size:17px;
+    letter-spacing:.2px;
+}
+.booking-calendar-nav{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:1px solid rgba(196,145,59,.42);
+    background:#fffaf0;
+    color:#8a6126;
+    font-size:28px;
+    line-height:1;
+    cursor:pointer;
+}
+.booking-calendar-weekdays,.booking-calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,minmax(0,1fr));
+    gap:4px;
+}
+.booking-calendar-weekdays{margin-bottom:6px;}
+.booking-calendar-weekdays span{
+    text-align:center;
+    font-size:11px;
+    font-weight:800;
+    color:#8a765c;
+    padding:4px 0;
+}
+.booking-calendar-day{
+    height:38px;
+    border:0;
+    border-radius:11px;
+    background:transparent;
+    color:#263746;
+    font:inherit;
+    font-weight:700;
+    cursor:pointer;
+}
+.booking-calendar-day:hover:not(:disabled){background:#fff0cf;}
+.booking-calendar-day.is-selected{
+    color:#fff;
+    background:linear-gradient(135deg,#c48a2b,#e0b45e);
+    box-shadow:0 5px 12px rgba(190,129,38,.24);
+}
+.booking-calendar-day.is-today:not(.is-selected){outline:1px solid rgba(196,138,43,.55);}
+.booking-calendar-day:disabled{color:#c6cbd0;cursor:not-allowed;}
+.booking-calendar-empty{height:38px;}
+
+/* Brighter champagne luxury for the Book Now button – PC + mobile */
+.booking-submit{
+    background:linear-gradient(135deg,#fff9ea 0%,#f9e4aa 32%,#e9bf67 68%,#fff4d8 100%) !important;
+    color:#4b3215 !important;
+    border:1px solid rgba(183,127,35,.72) !important;
+    text-shadow:0 1px 0 rgba(255,255,255,.72) !important;
+    box-shadow:0 10px 24px rgba(194,142,54,.22),inset 0 1px 0 rgba(255,255,255,.95) !important;
+    animation:bookingLightLuxuryPulse 1.7s ease-in-out infinite !important;
+}
+.booking-submit::before{
+    background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.86) 47%,transparent 78%) !important;
+    animation:bookingLightLuxuryShine 2.8s ease-in-out infinite !important;
+}
+.booking-submit:hover{
+    color:#3d2912 !important;
+    filter:brightness(1.035) saturate(1.04);
+    box-shadow:0 15px 30px rgba(194,142,54,.30),0 0 0 4px rgba(238,205,133,.18) !important;
+}
+.booking-submit:disabled{filter:saturate(.72) brightness(.96);animation:none !important;}
+@keyframes bookingLightLuxuryPulse{
+    0%,100%{transform:translateY(0) scale(1);filter:brightness(1);}
+    50%{transform:translateY(-1px) scale(1.012);filter:brightness(1.035);}
+}
+@keyframes bookingLightLuxuryShine{
+    0%,55%{transform:translateX(-140%);}
+    78%,100%{transform:translateX(140%);}
+}
+@media(max-width:620px){
+    #bookingDateDisplay{height:56px !important;}
+    .booking-date-picker{
+        position:fixed;
+        left:14px;
+        right:14px;
+        top:50%;
+        transform:translateY(-50%);
+        padding:16px;
+        border-radius:24px;
+        max-width:none;
+        box-shadow:0 24px 70px rgba(20,25,30,.34);
+    }
+    .booking-calendar-day{height:44px;font-size:16px;}
+    .booking-calendar-weekdays span{font-size:12px;}
+}
+@media(prefers-reduced-motion:reduce){
+    .booking-submit,.booking-submit::before{animation:none !important;}
+}
+</style>
+
+<script id="english-date-picker-script">
+(function(){
+    const hiddenDate = document.getElementById('bookingDate');
+    const display = document.getElementById('bookingDateDisplay');
+    const control = document.getElementById('bookingDateControl');
+    const trigger = document.getElementById('bookingDateTrigger');
+    const picker = document.getElementById('bookingDatePicker');
+    const title = document.getElementById('bookingCalendarTitle');
+    const grid = document.getElementById('bookingCalendarGrid');
+    const prev = document.getElementById('bookingCalendarPrev');
+    const next = document.getElementById('bookingCalendarNext');
+    if(!hiddenDate || !display || !picker || !title || !grid) return;
+
+    const pad = n => String(n).padStart(2,'0');
+    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    let viewYear = today.getFullYear();
+    let viewMonth = today.getMonth();
+
+    function minDate(){
+        const raw = hiddenDate.min;
+        if(raw){
+            const [y,m,d] = raw.split('-').map(Number);
+            return new Date(y,m-1,d);
+        }
+        return today;
+    }
+    function formatEnglishDate(y,m,d){
+        return `${monthNames[m]} ${d}, ${y}`;
+    }
+    function render(){
+        title.textContent = `${monthNames[viewMonth]} ${viewYear}`;
+        grid.innerHTML = '';
+        const firstDay = new Date(viewYear,viewMonth,1).getDay();
+        const days = new Date(viewYear,viewMonth+1,0).getDate();
+        const minimum = minDate(); minimum.setHours(0,0,0,0);
+        const selected = hiddenDate.value;
+        for(let i=0;i<firstDay;i++){
+            const empty = document.createElement('span');
+            empty.className='booking-calendar-empty';
+            grid.appendChild(empty);
+        }
+        for(let d=1;d<=days;d++){
+            const date = new Date(viewYear,viewMonth,d);
+            date.setHours(0,0,0,0);
+            const value = `${viewYear}-${pad(viewMonth+1)}-${pad(d)}`;
+            const btn = document.createElement('button');
+            btn.type='button';
+            btn.className='booking-calendar-day';
+            btn.textContent=d;
+            btn.disabled = date < minimum;
+            if(value === selected) btn.classList.add('is-selected');
+            if(date.getTime() === today.getTime()) btn.classList.add('is-today');
+            btn.addEventListener('click',()=>{
+                hiddenDate.value=value;
+                display.value=formatEnglishDate(viewYear,viewMonth,d);
+                display.setCustomValidity('');
+                closePicker();
+                hiddenDate.dispatchEvent(new Event('change',{bubbles:true}));
+            });
+            grid.appendChild(btn);
+        }
+    }
+    function openPicker(){
+        if(!hiddenDate.value){
+            const t=minDate();
+            viewYear=t.getFullYear(); viewMonth=t.getMonth();
+        }else{
+            const [y,m] = hiddenDate.value.split('-').map(Number);
+            viewYear=y; viewMonth=m-1;
+        }
+        picker.hidden=false;
+        display.setAttribute('aria-expanded','true');
+        render();
+    }
+    function closePicker(){
+        picker.hidden=true;
+        display.setAttribute('aria-expanded','false');
+    }
+    display.addEventListener('click',openPicker);
+    trigger && trigger.addEventListener('click',openPicker);
+    prev && prev.addEventListener('click',()=>{viewMonth--;if(viewMonth<0){viewMonth=11;viewYear--;}render();});
+    next && next.addEventListener('click',()=>{viewMonth++;if(viewMonth>11){viewMonth=0;viewYear++;}render();});
+    document.addEventListener('click',e=>{
+        if(!picker.hidden && !control.contains(e.target)) closePicker();
+    });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape') closePicker();});
+
+    // Keep the display synchronized if the form is reset or code changes the hidden value.
+    hiddenDate.addEventListener('change',()=>{
+        if(hiddenDate.value){
+            const [y,m,d]=hiddenDate.value.split('-').map(Number);
+            display.value=formatEnglishDate(y,m-1,d);
+        }
+    });
+    const form = document.getElementById('bookingForm');
+    form && form.addEventListener('reset',()=>{
+        setTimeout(()=>{display.value='';viewYear=today.getFullYear();viewMonth=today.getMonth();closePicker();},0);
+    });
+})();
+</script>
+
 </body>
 </html>
