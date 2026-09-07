@@ -3964,6 +3964,13 @@ footer{
     align-items:center;
     justify-content:center;
 }
+/* Hide the calendar trigger while the custom calendar is open.
+   This prevents the 📅 button from floating over a day (the issue seen on day 12). */
+.booking-date-control.is-picker-open .booking-date-trigger{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+}
 .booking-date-picker{
     position:absolute;
     left:0;
@@ -4156,11 +4163,13 @@ footer{
             viewYear=y; viewMonth=m-1;
         }
         picker.hidden=false;
+        control.classList.add('is-picker-open');
         display.setAttribute('aria-expanded','true');
         render();
     }
     function closePicker(){
         picker.hidden=true;
+        control.classList.remove('is-picker-open');
         display.setAttribute('aria-expanded','false');
     }
     display.addEventListener('click',openPicker);
