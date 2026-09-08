@@ -3493,13 +3493,23 @@ footer{
             return;
         }
 
+        /*
+         * Booking data is still sent to the SAME Google Apps Script URL.
+         * The Apps Script can safely do BOTH jobs server-side:
+         * 1) save the booking to Google Sheets
+         * 2) send the booking notification to Telegram
+         *
+         * Important: never put a Telegram bot token inside this public HTML file.
+         */
         const bookingData = {
             fullName: document.getElementById('bookingName').value.trim(),
-            phone: '', 
+            phone: '',
             email: '',
             visitDate: selectedDate,
             visitTime: `${hourInput.value}:${minuteInput.value} ${selectedPeriod}`,
-            service: document.getElementById('bookingService').value
+            service: document.getElementById('bookingService').value,
+            source: 'H.A.U HAIR DESIGNER Website',
+            notifyTelegram: true
         };
 
         submitBtn.disabled = true;
