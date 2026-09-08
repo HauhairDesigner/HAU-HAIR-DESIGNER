@@ -2634,6 +2634,127 @@ footer{
 }
 </style>
 
+
+
+<!-- REQUESTED FINAL FIX: MOBILE BOOK TEXT + GET DIRECTION / PRICE LIST EFFECTS ONLY -->
+<style id="requested-mobile-book-and-nav-effects">
+/* ONLY the two requested changes below. All existing HTML, links and functions remain unchanged. */
+
+/* Get Direction + Price List: gentle premium blinking/glow effect. */
+.nav-left .direction-link,
+.nav-left .price-link{
+    animation:navButtonGlow 1.55s ease-in-out infinite !important;
+    will-change:transform,box-shadow,filter;
+}
+
+.nav-left .price-link{
+    animation-delay:.32s !important;
+}
+
+@keyframes navButtonGlow{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 5px 14px rgba(66,133,244,.16);
+        filter:brightness(1);
+    }
+    50%{
+        transform:scale(1.035);
+        box-shadow:0 0 0 4px rgba(66,133,244,.13),0 9px 22px rgba(66,133,244,.30);
+        filter:brightness(1.06);
+    }
+}
+
+/* Keep the existing hover behavior clean while preserving the visual effect. */
+.nav-left .direction-link:hover,
+.nav-left .price-link:hover{
+    animation-play-state:paused !important;
+    transform:translateY(-2px) scale(1.025) !important;
+}
+
+/* Mobile: make the long appointment text automatically fit INSIDE the button. */
+@media(max-width:650px){
+    .nav-right{
+        padding-left:34px !important;
+        padding-right:8px !important;
+        box-sizing:border-box !important;
+    }
+
+    .book-btn{
+        width:min(100%,420px) !important;
+        max-width:100% !important;
+        min-height:52px !important;
+        padding:10px 14px !important;
+        display:inline-flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        text-align:center !important;
+        white-space:normal !important;
+        overflow-wrap:anywhere !important;
+        word-break:normal !important;
+        line-height:1.22 !important;
+        font-size:clamp(11px,3.45vw,15px) !important;
+        box-sizing:border-box !important;
+    }
+
+    .book-btn::after{
+        left:-31px !important;
+        font-size:24px !important;
+    }
+
+    .nav-left .direction-link,
+    .nav-left .price-link{
+        animation-duration:1.65s !important;
+    }
+}
+
+@media(max-width:380px){
+    .nav-right{
+        padding-left:30px !important;
+        padding-right:5px !important;
+    }
+
+    .book-btn{
+        min-height:50px !important;
+        padding:9px 10px !important;
+        font-size:clamp(10px,3.35vw,13px) !important;
+        line-height:1.18 !important;
+    }
+
+    .book-btn::after{
+        left:-28px !important;
+        font-size:22px !important;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .nav-left .direction-link,
+    .nav-left .price-link{
+        animation:none !important;
+    }
+}
+</style>
+
+
+<!-- REQUESTED FINAL FIX: REVIEW HAND PC POSITION + NO MOBILE AUTO-JUMP -->
+<style id="requested-review-hand-and-mobile-scroll-fix">
+/* PC: keep the blinking hand beside Write a Review without covering Google Maps Reviews. */
+@media (min-width:651px){
+  .write-review-btn::before{
+    content:"👈" !important;
+    left:auto !important;
+    right:-52px !important;
+    top:50% !important;
+    margin:0 !important;
+    transform:translateY(-50%) !important;
+    animation:reviewHandPointFromRight .72s ease-in-out infinite alternate !important;
+  }
+  @keyframes reviewHandPointFromRight{
+    from{transform:translate(3px,-50%) scale(1);}
+    to{transform:translate(-5px,-50%) scale(1.08);}
+  }
+}
+</style>
+
 </head>
 
 
@@ -3106,7 +3227,8 @@ footer{
  close.addEventListener('click',closeVideo);modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
  // Mobile carousel: Wi-Fi 10 seconds, mobile data 3 seconds when Network Information API is available.
  const grid=document.getElementById('signatureVideoGrid');
- if(grid && window.matchMedia('(max-width:700px)').matches){let index=0;const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;const slow=connection && !/wifi/i.test(connection.type||'') && /cellular/i.test(connection.type||'');const delay=slow?3000:10000;setInterval(()=>{index=(index+1)%cards.length;cards[index].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});},delay);}
+ /* Mobile Signature Hair carousel: no automatic scroll. Users move it manually only. */
+ if(grid && window.matchMedia('(max-width:700px)').matches){grid.style.scrollBehavior='smooth';}
 })();
 </script>
 
