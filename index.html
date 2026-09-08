@@ -4698,5 +4698,77 @@ footer{
 })();
 </script>
 
+
+<!-- ================= FINAL PRICE LIST PIN + SIZE FIX ================= -->
+<style id="final-price-list-pin-natural-fix">
+/* Only fixes the Price List button appearance. All links and functions remain unchanged. */
+
+/* Keep Price List exactly the same visual height as the other navigation buttons. */
+.nav-left .price-link{
+    position:relative !important;
+    height:46px !important;
+    min-height:46px !important;
+    box-sizing:border-box !important;
+}
+
+/* Natural-looking pin: clearly visible in the top-right corner without covering the text. */
+.nav-left .price-link .price-pin{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    position:absolute !important;
+    top:1px !important;
+    right:3px !important;
+    width:18px !important;
+    height:18px !important;
+    font-size:14px !important;
+    line-height:1 !important;
+    transform:rotate(14deg) !important;
+    transform-origin:center center !important;
+    z-index:20 !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:none !important;
+}
+
+/* Reserve clean space for the pin so it never touches the Price List text. */
+.nav-left .price-link{
+    padding-right:27px !important;
+}
+
+/* Mobile keeps the same natural pin while preserving the existing responsive layout. */
+@media(max-width:650px){
+    .nav-left .price-link{
+        height:44px !important;
+        min-height:44px !important;
+        padding-right:24px !important;
+    }
+
+    .nav-left .price-link .price-pin{
+        top:1px !important;
+        right:2px !important;
+        width:17px !important;
+        height:17px !important;
+        font-size:13px !important;
+    }
+}
+
+@media(max-width:380px){
+    .nav-left .price-link{
+        height:42px !important;
+        min-height:42px !important;
+        padding-right:21px !important;
+    }
+
+    .nav-left .price-link .price-pin{
+        top:1px !important;
+        right:1px !important;
+        width:15px !important;
+        height:15px !important;
+        font-size:11px !important;
+    }
+}
+</style>
+
 </body>
 </html>
