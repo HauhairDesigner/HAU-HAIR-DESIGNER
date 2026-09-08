@@ -2755,6 +2755,45 @@ footer{
 }
 </style>
 
+
+
+<!-- ONLY THE TWO REQUESTED VISUAL ADDITIONS -->
+<style id="welcome-paper-clips-only">
+/* White introduction panel: two natural-looking paper clips on the upper corners. */
+.welcome-message{
+  position:relative !important;
+  overflow:visible !important;
+}
+.welcome-message::before,
+.welcome-message::after{
+  content:"📎";
+  position:absolute;
+  top:-18px;
+  z-index:20;
+  font-size:38px;
+  line-height:1;
+  pointer-events:none;
+  filter:drop-shadow(0 4px 3px rgba(38,56,75,.24));
+}
+.welcome-message::before{
+  left:24px;
+  transform:rotate(-18deg);
+}
+.welcome-message::after{
+  right:24px;
+  transform:rotate(18deg) scaleX(-1);
+}
+@media(max-width:650px){
+  .welcome-message::before,
+  .welcome-message::after{
+    top:-15px;
+    font-size:31px;
+  }
+  .welcome-message::before{left:16px;}
+  .welcome-message::after{right:16px;}
+}
+</style>
+
 </head>
 
 
@@ -3225,10 +3264,39 @@ footer{
  function closeVideo(){player.src='';modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}
  cards.forEach(c=>{c.addEventListener('click',()=>openVideo(c.dataset.video));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openVideo(c.dataset.video)}})});
  close.addEventListener('click',closeVideo);modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
- // Mobile carousel: Wi-Fi 10 seconds, mobile data 3 seconds when Network Information API is available.
+ // Mobile Signature Hair carousel: slide only inside the video row every 10 seconds.
+ // It only moves the horizontal video row and never scrolls the whole page.
  const grid=document.getElementById('signatureVideoGrid');
- /* Mobile Signature Hair carousel: no automatic scroll. Users move it manually only. */
- if(grid && window.matchMedia('(max-width:700px)').matches){grid.style.scrollBehavior='smooth';}
+ if(grid && window.matchMedia('(max-width:700px)').matches){
+   let timer=null;
+   let userInteracting=false;
+   const cardsInGrid=[...grid.querySelectorAll('.signature-video-card')];
+   const getStep=()=>{
+     if(cardsInGrid.length<2) return grid.clientWidth;
+     const a=cardsInGrid[0].getBoundingClientRect();
+     const b=cardsInGrid[1].getBoundingClientRect();
+     return Math.max(1,Math.round(b.left-a.left));
+   };
+   const moveNext=()=>{
+     if(userInteracting || !cardsInGrid.length) return;
+     const step=getStep();
+     const maxLeft=Math.max(0,grid.scrollWidth-grid.clientWidth);
+     const next=Math.min(maxLeft,Math.round(grid.scrollLeft/step+1)*step);
+     if(grid.scrollLeft>=maxLeft-4) grid.scrollTo({left:0,behavior:'smooth'});
+     else grid.scrollTo({left:next,behavior:'smooth'});
+   };
+   const start=()=>{clearInterval(timer);timer=setInterval(moveNext,10000);};
+   const pause=()=>{userInteracting=true;clearInterval(timer);};
+   const resume=()=>{userInteracting=false;start();};
+   grid.style.scrollBehavior='smooth';
+   grid.addEventListener('touchstart',pause,{passive:true});
+   grid.addEventListener('touchend',()=>setTimeout(resume,700),{passive:true});
+   grid.addEventListener('pointerdown',pause,{passive:true});
+   grid.addEventListener('pointerup',()=>setTimeout(resume,700),{passive:true});
+   grid.addEventListener('mouseenter',pause);
+   grid.addEventListener('mouseleave',resume);
+   start();
+ }
 })();
 </script>
 
