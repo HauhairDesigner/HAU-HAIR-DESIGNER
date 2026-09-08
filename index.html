@@ -2566,6 +2566,74 @@ footer{
 /* Added only for the Google review button. Existing functions/styles remain unchanged. */
 .google-reviews-heading{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:0 0 22px}.google-reviews-heading .google-reviews-title{margin:0}.write-review-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border:1px solid #d9b35d;border-radius:999px;background:linear-gradient(135deg,#fffdf7,#f7df9f);color:#26384b;font-size:18px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(184,137,45,.22);transition:transform .2s ease,box-shadow .2s ease;animation:writeReviewPulse 1.8s ease-in-out infinite}.write-review-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 24px rgba(184,137,45,.32)}.write-review-btn:focus-visible{outline:3px solid rgba(217,179,93,.45);outline-offset:3px}@keyframes writeReviewPulse{0%,100%{transform:scale(1);box-shadow:0 6px 18px rgba(184,137,45,.22)}50%{transform:scale(1.035);box-shadow:0 10px 26px rgba(184,137,45,.38)}}@media(max-width:650px){.google-reviews-heading{gap:10px;margin-bottom:16px}.write-review-btn{font-size:16px;padding:9px 16px}}
 </style>
+
+<style id="requested-final-button-adjustments">
+/* ONLY the requested visual adjustments below. All existing functions remain unchanged. */
+
+/* PRICE LIST: lower and shorter, keeping the same link/function. */
+.nav-left .price-link{
+    min-width:108px !important;
+    height:42px !important;
+    min-height:42px !important;
+    padding:0 13px !important;
+    border-radius:14px !important;
+    font-size:14px !important;
+}
+.nav-left .price-link .price-icon{font-size:16px !important;}
+.nav-left .price-link .price-pin{font-size:14px !important;top:-7px !important;right:-6px !important;}
+
+/* BOOK APPOINTMENT: softer, more elegant rounded corners. */
+.book-btn{
+    border-radius:24px !important;
+    padding:15px 25px !important;
+}
+
+/* Blinking hand pointing at the Write a Review button. */
+.write-review-btn{
+    position:relative !important;
+}
+.write-review-btn::before{
+    content:"👉";
+    position:absolute;
+    left:-52px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:31px;
+    line-height:1;
+    pointer-events:none;
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,.22));
+    animation:reviewPointHand .72s ease-in-out infinite alternate;
+}
+@keyframes reviewPointHand{
+    from{transform:translate(-3px,-50%) scale(1);}
+    to{transform:translate(5px,-50%) scale(1.08);}
+}
+
+@media(max-width:650px){
+    .nav-left .price-link{
+        min-width:102px !important;
+        height:40px !important;
+        min-height:40px !important;
+        padding:0 11px !important;
+    }
+    .book-btn{
+        border-radius:22px !important;
+        padding:13px 16px !important;
+    }
+    .write-review-btn::before{
+        position:static;
+        transform:none;
+        margin-right:6px;
+        font-size:25px;
+        animation:reviewPointHandMobile .72s ease-in-out infinite alternate;
+    }
+    @keyframes reviewPointHandMobile{
+        from{transform:translateX(-2px) scale(1);}
+        to{transform:translateX(4px) scale(1.06);}
+    }
+}
+</style>
+
 </head>
 
 
@@ -2640,7 +2708,7 @@ footer{
             href="#booking"
             class="book-btn" id="headerBookBtn">
 
-            📅 Book Appointment
+            📅 BOOK AN APPOINTMENT TO GET A DISCOUNT
 
             </a>
 
