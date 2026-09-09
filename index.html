@@ -3312,67 +3312,24 @@ footer{
 
   <div class="featured-hairstyles-frame">
     <div class="featured-hairstyles-grid" id="featuredHairstylesGrid">
-      <!-- Images are loaded automatically from GitHub folder HINH MAU -->
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%201.jpg" aria-label="View featured hairstyle 1"><img src="HINH%20MAU/MAU%201.jpg" alt="Featured hairstyle 1" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%202.jpg" aria-label="View featured hairstyle 2"><img src="HINH%20MAU/MAU%202.jpg" alt="Featured hairstyle 2" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%203.jpg" aria-label="View featured hairstyle 3"><img src="HINH%20MAU/MAU%203.jpg" alt="Featured hairstyle 3" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%204.jpg" aria-label="View featured hairstyle 4"><img src="HINH%20MAU/MAU%204.jpg" alt="Featured hairstyle 4" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%205.jpg" aria-label="View featured hairstyle 5"><img src="HINH%20MAU/MAU%205.jpg" alt="Featured hairstyle 5" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%206.jpg" aria-label="View featured hairstyle 6"><img src="HINH%20MAU/MAU%206.jpg" alt="Featured hairstyle 6" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%207.jpg" aria-label="View featured hairstyle 7"><img src="HINH%20MAU/MAU%207.jpg" alt="Featured hairstyle 7" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%208.jpg" aria-label="View featured hairstyle 8"><img src="HINH%20MAU/MAU%208.jpg" alt="Featured hairstyle 8" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%209.jpg" aria-label="View featured hairstyle 9"><img src="HINH%20MAU/MAU%209.jpg" alt="Featured hairstyle 9" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%2010.jpg" aria-label="View featured hairstyle 10"><img src="HINH%20MAU/MAU%2010.jpg" alt="Featured hairstyle 10" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%2011.jpg" aria-label="View featured hairstyle 11"><img src="HINH%20MAU/MAU%2011.jpg" alt="Featured hairstyle 11" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%2012.jpg" aria-label="View featured hairstyle 12"><img src="HINH%20MAU/MAU%2012.jpg" alt="Featured hairstyle 12" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%2013.jpg" aria-label="View featured hairstyle 13"><img src="HINH%20MAU/MAU%2013.jpg" alt="Featured hairstyle 13" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%2014.jpg" aria-label="View featured hairstyle 14"><img src="HINH%20MAU/MAU%2014.jpg" alt="Featured hairstyle 14" loading="lazy"></button>
+      <button class="featured-hairstyle-item" type="button" data-image="HINH%20MAU/MAU%2015.jpg" aria-label="View featured hairstyle 15"><img src="HINH%20MAU/MAU%2015.jpg" alt="Featured hairstyle 15" loading="lazy"></button>
     </div>
   </div>
 </section>
-
-
-<!-- FEATURED HAIRSTYLES: AUTO LOAD ALL IMAGES FROM GITHUB FOLDER -->
-<script id="featured-hairstyles-auto-loader">
-(function(){
-  const grid = document.getElementById('featuredHairstylesGrid');
-  if(!grid) return;
-
-  const apiUrl = 'https://api.github.com/repos/hauhairdesigner/HAU-HAIR-DESIGNER/contents/HINH%20MAU';
-
-  function isImage(file){
-    return file && file.type === 'file' && /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name || '');
-  }
-
-  function naturalSort(a,b){
-    return (a.name || '').localeCompare(b.name || '', undefined, {
-      numeric:true,
-      sensitivity:'base'
-    });
-  }
-
-  function createItem(file, index){
-    const button = document.createElement('button');
-    button.className = 'featured-hairstyle-item';
-    button.type = 'button';
-    button.dataset.image = file.download_url;
-    button.setAttribute('aria-label', 'View featured hairstyle ' + (index + 1));
-
-    const img = document.createElement('img');
-    img.src = file.download_url;
-    img.alt = 'Featured hairstyle ' + (index + 1);
-    img.loading = 'lazy';
-
-    button.appendChild(img);
-    return button;
-  }
-
-  fetch(apiUrl, {cache:'no-store'})
-    .then(function(response){
-      if(!response.ok) throw new Error('GitHub folder could not be loaded');
-      return response.json();
-    })
-    .then(function(files){
-      const images = Array.isArray(files) ? files.filter(isImage).sort(naturalSort) : [];
-      if(!images.length) return;
-
-      grid.innerHTML = '';
-      images.forEach(function(file, index){
-        grid.appendChild(createItem(file, index));
-      });
-    })
-    .catch(function(error){
-      console.warn('Featured Hairstyles auto loader:', error);
-      // If GitHub API is temporarily unavailable, existing page functionality remains untouched.
-    });
-})();
-</script>
 
 <div class="featured-hairstyles-modal" id="featuredHairstylesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Featured hairstyle image preview">
   <button class="featured-hairstyles-close" id="featuredHairstylesClose" type="button" aria-label="Close image preview">×</button>
@@ -5106,6 +5063,105 @@ footer{
     }
 }
 </style>
+
+
+<!-- FEATURED HAIRSTYLES FIX: AUTO LOAD + FAST SYNCHRONIZED PULSE + FULL IMAGE -->
+<style id="featured-hairstyles-fix-v2">
+/* Only affects FEATURED HAIRSTYLES */
+#featuredHairstylesGrid .featured-hairstyle-item{
+  animation: featuredFastPulse .72s ease-in-out infinite !important;
+}
+#featuredHairstylesGrid .featured-hairstyle-item:hover{
+  animation: none !important;
+  transform: scale(1.075) !important;
+  z-index:20 !important;
+}
+@keyframes featuredFastPulse{
+  0%,100%{transform:scale(1);filter:brightness(1);box-shadow:0 5px 16px rgba(0,0,0,.16);}
+  50%{transform:scale(1.018);filter:brightness(1.16) saturate(1.12);box-shadow:0 8px 24px rgba(210,165,70,.42);}
+}
+</style>
+
+<script id="featured-hairstyles-fix-v2-script">
+(function(){
+  const grid = document.getElementById('featuredHairstylesGrid');
+  const modal = document.getElementById('featuredHairstylesModal');
+  const preview = document.getElementById('featuredHairstylesPreview');
+  const closeBtn = document.getElementById('featuredHairstylesClose');
+  if(!grid || !modal || !preview) return;
+
+  // GitHub folder used for automatic image updates.
+  const api = 'https://api.github.com/repos/hauhairdesigner/HAU-HAIR-DESIGNER/contents/HINH%20MAU';
+
+  function imageFile(f){
+    return f && f.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(f.name || '');
+  }
+
+  function sortFiles(a,b){
+    return (a.name || '').localeCompare(b.name || '', undefined,
+      {numeric:true,sensitivity:'base'});
+  }
+
+  function addImages(files){
+    const images = files.filter(imageFile).sort(sortFiles);
+    if(!images.length) return;
+    grid.innerHTML = '';
+    images.forEach(function(file,i){
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'featured-hairstyle-item';
+      button.dataset.image = file.download_url;
+      button.setAttribute('aria-label','View featured hairstyle '+(i+1));
+
+      const img = document.createElement('img');
+      img.src = file.download_url;
+      img.alt = 'Featured hairstyle '+(i+1);
+      img.loading = 'lazy';
+      button.appendChild(img);
+      grid.appendChild(button);
+    });
+  }
+
+  // Automatically load every image currently inside HINH MAU.
+  fetch(api,{cache:'no-store'})
+    .then(function(r){
+      if(!r.ok) throw new Error('GitHub folder unavailable');
+      return r.json();
+    })
+    .then(addImages)
+    .catch(function(){
+      // Keep existing hard-coded images visible if GitHub API is temporarily unavailable.
+    });
+
+  // Event delegation: works for both original and dynamically loaded images.
+  grid.addEventListener('click',function(e){
+    const item = e.target.closest('.featured-hairstyle-item');
+    if(!item || !grid.contains(item)) return;
+    const image = item.dataset.image || (item.querySelector('img') && item.querySelector('img').src);
+    if(!image) return;
+
+    preview.src = image;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeModal(){
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden','true');
+    preview.src = '';
+    document.body.style.overflow = '';
+  }
+
+  if(closeBtn) closeBtn.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+})();
+</script>
 
 </body>
 </html>
