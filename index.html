@@ -3540,19 +3540,19 @@ footer{
 <style id="luxury-price-cards-addition">
 /* Added only for the new MEN + FOILS price cards below PRICE LIST */
 .luxury-price-cards{
-    width:min(1420px,94%);
-    margin:28px auto 48px;
+    width:min(1140px,88%);
+    margin:24px auto 42px;
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:30px;
+    gap:24px;
     box-sizing:border-box;
 }
 
 .luxury-price-card{
     position:relative;
     overflow:hidden;
-    border-radius:28px;
-    padding:14px;
+    border-radius:24px;
+    padding:11px;
     background:linear-gradient(145deg,#ffffff 0%,#f7f3eb 50%,#ffffff 100%);
     border:1px solid rgba(184,137,56,.62);
     box-shadow:0 16px 42px rgba(74,52,24,.16), inset 0 1px 0 rgba(255,255,255,.9);
@@ -3689,45 +3689,82 @@ footer{
     70%,100%{left:120%;opacity:0;}
 }
 
+@media(min-width:901px){
+    /* PC: thu nhỏ bảng giá khoảng 20% */
+    .luxury-price-card{
+        max-width:558px;
+        width:100%;
+        justify-self:center;
+        box-sizing:border-box;
+    }
+    .luxury-price-image{
+        max-height:255px;
+        object-fit:cover;
+        object-position:center;
+    }
+}
+
 @media(max-width:900px){
     .luxury-price-cards{
         grid-template-columns:1fr;
-        width:min(720px,92%);
-        gap:24px;
+        width:min(620px,88%);
+        margin:20px auto 34px;
+        gap:18px;
     }
-    .luxury-price-image{height:280px;}
+    .luxury-price-card{
+        padding:10px;
+        border-radius:22px;
+    }
+    .luxury-price-image{
+        height:260px;
+        object-fit:cover;
+        object-position:center;
+    }
 }
 
 @media(max-width:560px){
     .luxury-price-cards{
-        width:94%;
-        margin:22px auto 38px;
+        width:90%;
+        margin:18px auto 30px;
+        gap:16px;
     }
     .luxury-price-card{
-        border-radius:22px;
-        padding:10px;
+        border-radius:20px;
+        padding:9px;
     }
     .luxury-price-image{
-        height:220px;
-        border-radius:16px;
+        width:100%;
+        height:230px;
+        object-fit:cover;
+        object-position:center;
+        border-radius:15px;
     }
     .luxury-price-heading{
-        margin:5px 0 11px;
-        font-size:28px;
+        margin:4px 0 9px;
+        font-size:25px;
+    }
+    .luxury-services{
+        margin-top:10px;
+        gap:7px;
     }
     .luxury-service-row{
         grid-template-columns:1fr;
-        gap:8px;
-        padding:11px;
+        gap:7px;
+        padding:9px;
+        border-radius:16px;
         text-align:center;
     }
     .luxury-service-name{
         padding-left:0;
+        font-size:20px;
     }
     .luxury-price-badge{
         width:100%;
         box-sizing:border-box;
-        min-height:50px;
+        min-height:46px;
+        padding:7px 10px;
+        font-size:17px;
+        border-radius:14px;
     }
 }
 </style>
