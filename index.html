@@ -3595,9 +3595,9 @@ footer{
 
 .luxury-price-image{
     width:100%;
-    height:295px;
+    height:auto;
     display:block;
-    object-fit:cover;
+    object-fit:contain;
     border-radius:20px;
     border:1px solid rgba(184,137,56,.42);
     box-shadow:0 8px 22px rgba(35,27,18,.14);
@@ -3738,7 +3738,9 @@ footer{
         <img class="luxury-price-image"
              src="HINH%20BANG%20GIA/MEN.png"
              alt="H.A.U Hair Designer men's hair services"
-             loading="lazy">
+             loading="eager"
+             fetchpriority="high"
+             decoding="async">
         <div class="luxury-services">
             <div class="luxury-service-row">
                 <div class="luxury-service-name">Hair Cut</div>
@@ -3764,7 +3766,9 @@ footer{
         <img class="luxury-price-image"
              src="HINH%20BANG%20GIA/Foils.png"
              alt="H.A.U Hair Designer foils and highlight services"
-             loading="lazy">
+             loading="eager"
+             fetchpriority="high"
+             decoding="async">
         <div class="luxury-services">
             <div class="luxury-service-row">
                 <div class="luxury-service-name">Full Highlight</div>
