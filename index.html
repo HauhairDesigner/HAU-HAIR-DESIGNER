@@ -5065,24 +5065,30 @@ footer{
 </style>
 
 
-<!-- FEATURED HAIRSTYLES FIX: AUTO LOAD + FAST SYNCHRONIZED PULSE + FULL IMAGE -->
-<style id="featured-hairstyles-fix-v2">
-/* Only affects FEATURED HAIRSTYLES */
+<!-- FEATURED HAIRSTYLES: AUTO GITHUB LOADER + FAST SYNC EFFECT + DYNAMIC FULL VIEW -->
+<style id="featured-hairstyles-auto-fix">
+/* Only the Featured Hairstyles images are affected */
 #featuredHairstylesGrid .featured-hairstyle-item{
-  animation: featuredFastPulse .72s ease-in-out infinite !important;
+  animation: featuredPulseFast .65s ease-in-out infinite !important;
 }
 #featuredHairstylesGrid .featured-hairstyle-item:hover{
-  animation: none !important;
-  transform: scale(1.075) !important;
-  z-index:20 !important;
+  animation-play-state: paused !important;
+  transform:scale(1.08) !important;
+  z-index:30 !important;
 }
-@keyframes featuredFastPulse{
-  0%,100%{transform:scale(1);filter:brightness(1);box-shadow:0 5px 16px rgba(0,0,0,.16);}
-  50%{transform:scale(1.018);filter:brightness(1.16) saturate(1.12);box-shadow:0 8px 24px rgba(210,165,70,.42);}
+@keyframes featuredPulseFast{
+  0%,100%{
+    transform:scale(1);
+    filter:brightness(1) saturate(1);
+  }
+  50%{
+    transform:scale(1.018);
+    filter:brightness(1.18) saturate(1.16);
+  }
 }
 </style>
 
-<script id="featured-hairstyles-fix-v2-script">
+<script id="featured-hairstyles-auto-fix-script">
 (function(){
   const grid = document.getElementById('featuredHairstylesGrid');
   const modal = document.getElementById('featuredHairstylesModal');
@@ -5090,75 +5096,104 @@ footer{
   const closeBtn = document.getElementById('featuredHairstylesClose');
   if(!grid || !modal || !preview) return;
 
-  // GitHub folder used for automatic image updates.
-  const api = 'https://api.github.com/repos/hauhairdesigner/HAU-HAIR-DESIGNER/contents/HINH%20MAU';
+  const apiUrl = 'https://api.github.com/repos/hauhairdesigner/HAU-HAIR-DESIGNER/contents/HINH%20MAU';
 
-  function imageFile(f){
-    return f && f.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(f.name || '');
+  function isImage(file){
+    return file && file.type === 'file' &&
+      /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name || '');
   }
 
-  function sortFiles(a,b){
-    return (a.name || '').localeCompare(b.name || '', undefined,
-      {numeric:true,sensitivity:'base'});
+  function naturalSort(a,b){
+    return (a.name || '').localeCompare(
+      (b.name || ''), undefined,
+      {numeric:true, sensitivity:'base'}
+    );
   }
 
-  function addImages(files){
-    const images = files.filter(imageFile).sort(sortFiles);
+  function renderImages(files){
+    const images = (Array.isArray(files) ? files : [])
+      .filter(isImage)
+      .sort(naturalSort);
+
     if(!images.length) return;
+
     grid.innerHTML = '';
-    images.forEach(function(file,i){
+
+    images.forEach(function(file,index){
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'featured-hairstyle-item';
       button.dataset.image = file.download_url;
-      button.setAttribute('aria-label','View featured hairstyle '+(i+1));
+      button.setAttribute('aria-label','View featured hairstyle '+(index+1));
 
       const img = document.createElement('img');
       img.src = file.download_url;
-      img.alt = 'Featured hairstyle '+(i+1);
+      img.alt = 'Featured hairstyle '+(index+1);
       img.loading = 'lazy';
+
       button.appendChild(img);
       grid.appendChild(button);
     });
   }
 
-  // Automatically load every image currently inside HINH MAU.
-  fetch(api,{cache:'no-store'})
-    .then(function(r){
-      if(!r.ok) throw new Error('GitHub folder unavailable');
-      return r.json();
+  /* Automatically load every image from the GitHub HINH MAU folder */
+  fetch(apiUrl,{cache:'no-store'})
+    .then(function(response){
+      if(!response.ok) throw new Error('GitHub folder unavailable');
+      return response.json();
     })
-    .then(addImages)
-    .catch(function(){
-      // Keep existing hard-coded images visible if GitHub API is temporarily unavailable.
+    .then(renderImages)
+    .catch(function(error){
+      console.warn('Featured Hairstyles auto update:',error);
+      /* Existing images in the original file stay visible as fallback */
     });
 
-  // Event delegation: works for both original and dynamically loaded images.
-  grid.addEventListener('click',function(e){
-    const item = e.target.closest('.featured-hairstyle-item');
-    if(!item || !grid.contains(item)) return;
-    const image = item.dataset.image || (item.querySelector('img') && item.querySelector('img').src);
-    if(!image) return;
+  function openFullImage(item){
+    const img = item.querySelector('img');
+    const src = item.dataset.image || (img ? img.currentSrc || img.src : '');
+    if(!src) return;
 
-    preview.src = image;
-    modal.classList.add('active');
+    preview.src = src;
+    preview.alt = img ? img.alt : 'Featured hairstyle preview';
+
+    /* IMPORTANT: existing CSS uses .open, not .active */
+    modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  });
 
-  function closeModal(){
-    modal.classList.remove('active');
+    /* Lock page only while the visible full-image modal is open */
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFullImage(){
+    modal.classList.remove('open');
     modal.setAttribute('aria-hidden','true');
     preview.src = '';
     document.body.style.overflow = '';
   }
 
-  if(closeBtn) closeBtn.addEventListener('click',closeModal);
-  modal.addEventListener('click',function(e){
-    if(e.target === modal) closeModal();
+  /* Event delegation works for images loaded later from GitHub */
+  grid.addEventListener('click',function(event){
+    const item = event.target.closest('.featured-hairstyle-item');
+    if(!item || !grid.contains(item)) return;
+    event.preventDefault();
+    openFullImage(item);
   });
-  document.addEventListener('keydown',function(e){
-    if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+
+  if(closeBtn){
+    closeBtn.addEventListener('click',function(event){
+      event.preventDefault();
+      closeFullImage();
+    });
+  }
+
+  modal.addEventListener('click',function(event){
+    if(event.target === modal) closeFullImage();
+  });
+
+  document.addEventListener('keydown',function(event){
+    if(event.key === 'Escape' && modal.classList.contains('open')){
+      closeFullImage();
+    }
   });
 })();
 </script>
