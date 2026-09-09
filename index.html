@@ -3689,8 +3689,9 @@ footer{
     70%,100%{left:120%;opacity:0;}
 }
 
+/* IMAGE FIX: giữ nguyên toàn bộ hình MEN / WOMEN / FOILS, tuyệt đối không crop */
 @media(min-width:901px){
-    /* PC: thu nhỏ bảng giá khoảng 20% */
+    /* PC: giữ kích thước bảng giá gọn như bản trước */
     .luxury-price-card{
         max-width:558px;
         width:100%;
@@ -3698,8 +3699,10 @@ footer{
         box-sizing:border-box;
     }
     .luxury-price-image{
-        max-height:255px;
-        object-fit:cover;
+        width:100%;
+        height:auto;
+        max-height:none;
+        object-fit:contain;
         object-position:center;
     }
 }
@@ -3716,8 +3719,9 @@ footer{
         border-radius:22px;
     }
     .luxury-price-image{
-        height:260px;
-        object-fit:cover;
+        width:100%;
+        height:auto;
+        object-fit:contain;
         object-position:center;
     }
 }
@@ -3734,8 +3738,8 @@ footer{
     }
     .luxury-price-image{
         width:100%;
-        height:230px;
-        object-fit:cover;
+        height:auto;
+        object-fit:contain;
         object-position:center;
         border-radius:15px;
     }
@@ -3802,7 +3806,7 @@ footer{
     <article class="luxury-price-card">
         <h2 class="luxury-price-heading">WOMEN</h2>
         <img class="luxury-price-image"
-             src="https://raw.githubusercontent.com/HuahirDesigner/HAU-HAIR-DESIGNER/main/HINH%20BANG%20GIA/WOMEN.png"
+             src="HINH%20BANG%20GIA/WOMEN.png"
              alt="H.A.U Hair Designer women's hair services"
              loading="eager"
              fetchpriority="high"
