@@ -1,0 +1,4877 @@
+<!DOCTYPE html>
+<html lang="vi" translate="no" class="notranslate">
+<head>
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="vi">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H.A.U HAIR DESIGNER – Hair Salon Hoi An</title>
+  <link rel="icon" type="image/png" href="/logo/LOGO.png?v=29">
+  <link rel="shortcut icon" type="image/png" href="/logo/LOGO.png?v=29">
+  <link rel="apple-touch-icon" href="/logo/LOGO.png?v=29">
+  <meta name="description" content="H.A.U HAIR DESIGNER – professional hair salon in Hoi An. Hair, Nail & Spa services.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   H.A.U HAIR DESIGNER - MOBILE HEADER / MOBILE UI
+   Giữ nguyên giao diện desktop. Chỉ áp dụng dưới 768px.
+   ========================================================= */
+@media (max-width: 768px) {
+
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+  }
+
+  .header-inner {
+    min-height: 94px;
+    height: auto;
+    padding: 10px 14px;
+    display: grid;
+    grid-template-columns: minmax(90px, 1fr) minmax(82px, 1fr) minmax(82px, 1fr) 42px;
+    grid-template-rows: 37px 37px;
+    column-gap: 4px;
+    row-gap: 2px;
+    align-items: center;
+  }
+
+  /* Logo bên trái, chiếm 2 hàng */
+  .brand {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    padding-right: 5px;
+  }
+
+  .brand img {
+    display: block;
+    width: auto;
+    max-width: 92px;
+    max-height: 70px;
+    object-fit: contain;
+  }
+
+  /* Trên mobile chỉ ghim 4 mục:
+     DỊCH VỤ
+     LIÊN HỆ | ĐƯỜNG ĐI
+     TRANG CHỦ nằm trong menu 3 gạch.
+  */
+  .main-nav {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    gap: 0;
+    min-width: 0;
+  }
+
+  .main-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 0 3px;
+    font-size: clamp(10px, 2.8vw, 13px);
+    line-height: 1.1;
+    white-space: nowrap;
+    text-align: center;
+    border: 0;
+  }
+
+  .main-nav a:nth-child(1) {
+    display: none;
+  }
+
+  .main-nav a:nth-child(2) { grid-column: 1; grid-row: 1; }
+  .main-nav a:nth-child(3) { grid-column: 2; grid-row: 1; }
+  .main-nav a:nth-child(4) { grid-column: 1; grid-row: 2; }
+  .main-nav a:nth-child(5) { grid-column: 2; grid-row: 2; }
+
+  /* Nút đặt lịch chuyển vào menu để header mobile gọn */
+  .booking-btn {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    grid-column: 4;
+    grid-row: 1 / 3;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #6f4f32;
+    font-size: 29px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 8px 20px rgba(0,0,0,.10);
+    z-index: 1100;
+  }
+
+  .mobile-nav.show {
+    display: block;
+  }
+
+  .mobile-nav a {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    padding: 0 28px;
+    border-bottom: 1px solid #eee;
+    color: #5b5b5b;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* Đưa TRANG CHỦ + ĐẶT LỊCH vào menu bằng pseudo button */
+  .mobile-nav .mobile-booking {
+    justify-content: center;
+    background: #8b6a43;
+    color: #fff;
+    border-bottom: 0;
+  }
+
+  /* Hero mobile */
+  .hero {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .hero-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: none;
+    padding: 42px 24px 28px;
+    box-sizing: border-box;
+    order: 1;
+  }
+
+  .hero-copy .eyebrow {
+    font-size: clamp(16px, 4.5vw, 20px);
+    line-height: 1.25;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(31px, 9vw, 46px);
+    line-height: 1.08;
+    margin: 14px 0 14px;
+    word-break: normal;
+  }
+
+  .hero-copy h1 span {
+    display: block;
+    font-size: clamp(25px, 7vw, 36px);
+    line-height: 1.18;
+    margin-top: 12px;
+  }
+
+  .gold-line {
+    width: 125px;
+    margin: 0 0 24px;
+  }
+
+  .hero-copy p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+
+  .hero-copy .lead {
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .beauty-note {
+    margin-top: 8px;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 300px);
+    min-height: 54px;
+    box-sizing: border-box;
+    margin-top: 8px;
+  }
+
+  .hero-photo {
+    width: 100%;
+    order: 2;
+    padding: 0 18px 28px;
+    box-sizing: border-box;
+  }
+
+  .photo-frame {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 430px;
+    object-fit: cover;
+  }
+
+  /* Contact mobile */
+  .contact-strip {
+    padding: 28px 18px;
+    box-sizing: border-box;
+  }
+
+  .contact-info {
+    width: 100%;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .contact-icon {
+    flex: 0 0 28px;
+    width: 28px;
+    min-width: 28px;
+  }
+
+  .social-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .social {
+    min-width: 0;
+    min-height: 52px;
+    padding: 7px 4px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: clamp(9px, 2.7vw, 13px);
+    white-space: nowrap;
+  }
+
+  .social span {
+    flex: 0 0 auto;
+  }
+
+  .placeholder {
+    min-height: 160px;
+  }
+}
+
+/* Điện thoại rất hẹp */
+@media (max-width: 380px) {
+  .header-inner {
+    grid-template-columns: minmax(76px, 1fr) minmax(72px, 1fr) minmax(72px, 1fr) 38px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .brand img {
+    max-width: 76px;
+  }
+
+  .menu-toggle {
+    width: 38px;
+    font-size: 26px;
+  }
+
+  .main-nav a {
+    font-size: 9.5px;
+  }
+
+  .hero-copy {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .social-row {
+    gap: 5px;
+  }
+
+  .social {
+    font-size: 8.5px;
+    gap: 3px;
+  }
+}
+
+/* FINAL SOCIAL ICON POLISH */
+.social.tiktok .tiktok-icon{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  border-radius:8px !important;
+  background:#000 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+.social.tiktok .tiktok-icon svg{
+  width:25px !important;
+  height:25px !important;
+  display:block !important;
+}
+
+/* PC: YouTube logo nằm trong khung trắng */
+.social.youtube .youtube-icon{
+  width:30px !important;
+  height:24px !important;
+  min-width:30px !important;
+  border-radius:6px !important;
+  background:#fff !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+.social.youtube .youtube-icon svg{
+  width:23px !important;
+  height:17px !important;
+  display:block !important;
+}
+
+/* Mobile: bỏ icon, chữ TikTok màu titan */
+@media (max-width:768px){
+  .social.tiktok{
+    background:#f1f1f1 !important;
+    color:#8f8f8f !important;
+  }
+  .social.tiktok .tiktok-icon,
+  .social.youtube .youtube-icon{
+    display:none !important;
+  }
+}
+
+
+/* V85: thông báo ngày/giờ quá khứ */
+.booking-validation-notice{
+  display:none;
+  width:100%;
+  box-sizing:border-box;
+  margin:-4px 0 8px;
+  padding:8px 10px;
+  border:1px solid #d8a64a;
+  border-radius:8px;
+  background:#fff8e8;
+  color:#8a5b12;
+  font-size:13px;
+  line-height:1.35;
+  text-align:center;
+}
+.booking-validation-notice.show{display:block;}
+.calendar-days button.past{
+  opacity:.35 !important;
+  cursor:not-allowed !important;
+  text-decoration:line-through;
+}
+</style>
+
+
+<style>
+/* =========================================================
+   H.A.U MOBILE V2
+   Chỉ áp dụng mobile:
+   - Header trắng cố định khi cuộn
+   - 4 nút menu chính có khung bo góc, tách nhau
+   - Logo lớn hơn khoảng 30%
+   - Không thay đổi desktop
+   ========================================================= */
+@media (max-width: 768px) {
+  body {
+    padding-top: 114px;
+  }
+
+  .site-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 114px;
+    box-sizing: border-box;
+    background: #fff !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    z-index: 9999;
+  }
+
+  .header-inner {
+    height: 114px;
+    min-height: 114px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    grid-template-columns: 115px minmax(0, 1fr) minmax(0, 1fr) 42px;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 6px;
+    row-gap: 6px;
+    align-items: center;
+  }
+
+  /* Logo tăng khoảng 30% so với bản trước */
+  .brand {
+    align-self: center;
+    justify-self: start;
+    padding-right: 0;
+  }
+
+  .brand img {
+    width: 120px !important;
+    max-width: 120px !important;
+    max-height: 88px !important;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* 4 ô menu: tách nhau + bo góc */
+  .main-nav {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+    gap: 6px !important;
+    padding: 3px 0;
+    box-sizing: border-box;
+  }
+
+  .main-nav a {
+    min-height: 42px;
+    box-sizing: border-box;
+    padding: 4px 6px !important;
+    border: 1px solid #e6e1db !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    box-shadow: 0 1px 5px rgba(91,65,39,.07);
+    color: #6f6f6f !important;
+    font-size: clamp(10px, 2.9vw, 13px) !important;
+    font-weight: 700;
+    white-space: normal !important;
+  }
+
+  .main-nav a:active {
+    transform: scale(.98);
+  }
+
+  .menu-toggle {
+    grid-column: 4;
+    grid-row: 1 / 3;
+    width: 42px;
+    height: 42px;
+    font-size: 30px;
+    color: #6f4f32;
+  }
+
+  /* Menu mở ra nằm dưới header cố định */
+  .mobile-nav {
+    top: 114px !important;
+    position: fixed !important;
+    z-index: 10000;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header,
+  .header-inner {
+    height: 108px;
+    min-height: 108px;
+  }
+
+  body {
+    padding-top: 108px;
+  }
+
+  .header-inner {
+    grid-template-columns: 108px minmax(0, 1fr) minmax(0, 1fr) 38px;
+    padding-left: 9px;
+    padding-right: 9px;
+    column-gap: 5px;
+    row-gap: 5px;
+  }
+
+  .brand img {
+    width: 112px !important;
+    max-width: 112px !important;
+    max-height: 82px !important;
+  }
+
+  .main-nav {
+    gap: 5px !important;
+  }
+
+  .main-nav a {
+    font-size: 10px !important;
+    border-radius: 9px !important;
+  }
+
+  .menu-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 28px;
+  }
+
+  .mobile-nav {
+    top: 108px !important;
+  }
+}
+</style>
+
+
+<style id="hau-mobile-v3">
+@media (max-width: 768px) {
+  /* Header mobile gọn hơn */
+  body {
+    padding-top: 124px !important;
+  }
+
+  .site-header {
+    height: 124px !important;
+    min-height: 124px !important;
+    background: #fff !important;
+  }
+
+  .header-inner {
+    height: 124px !important;
+    min-height: 124px !important;
+    padding: 7px 10px !important;
+    box-sizing: border-box;
+    grid-template-columns: 106px minmax(0,1fr) minmax(0,1fr) 38px !important;
+    grid-template-rows: 35px 35px 31px !important;
+    column-gap: 5px !important;
+    row-gap: 5px !important;
+    align-items: center;
+  }
+
+  /* Logo giữ lớn nhưng cân đối với header thấp hơn */
+  .brand {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    align-self: center;
+  }
+
+  .brand img {
+    width: 108px !important;
+    max-width: 108px !important;
+    max-height: 84px !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  /* 4 nút nhỏ hơn một chút */
+  .main-nav {
+    grid-column: 2 / 4 !important;
+    grid-row: 1 / 3 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 35px 35px !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-content: center;
+  }
+
+  /* Thanh ghim mobile: TRANG CHỦ - DỊCH VỤ - LIÊN HỆ - ĐƯỜNG ĐI.
+     Vị trí bắt buộc:
+     TRANG CHỦ | DỊCH VỤ
+     LIÊN HỆ   | ĐƯỜNG ĐI
+  */
+  .main-nav a:first-child {
+    display: flex !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    background: #f3eee7 !important;
+    border: 1px solid #b88f4b !important;
+    color: #6f4f32 !important;
+    box-shadow: 0 1px 6px rgba(91,65,39,.16) !important;
+  }
+
+  .main-nav a:nth-child(2) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  .main-nav a:nth-child(3) {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  .main-nav a:nth-child(4) {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  .main-nav a {
+    display: flex !important;
+    min-height: 35px !important;
+    height: 35px !important;
+    padding: 2px 5px !important;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px !important;
+    border: 1px solid rgba(91,65,39,.13) !important;
+    box-shadow: 0 1px 5px rgba(91,65,39,.10) !important;
+    font-size: clamp(9px, 2.7vw, 12px) !important;
+    line-height: 1.05 !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Màu riêng, nhẹ và sang */
+  .main-nav a:nth-child(2) {
+    background: #f8edcf !important; /* Dịch vụ - champagne */
+    color: #7a5a27 !important;
+  }
+
+  .main-nav a:nth-child(3) {
+    background: #f1e7dc !important; /* Giới thiệu - nude */
+    color: #705542 !important;
+  }
+
+  .main-nav a:nth-child(4) {
+    background: #e3eef5 !important; /* Liên hệ - xanh nhạt */
+    color: #4d6272 !important;
+  }
+
+  .main-nav a:nth-child(5) {
+    background: #e8efdf !important; /* Đường đi - sage */
+    color: #536447 !important;
+  }
+
+  /* Đặt lịch ngay nằm dưới 4 ô */
+  .booking-btn {
+    grid-column: 2 / 4 !important;
+    grid-row: 3 !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 31px !important;
+    min-height: 31px !important;
+    margin: 0 !important;
+    padding: 3px 10px !important;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px !important;
+    background: #9a7545 !important;
+    color: #fff !important;
+    font-size: clamp(10px, 2.8vw, 12px) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    box-shadow: 0 2px 5px rgba(91,65,39,.16);
+    white-space: nowrap !important;
+  }
+
+  .booking-btn .scissors {
+    margin-right: 5px;
+  }
+
+  .menu-toggle {
+    grid-column: 4 !important;
+    grid-row: 1 / 4 !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    font-size: 28px !important;
+    color: #6f4f32 !important;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .mobile-nav {
+    top: 124px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding-top: 118px !important;
+  }
+
+  .site-header,
+  .header-inner {
+    height: 118px !important;
+    min-height: 118px !important;
+  }
+
+  .header-inner {
+    grid-template-columns: 98px minmax(0,1fr) minmax(0,1fr) 35px !important;
+    grid-template-rows: 33px 33px 29px !important;
+    column-gap: 4px !important;
+    row-gap: 4px !important;
+    padding: 6px 8px !important;
+  }
+
+  .brand img {
+    width: 100px !important;
+    max-width: 100px !important;
+    max-height: 78px !important;
+  }
+
+  .main-nav {
+    grid-template-rows: 33px 33px !important;
+    gap: 4px !important;
+  }
+
+  .main-nav a {
+    height: 33px !important;
+    min-height: 33px !important;
+    border-radius: 8px !important;
+    font-size: 9px !important;
+  }
+
+  .booking-btn {
+    height: 29px !important;
+    min-height: 29px !important;
+    border-radius: 8px !important;
+    font-size: 10px !important;
+  }
+
+  .menu-toggle {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 26px !important;
+  }
+
+  .mobile-nav {
+    top: 118px !important;
+  }
+}
+</style>
+
+
+<style id="hau-v4-pin-social-mobile">
+/* ICON ĐỊA CHỈ — SVG chuẩn, không xoay nên không bị méo */
+.contact-icon.location-pin{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:30px !important;
+  min-width:30px !important;
+  height:38px !important;
+  flex:0 0 30px !important;
+  margin-top:0 !important;
+  box-sizing:border-box !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.contact-icon.location-pin svg{
+  display:block !important;
+  width:30px !important;
+  height:38px !important;
+  flex:none !important;
+  overflow:visible !important;
+}
+.contact-icon.location-pin + span{
+  display:block;
+  min-width:0;
+}
+
+/* TIKTOK / YOUTUBE — ICON GỐC */
+.social-icon{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+.social-icon svg{
+  display:block;
+  width:20px;
+  height:20px;
+}
+.tiktok-icon svg{
+  width:21px;
+  height:21px;
+}
+.youtube-icon svg{
+  width:23px;
+  height:17px;
+}
+.social.tiktok{
+  background:#8f8f8f !important; /* titan */
+  color:#fff !important;
+}
+.social.youtube{
+  background:#f21d16 !important;
+  color:#fff !important;
+}
+
+/* HAMBURGER MOBILE — tăng khoảng 30% */
+@media (max-width:768px){
+  .menu-toggle{
+    width:55px !important;
+    height:55px !important;
+    font-size:38px !important;
+  }
+
+  /* Mobile bỏ toàn bộ logo/icon trong 5 nút mạng xã hội,
+     chỉ giữ chữ để chữ tự co theo chiều rộng ô */
+  .social-row .social span{
+    display:none !important;
+  }
+
+  .social-row{
+    gap:7px !important;
+  }
+
+  .social{
+    min-width:0 !important;
+    width:100% !important;
+    padding:7px 3px !important;
+    gap:0 !important;
+    overflow:hidden !important;
+    white-space:nowrap !important;
+    text-overflow:clip !important;
+    font-size:clamp(8px, 2.55vw, 12px) !important;
+    letter-spacing:-0.15px !important;
+    box-sizing:border-box !important;
+  }
+
+  .social.zalo{font-size:clamp(7.5px,2.35vw,11px) !important;}
+  .social.facebook{font-size:clamp(7.5px,2.30vw,11px) !important;}
+  .social.instagram{font-size:clamp(7.2px,2.20vw,10.5px) !important;}
+  .social.tiktok{font-size:clamp(8px,2.55vw,12px) !important;}
+  .social.youtube{font-size:clamp(7.5px,2.30vw,11px) !important;}
+
+  /* TikTok mobile: bỏ icon, chữ titan theo màu gốc */
+  .social.tiktok{
+    background:#f1f1f1 !important;
+    color:#8f8f8f !important;
+  }
+}
+
+@media (max-width:360px){
+  .menu-toggle{
+    width:52px !important;
+    height:52px !important;
+    font-size:36px !important;
+  }
+
+  .social-row{gap:5px !important;}
+  .social{
+    padding-left:2px !important;
+    padding-right:2px !important;
+  }
+}
+</style>
+
+
+<style id="hau-tiktok-final-polish">
+/* PC TikTok: logo đúng mẫu người dùng cung cấp, đủ viền xanh - trắng - đỏ */
+.social.tiktok .tiktok-icon{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  padding:0 !important;
+  border-radius:8px !important;
+  background:#000 !important;
+  overflow:hidden !important;
+}
+.social.tiktok .tiktok-logo-img{
+  display:block !important;
+  width:30px !important;
+  height:30px !important;
+  object-fit:cover !important;
+  border-radius:8px !important;
+}
+/* Mobile: nền TikTok mới sang hơn, chữ titan giữ nguyên */
+@media (max-width:768px){
+  .social.tiktok{
+    background:#e7e0d7 !important;
+    color:#8f8f8f !important;
+    border:1px solid #d4cbc0 !important;
+  }
+  .social.tiktok .tiktok-logo-img{
+    display:none !important;
+  }
+}
+</style>
+
+
+<style id="tiktok-v9-fix">
+@media (min-width: 769px) {
+  .social-tiktok .social-icon {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .social-tiktok {
+    background: linear-gradient(135deg, #8f8f8f 0%, #b8b8b8 50%, #737373 100%) !important;
+    border-color: #777 !important;
+    color: #fff !important;
+  }
+  .social-tiktok a,
+  .social-tiktok .social-label {
+    color: #fff !important;
+  }
+}
+</style>
+
+
+<style id="hau-tiktok-v10-final">
+@media (min-width: 769px) {
+  .social.tiktok .tiktok-icon {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  .social.tiktok .tiktok-logo-img {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .social.tiktok {
+    background: linear-gradient(135deg, #777777 0%, #a7a7a7 48%, #6f6f6f 100%) !important;
+    color: #fff !important;
+    border-color: #6d6d6d !important;
+  }
+  .social.tiktok a, .social.tiktok .social-label { color:#fff !important; }
+}
+</style>
+
+<style id="hau-social-brand-icons-v11">
+.social.zalo .zalo-icon, .social.facebook .facebook-icon, .social.instagram .instagram-icon {
+  width:20px; height:20px; min-width:20px; display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;
+}
+.social.zalo .zalo-icon svg, .social.facebook .facebook-icon svg, .social.instagram .instagram-icon svg { width:20px; height:20px; display:block; }
+@media (max-width:768px){
+  .social.zalo .zalo-icon, .social.facebook .facebook-icon, .social.instagram .instagram-icon { width:19px; height:19px; min-width:19px; }
+  .social.zalo .zalo-icon svg, .social.facebook .facebook-icon svg, .social.instagram .instagram-icon svg { width:19px; height:19px; }
+}
+</style>
+
+<style id="hau-mobile-social-stack-v11">
+/* V11 - Mobile: contact section gọn hơn + icon nằm trên, chữ nằm dưới.
+   Kích thước 5 ô mạng xã hội giữ nguyên. Desktop không thay đổi. */
+@media (max-width: 768px) {
+  .contact-strip {
+    padding: 18px 18px 22px !important;
+  }
+
+  .contact-info {
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+  }
+
+  .contact-row {
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    line-height: 1.45 !important;
+  }
+
+  .contact-row:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .social-row {
+    margin: 8px 0 0 !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+  }
+
+  /* Giữ nguyên kích thước 5 ô, chỉ đổi bố cục icon/chữ */
+  .social {
+    min-height: 52px !important;
+    height: 52px !important;
+    padding: 5px 3px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .social-row .social span {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .social-row .social-icon {
+    width: 19px !important;
+    height: 19px !important;
+    min-width: 19px !important;
+    min-height: 19px !important;
+  }
+
+  .social-row .social-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .social-row .tiktok-icon {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .social-row .tiktok-icon .tiktok-logo-img {
+    width: 21px !important;
+    height: 21px !important;
+    display: block !important;
+  }
+
+  .social-row .youtube-icon {
+    width: 23px !important;
+    height: 17px !important;
+  }
+
+  .social-row .youtube-icon svg {
+    width: 23px !important;
+    height: 17px !important;
+  }
+
+  /* Không dùng rule cũ ẩn toàn bộ icon trên mobile */
+  .social-row .social span.social-icon {
+    display: inline-flex !important;
+  }
+
+  .social-row .social {
+    font-size: clamp(7.5px, 2.25vw, 11px) !important;
+    letter-spacing: -0.1px !important;
+  }
+
+  .social.zalo,
+  .social.facebook,
+  .social.instagram,
+  .social.tiktok,
+  .social.youtube {
+    overflow: hidden !important;
+  }
+
+  .social.tiktok {
+    background: linear-gradient(135deg, #777 0%, #aaa 48%, #707070 100%) !important;
+    color: #fff !important;
+  }
+}
+</style>
+
+
+<style>
+/* V12 - MOBILE CONTACT SPACING
+   Đưa Hotline sát ngay dưới địa chỉ và 5 nút mạng xã hội sát ngay dưới Hotline.
+   Chỉ áp dụng cho mobile, không thay đổi PC.
+*/
+@media (max-width: 768px) {
+  .contact-strip {
+    padding: 20px 18px 22px !important;
+  }
+
+  .contact-info {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .contact-row {
+    margin: 0 !important;
+    gap: 12px !important;
+  }
+
+  /* Địa chỉ */
+  .contact-row:first-child {
+    margin-bottom: 10px !important;
+  }
+
+  /* Hotline nằm ngay dưới địa chỉ */
+  .contact-row:nth-child(2) {
+    margin-bottom: 14px !important;
+    align-items: center !important;
+  }
+
+  /* 5 nút nằm sát ngay dưới Hotline */
+  .social-row {
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-strip {
+    padding: 18px 12px 20px !important;
+  }
+
+  .contact-row:first-child {
+    margin-bottom: 8px !important;
+  }
+
+  .contact-row:nth-child(2) {
+    margin-bottom: 12px !important;
+  }
+
+  .social-row {
+    gap: 5px !important;
+  }
+}
+</style>
+
+<style id="hau-mobile-contact-v13">
+/* V13 - Mobile: nâng Hotline và hàng social lên, không đổi PC. */
+@media (max-width: 768px) {
+  /* Địa chỉ giữ nguyên; Hotline đưa lên khoảng 30% so với khoảng cách cũ. */
+  .contact-row:first-child {
+    margin-bottom: 0 !important;
+  }
+  .contact-row:nth-child(2) {
+    margin-top: -16px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* 5 nút đưa lên cao khoảng 40%, sát ngay dưới Hotline. */
+  .social-row {
+    margin-top: -18px !important;
+    transform: none !important;
+  }
+
+  /* Facebook dùng logo chữ f chuẩn, không còn vòng tròn giả. */
+  .social.facebook .facebook-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-row:nth-child(2) {
+    margin-top: -13px !important;
+  }
+  .social-row {
+    margin-top: -15px !important;
+  }
+}
+</style>
+
+
+
+<style id="hau-v14-social-final">
+/* V14
+   Mobile: 5 ô mạng xã hội cao hơn 15% (52px -> 60px), giữ nguyên chiều ngang.
+   PC: TikTok dùng nền đen bóng mờ, chữ trắng.
+*/
+@media (max-width: 768px) {
+  .social-row .social {
+    height: 60px !important;
+    min-height: 60px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .social.tiktok {
+    background: linear-gradient(145deg,
+      rgba(20,20,20,.96) 0%,
+      rgba(55,55,55,.88) 45%,
+      rgba(10,10,10,.96) 100%) !important;
+    color: #fff !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.18),
+      inset 0 -1px 0 rgba(0,0,0,.45),
+      0 3px 8px rgba(0,0,0,.18) !important;
+  }
+
+  .social.tiktok .tiktok-logo-img {
+    border-radius: 8px !important;
+  }
+}
+</style>
+
+<style id="hau-zalo-brand-v19">
+/* V19 - Zalo: thay WhatsApp bằng Zalo */
+.social.zalo .zalo-icon{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  border-radius:8px !important;
+  background:#0068ff !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  flex:0 0 auto !important;
+}
+.social.zalo .zalo-icon svg{
+  width:30px !important;
+  height:30px !important;
+  display:block !important;
+}
+@media (max-width:768px){
+  .social-row .zalo-icon{
+    width:21px !important;
+    height:21px !important;
+    min-width:21px !important;
+    min-height:21px !important;
+    border-radius:6px !important;
+  }
+  .social-row .zalo-icon svg{
+    width:21px !important;
+    height:21px !important;
+  }
+  .social.zalo{
+    background:#0068ff !important;
+    color:#fff !important;
+  }
+}
+</style>
+
+<style id="hau-zalo-brand-v20">
+/* V20 - Zalo: logo chính thức + khung đầy đủ PC/mobile */
+.social.zalo{
+  border:1px solid #0057d9 !important;
+  border-radius:10px !important;
+  box-sizing:border-box !important;
+  background:#0068ff !important;
+  color:#fff !important;
+  overflow:hidden !important;
+  box-shadow:0 1px 0 rgba(0,0,0,.08), inset 0 0 0 1px rgba(255,255,255,.12) !important;
+}
+.social.zalo .zalo-icon{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  min-height:30px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 30px !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  overflow:visible !important;
+}
+.social.zalo .zalo-logo-img{
+  display:block !important;
+  width:30px !important;
+  height:30px !important;
+  object-fit:contain !important;
+  border:0 !important;
+}
+@media (max-width:768px){
+  .social-row .social.zalo{
+    border:1px solid #0057d9 !important;
+    border-radius:8px !important;
+    background:#0068ff !important;
+    color:#fff !important;
+    box-shadow:0 1px 0 rgba(0,0,0,.08), inset 0 0 0 1px rgba(255,255,255,.12) !important;
+  }
+  .social-row .social.zalo .zalo-icon{
+    width:21px !important;
+    height:21px !important;
+    min-width:21px !important;
+    min-height:21px !important;
+    flex-basis:21px !important;
+  }
+  .social-row .social.zalo .zalo-logo-img{
+    width:21px !important;
+    height:21px !important;
+  }
+}
+</style>
+
+<style id="hau-booking-full-ui">
+/* ========================= ĐẶT LỊCH HẸN ========================= */
+.booking-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.66);z-index:30000}
+.booking-modal{position:relative;width:min(590px,100%);max-height:94vh;overflow:auto;background:#fffdf8;border:2px solid #d6b36a;border-radius:22px;box-shadow:0 28px 80px rgba(0,0,0,.34);padding:30px 26px 26px}
+.booking-close{position:absolute;right:13px;top:12px;width:40px;height:40px;border:0;border-radius:50%;background:#d71920;color:#fff;font-size:29px;line-height:38px;cursor:pointer;z-index:2}
+.booking-close:hover{background:#b80000;transform:scale(1.04)}
+.booking-title{text-align:center;font-family:'Playfair Display',serif;font-size:28px;font-weight:700;letter-spacing:.8px;color:#3f2d20;margin:2px 45px 5px}
+.booking-subtitle{text-align:center;color:#7b6c60;font-size:14px;margin-bottom:22px}
+.booking-field{margin-bottom:15px}.booking-field label{display:block;margin-bottom:7px;font-size:12.5px;font-weight:800;letter-spacing:.35px;color:#3f332b}.booking-field label span{color:#d71920}
+.booking-field input,.booking-field select,.booking-field textarea{width:100%;border:1px solid #d9cec0;border-radius:11px;background:#fff;padding:12px 13px;font:inherit;font-size:15px;color:#2d2925;outline:none;transition:.18s}
+.booking-field input:focus,.booking-field select:focus,.booking-field textarea:focus{border-color:#b78a43;box-shadow:0 0 0 3px rgba(183,138,67,.13)}
+.booking-field textarea{min-height:90px;resize:vertical}.booking-field input[readonly]{cursor:pointer;background:#fff}
+.booking-submit{width:100%;border:0;border-radius:12px;padding:14px 16px;background:#8f6a3f;color:#fff;font-weight:800;font-size:15px;letter-spacing:.25px;cursor:pointer;box-shadow:0 4px 12px rgba(91,65,39,.16)}
+.booking-submit:hover{background:#76542e}.booking-submit:disabled{opacity:.6;cursor:wait}
+/* Lịch đóng khung */
+.calendar-wrap{position:relative}.calendar-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 7px);z-index:20;background:#fffdf8;border:1px solid #d6b36a;border-radius:16px;padding:12px;box-shadow:0 16px 40px rgba(0,0,0,.18)}
+.calendar-panel.show{display:block}.calendar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.calendar-head button{width:34px;height:34px;border:1px solid #e1d4c2;border-radius:9px;background:#fff;color:#6e5132;font-size:19px;cursor:pointer}.calendar-title{font-weight:800;color:#4b3727;font-size:15px}.calendar-week,.calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.calendar-week div{text-align:center;font-size:11px;font-weight:800;color:#9a8064;padding:4px 0}.calendar-days button{height:34px;border:1px solid #eadfd2;border-radius:8px;background:#fff;color:#4b4038;cursor:pointer;font-size:13px}.calendar-days button:hover:not(:disabled){border-color:#b78a43;background:#f8edcf}.calendar-days button.other{visibility:hidden}.calendar-days button.past{color:#b9b0a7;background:#f2efeb;cursor:not-allowed}.calendar-days button.today{border:2px solid #c99b4d}.calendar-days button.selected{background:#9a7545;color:#fff;border-color:#9a7545;font-weight:800}.calendar-hint{font-size:11px;color:#8a7a6c;margin-top:8px;text-align:center}
+.success-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.66);z-index:31000}.success-modal{width:min(480px,100%);background:#fffdf8;border:2px solid #d6b36a;border-radius:22px;padding:32px 26px 26px;text-align:center;box-shadow:0 28px 80px rgba(0,0,0,.34)}.success-icon{width:66px;height:66px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;background:#198754;color:#fff;font-size:36px;font-weight:800}.success-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#3f2d20}.success-message{font-size:15px;line-height:1.7;color:#51473f;margin:13px 0 22px}.success-close{border:0;border-radius:10px;padding:12px 30px;background:#3e3027;color:#fff;font-weight:800;cursor:pointer}
+@media(max-width:600px){.booking-overlay,.success-overlay{padding:10px}.booking-modal{max-height:95vh;padding:28px 17px 21px;border-radius:18px}.booking-title{font-size:23px}.booking-subtitle{font-size:13px}.calendar-days button{height:32px}.calendar-panel{padding:10px}.success-modal{padding:28px 19px 23px}}
+</style>
+
+
+<style id="hauContactSocialV61">
+@media (min-width: 769px){
+  #contact .hau-social-row,
+  #contact .social-buttons,
+  #contact .social-row,
+  #contact .contact-social,
+  #contact .hau-contact-social{
+    gap: 3% !important;
+  }
+}
+@media (max-width: 768px){
+  #contact .hau-social-row a,
+  #contact .social-buttons a,
+  #contact .social-row a,
+  #contact .contact-social a,
+  #contact .hau-contact-social a{
+    overflow: visible !important;
+  }
+  #contact .hau-social-row a img,
+  #contact .social-buttons a img,
+  #contact .social-row a img,
+  #contact .contact-social a img,
+  #contact .hau-contact-social a img{
+    transform: translateY(-4%) !important;
+  }
+  #contact .hau-social-row a .social-icon,
+  #contact .social-buttons a .social-icon,
+  #contact .social-row a .social-icon,
+  #contact .contact-social a .social-icon,
+  #contact .hau-contact-social a .social-icon{
+    transform: translateY(-4%) !important;
+  }
+}
+</style>
+
+
+<style id="hauHomeSocialV62">
+/* V62: Homepage 5 social buttons 10% smaller on PC only. */
+@media (min-width: 769px){
+  header .social-buttons a,
+  header .social-row a,
+  header .hau-social-row a,
+  .home-social a,
+  .home-social-buttons a{
+    transform: scale(0.90) !important;
+  }
+}
+</style>
+
+
+<style id="hauSocialV64">
+/* V64 */
+@media (min-width: 769px){
+  /* Homepage: 2% gap and 40% narrower horizontally. */
+  header .social-buttons,
+  header .social-row,
+  header .hau-social-row,
+  .home-social,
+  .home-social-buttons{
+    gap: 2% !important;
+  }
+  header .social-buttons a,
+  header .social-row a,
+  header .hau-social-row a,
+  .home-social a,
+  .home-social-buttons a{
+    width: 60% !important;
+    min-width: 0 !important;
+    max-width: 60% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  header .social-buttons a > *,
+  header .social-row a > *,
+  header .hau-social-row a > *,
+  .home-social a > *,
+  .home-social-buttons a > *{
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  header .social-buttons a .social-icon,
+  header .social-row a .social-icon,
+  header .hau-social-row a .social-icon,
+  .home-social a .social-icon,
+  .home-social-buttons a .social-icon{
+    flex: 0 0 auto !important;
+    max-width: 28% !important;
+    overflow: hidden !important;
+  }
+  header .social-buttons a span:last-child,
+  header .social-row a span:last-child,
+  header .hau-social-row a span:last-child,
+  .home-social a span:last-child,
+  .home-social-buttons a span:last-child{
+    min-width: 0 !important;
+    max-width: 68% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+/* Mobile YouTube white logo frame wider by 2% on each side. */
+@media (max-width: 768px){
+  #contact .youtube,
+  #contact a.youtube,
+  #contact .social.youtube{
+    padding-left: calc(2% + 0px) !important;
+    padding-right: calc(2% + 0px) !important;
+    box-sizing: border-box !important;
+  }
+}
+</style>
+
+
+<style id="hauSocialV65">
+/* V65: PC homepage social buttons */
+@media (min-width: 769px){
+  header .social-buttons,
+  header .social-row,
+  header .hau-social-row,
+  .home-social,
+  .home-social-buttons{
+    gap: 1% !important;
+  }
+
+  /* V64 was 60% width. V65 makes each button 30% narrower than V64. */
+  header .social-buttons a,
+  header .social-row a,
+  header .hau-social-row a,
+  .home-social a,
+  .home-social-buttons a{
+    width: 42% !important;
+    min-width: 0 !important;
+    max-width: 42% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  header .social-buttons a > *,
+  header .social-row a > *,
+  header .hau-social-row a > *,
+  .home-social a > *,
+  .home-social-buttons a > *{
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  header .social-buttons a .social-icon,
+  header .social-row a .social-icon,
+  header .hau-social-row a .social-icon,
+  .home-social a .social-icon,
+  .home-social-buttons a .social-icon{
+    flex: 0 1 auto !important;
+    max-width: 26% !important;
+    overflow: hidden !important;
+  }
+
+  header .social-buttons a span:last-child,
+  header .social-row a span:last-child,
+  header .hau-social-row a span:last-child,
+  .home-social a span:last-child,
+  .home-social-buttons a span:last-child{
+    min-width: 0 !important;
+    max-width: 66% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+/* Mobile YouTube white frame +2% on each side
+   compared with V64. */
+@media (max-width: 768px){
+  #contact .youtube,
+  #contact a.youtube,
+  #contact .social.youtube{
+    margin-left: -2% !important;
+    margin-right: -2% !important;
+    width: 104% !important;
+    box-sizing: border-box !important;
+  }
+}
+</style>
+
+
+<style id="hauResponsivePCV66">
+/* V66: PC toàn bộ giao diện tự co giãn theo chiều rộng màn hình,
+   tránh các nút chồng/đè lên nhau. */
+@media (min-width: 769px){
+  html, body{
+    overflow-x: hidden !important;
+  }
+
+  /* Navigation */
+  .site-header .header-inner,
+  .site-header .main-nav{
+    min-width: 0 !important;
+  }
+
+  .site-header .main-nav{
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(6px, 0.8vw, 16px) !important;
+  }
+
+  .site-header .main-nav a{
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    font-size: clamp(11px, 0.85vw, 15px) !important;
+  }
+
+  .site-header .booking-btn{
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    font-size: clamp(11px, 0.85vw, 15px) !important;
+    padding-left: clamp(8px, 0.9vw, 18px) !important;
+    padding-right: clamp(8px, 0.9vw, 18px) !important;
+  }
+
+  /* 5 social buttons on homepage:
+     use fluid sizing rather than fixed/percentage widths that can collide. */
+  header .social-buttons,
+  header .social-row,
+  header .hau-social-row,
+  .home-social,
+  .home-social-buttons{
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(4px, 1vw, 12px) !important;
+    box-sizing: border-box !important;
+  }
+
+  header .social-buttons a,
+  header .social-row a,
+  header .hau-social-row a,
+  .home-social a,
+  .home-social-buttons a{
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: clamp(34px, 3.2vw, 48px) !important;
+    padding: 0 clamp(4px, 0.7vw, 10px) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(3px, 0.45vw, 7px) !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  header .social-buttons a .social-icon,
+  header .social-row a .social-icon,
+  header .hau-social-row a .social-icon,
+  .home-social a .social-icon,
+  .home-social-buttons a .social-icon{
+    flex: 0 0 auto !important;
+    width: clamp(16px, 1.5vw, 25px) !important;
+    height: clamp(16px, 1.5vw, 25px) !important;
+    max-width: none !important;
+  }
+
+  header .social-buttons a span:last-child,
+  header .social-row a span:last-child,
+  header .hau-social-row a span:last-child,
+  .home-social a span:last-child,
+  .home-social-buttons a span:last-child{
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: clamp(9px, 0.78vw, 14px) !important;
+  }
+
+  /* General PC cards/columns should shrink instead of overlapping. */
+  .hau-contact-container,
+  .hau-contact-grid,
+  .hau-footer-grid{
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  img, video, iframe{
+    max-width: 100% !important;
+  }
+}
+</style>
+
+
+<style id="hauFixedHeaderV67">
+/* V67: PC - keep the white top header fixed while scrolling. */
+@media (min-width: 769px){
+  .site-header{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+  }
+
+  /* Prevent the fixed header from covering the page content. */
+  body{
+    padding-top: var(--hau-header-height, 0px) !important;
+  }
+}
+</style>
+
+
+<style id="hau-customer-reviews-v73">
+/* =========================================================
+   H.A.U CUSTOMER REVIEWS V73
+   - Tự đọc ảnh trong /DANH-GIA-GOOGLE-MAP/ qua PHP
+   - PC: 3 ảnh / lần, chuyển sau 3 giây từ phải sang trái
+   - Mobile: 1 ảnh / lần, chuyển sau 3 giây từ phải sang trái
+   - Không cố định số lượng ảnh
+   ========================================================= */
+#hau-customer-reviews{
+  width:100%;
+  box-sizing:border-box;
+  padding:24px 4.5% 62px;
+  margin-top:calc(-20px - 2.5vh);
+  margin-bottom:-5vh;
+  background:#fff !important;
+  overflow:hidden;
+}
+.hau-reviews-heading{text-align:center;margin:0 0 18px;}
+.hau-reviews-heading h2{
+  margin:0;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:clamp(28px,3vw,46px);
+  line-height:1.15;
+  font-weight:800;
+  color:#111;
+}
+.hau-reviews-heading p{
+  margin:14px 0 8px;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:clamp(15px,1.35vw,21px);
+  font-style:italic;
+  color:#222;
+}
+.hau-reviews-diamond{
+  color:#d6aa35;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:13px;
+  line-height:1.1;
+  font-weight:700;
+  letter-spacing:1.5px;
+  margin-top:10px;
+}
+.hau-review-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:250px;
+  height:46px;
+  padding:0 22px;
+  margin-top:12px;
+  border-radius:999px;
+  background:#111;
+  color:#fff !important;
+  border:2px solid #d6aa35;
+  text-decoration:none !important;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.3px;
+  box-shadow:0 5px 14px rgba(0,0,0,.16);
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.hau-review-button:hover{
+  background:#7a542d;
+  color:#fff !important;
+  transform:translateY(-1px);
+  box-shadow:0 7px 18px rgba(0,0,0,.20);
+}
+.hau-reviews-viewport{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  background:#fff !important;
+}
+.hau-reviews-track{
+  width:100%;
+  display:flex;
+  transition:transform .72s cubic-bezier(.22,.61,.36,1);
+  will-change:transform;
+}
+.hau-review-slide{
+  flex:0 0 100%;
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  box-sizing:border-box;
+  padding:2px 1px 8px;
+  background:#fff !important;
+}
+.hau-review-card{
+  min-width:0;
+  aspect-ratio:4 / 3;
+  background:#fff;
+  border:2px solid #b98a3e;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,255,255,.9) inset, 0 7px 22px rgba(72,55,38,.14), 0 0 12px rgba(185,138,62,.16);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hau-review-card img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
+  border-radius:15px;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.hau-review-empty{
+  width:100%;
+  min-height:180px;
+  border:1px dashed #cdbfae;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font:500 15px/1.5 Montserrat,Arial,sans-serif;
+  text-align:center;
+}
+@media (max-width:768px){
+  #hau-customer-reviews{padding:10px 14px 46px; margin-top:calc(-12px - 2.5vh); margin-bottom:-5vh;}
+  .hau-reviews-heading{margin-bottom:18px;}
+  .hau-reviews-heading h2{font-size:28px;}
+  .hau-reviews-heading p{font-size:14px;margin-top:10px;}
+  .hau-review-button{
+    min-width:0;
+    width:calc(100% - 28px);
+    max-width:340px;
+    height:42px;
+    padding:0 12px;
+    margin-top:10px;
+    font-size:13px;
+    letter-spacing:0;
+    white-space:nowrap;
+  }
+  .hau-review-slide{grid-template-columns:1fr;gap:0;}
+  .hau-review-card{aspect-ratio:4 / 3;border-radius:14px;}
+  .hau-review-card img{border-radius:13px;}
+}
+</style>
+
+
+<style id="hau-v92-booking-title">
+/* V92: Tiêu đề ĐẶT LỊCH HẸN - căn giữa, font dễ đọc, khung nền nhẹ trên PC + Mobile */
+.booking-modal .booking-title{
+  display:block !important;
+  width:fit-content !important;
+  max-width:calc(100% - 70px) !important;
+  margin:0 auto 10px !important;
+  padding:7px 18px 8px !important;
+  box-sizing:border-box !important;
+  text-align:center !important;
+  font-family:'Montserrat',Arial,sans-serif !important;
+  font-size:21px !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  letter-spacing:.45px !important;
+  color:#4a3524 !important;
+  background:#f6efe3 !important;
+  border:1px solid #dfcdb2 !important;
+  border-radius:10px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 2px 8px rgba(110,82,45,.06) !important;
+}
+@media (max-width:600px){
+  .booking-modal .booking-title{
+    width:fit-content !important;
+    max-width:calc(100% - 58px) !important;
+    margin:0 auto 7px !important;
+    padding:6px 14px 7px !important;
+    font-size:17px !important;
+    line-height:1.18 !important;
+    letter-spacing:.25px !important;
+    border-radius:9px !important;
+  }
+}
+</style>
+
+
+<style id="hau-v94-booking-submit">
+/* V94: Nút ĐẶT LỊCH NGAY — Arial + đổi nền nâu / đỏ nhạt liên tục trên PC và Mobile */
+#bookingSubmit.booking-submit,
+.booking-modal #bookingSubmit.booking-submit{
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:.2px !important;
+  color:#fff !important;
+  background:#8f6a3f !important;
+  border:1px solid rgba(111,77,35,.28) !important;
+  box-shadow:0 4px 12px rgba(91,65,39,.16) !important;
+  animation:hauBookingSubmitPulseV94 1s steps(1,end) infinite !important;
+  transition:none !important;
+}
+
+@keyframes hauBookingSubmitPulseV94{
+  0%,49.999%{background-color:#8f6a3f !important;}
+  50%,100%{background-color:#e3a0a0 !important;}
+}
+
+#bookingSubmit.booking-submit:hover,
+.booking-modal #bookingSubmit.booking-submit:hover{
+  filter:brightness(1.03);
+}
+
+#bookingSubmit.booking-submit:disabled,
+.booking-modal #bookingSubmit.booking-submit:disabled{
+  animation:none !important;
+}
+
+/* PC: mỗi lần lăn chuột chỉ tiến/lùi đúng 1 giờ hoặc 1 phút */
+@media (min-width:769px){
+  #hauHourWheel,#hauMinuteWheel{
+    scroll-behavior:auto !important;
+  }
+}
+</style>
+
+
+<style id="hau-v168-mobile-booking-label-size">
+/* V168: tăng kích thước chữ nhãn các ô đặt lịch trên mobile để dễ đọc.
+   Chỉ tác động phần form đặt lịch, giữ nguyên các phần khác. */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field label{
+    font-size:15px !important;
+    line-height:1.15 !important;
+    font-weight:700 !important;
+    letter-spacing:0 !important;
+    margin-bottom:3px !important;
+  }
+}
+</style>
+
+
+<style id="hauPCNavV188">
+/* V188 - PC: 4 nút ghim lớn, bo góc, có nền và khung.
+   Thứ tự cố định:
+   TRANG CHỦ | DỊCH VỤ
+   LIÊN HỆ   | ĐƯỜNG ĐI
+*/
+@media (min-width: 769px){
+  .site-header .main-nav{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 0 1 auto !important;
+  }
+
+  .site-header .main-nav a{
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 118px !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 6px 16px !important;
+    box-sizing: border-box !important;
+    border: 2px solid rgba(160,125,75,.48) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 7px rgba(91,65,39,.12) !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    text-decoration: none !important;
+  }
+
+  /* TRANG CHỦ - nổi bật */
+  .site-header .main-nav a:nth-child(1){
+    background: #f3eee7 !important;
+    color: #6f4f32 !important;
+    border-color: #b88f4b !important;
+  }
+
+  /* DỊCH VỤ */
+  .site-header .main-nav a:nth-child(2){
+    background: #f8edcf !important;
+    color: #7a5a27 !important;
+    border-color: #d6b96f !important;
+  }
+
+  /* LIÊN HỆ */
+  .site-header .main-nav a:nth-child(3){
+    background: #f1e7dc !important;
+    color: #705542 !important;
+    border-color: #c8aa91 !important;
+  }
+
+  /* ĐƯỜNG ĐI */
+  .site-header .main-nav a:nth-child(4){
+    background: #e3eef5 !important;
+    color: #4d6272 !important;
+    border-color: #9eb8ca !important;
+  }
+
+  .site-header .main-nav a:hover{
+    filter: brightness(.98);
+    transform: translateY(-1px);
+  }
+
+  .site-header .main-nav a:active{
+    transform: scale(.98);
+  }
+}
+</style>
+
+
+<style id="hauMobileSmoothNavOffsetV191">
+@media (max-width: 768px){
+  #hau-bang-gia-dich-vu,
+  #hau-contact-after-spa-loader{
+    scroll-margin-top: 132px !important;
+  }
+}
+</style>
+
+
+<style id="hauPCHeaderBalanceV191">
+@media (min-width: 769px){
+  .site-header .header-inner{
+    display: flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    position: relative !important;
+  }
+
+  .site-header .brand{
+    flex: 0 0 auto !important;
+  }
+
+  .site-header .main-nav{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: max-content !important;
+    max-width: calc(100% - 300px) !important;
+  }
+
+  .site-header .booking-btn{
+    position: absolute !important;
+    right: 5% !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+  }
+
+  .site-header .menu-toggle{
+    flex: 0 0 auto !important;
+  }
+}
+</style>
+
+
+<script>
+(function(){
+  // Tự động làm mới kiểu Ctrl + Shift + R khi vào website lần đầu trong mỗi tab.
+  // Dùng tham số cache-buster để trình duyệt lấy lại HTML mới nhất.
+  try {
+    const KEY = 'hau_hard_reload_once';
+    const params = new URLSearchParams(window.location.search);
+    if (!sessionStorage.getItem(KEY) && !params.has('_hard')) {
+      sessionStorage.setItem(KEY, '1');
+      const u = new URL(window.location.href);
+      u.searchParams.set('_hard', Date.now().toString());
+      window.location.replace(u.href);
+    } else if (params.has('_hard')) {
+      params.delete('_hard');
+      const clean = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+      window.history.replaceState(null, '', clean);
+    }
+  } catch(e) {}
+
+  window.hauHardHomeReload = function(e){
+    if(e) e.preventDefault();
+    try {
+      const u = new URL('/', window.location.origin);
+      u.searchParams.set('_hard', Date.now().toString());
+      window.location.href = u.href;
+    } catch(err) {
+      window.location.href = '/?_hard=' + Date.now();
+    }
+    return false;
+  };
+})();
+</script>
+</head>
+
+<body translate="no" class="notranslate">
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#home" aria-label="H.A.U HAIR DESIGNER">
+      <img src="/logo/LOGO.png" alt="H.A.U HAIR DESIGNER">
+    </a>
+
+    <nav class="main-nav" aria-label="Menu chính">
+      <a class="active" href="/" onclick="return hauHardHomeReload(event);">TRANG CHỦ</a>
+      <a href="#hau-bang-gia-dich-vu" onclick="hauMobileServiceJump(event)">DỊCH VỤ</a>
+      <a href="#hau-contact-after-spa-loader" onclick="hauMobileContactJump(event)">LIÊN HỆ</a>
+      <a href="https://www.google.com/maps/place/Hau+Hair+%26+Nail+Spa+Hoi+An/@15.878313,108.3391887,908m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31420bb4149c44d9:0x21690f1cf4974acb!8m2!3d15.878313!4d108.3391887!16s%2Fg%2F11jzz0z846" target="_blank" rel="noopener">ĐƯỜNG ĐI</a>
+    </nav>
+
+    <a class="booking-btn" href="#booking" onclick="openBooking(event)">
+      <span class="scissors">✂</span> ĐẶT LỊCH NGAY
+    </a>
+
+    <button class="menu-toggle" aria-label="Mở menu">☰</button>
+  </div>
+
+  <div class="mobile-nav">
+    <a href="/" onclick="return hauHardHomeReload(event);">TRANG CHỦ</a>
+    <a href="#hau-bang-gia-dich-vu" onclick="hauMobileServiceJump(event)">DỊCH VỤ</a>
+    <a href="#hau-contact-after-spa-loader" onclick="hauMobileContactJump(event)">LIÊN HỆ</a>
+    <a href="https://www.google.com/maps/place/Hau+Hair+%26+Nail+Spa+Hoi+An/@15.878313,108.3391887,908m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31420bb4149c44d9:0x21690f1cf4974acb!8m2!3d15.878313!4d108.3391887!16s%2Fg%2F11jzz0z846" target="_blank" rel="noopener">ĐƯỜNG ĐI</a>
+    <a class="mobile-booking" href="#booking" onclick="openBooking(event)">✂ ĐẶT LỊCH NGAY</a>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">CHÀO MỪNG ĐẾN VỚI</div>
+        <h1>H.A.U HAIR DESIGNER<br><span>HAIR SALON HỘI AN</span></h1>
+        <div class="gold-line"></div>
+
+        <p class="lead">
+          Chào mừng bạn đến với <strong>H.A.U HAIR DESIGNER</strong> – salon tóc chuyên nghiệp tại Hội An.
+        </p>
+        <p>
+          Tọa lạc tại <strong>173 Nguyễn Duy Hiệu, Hội An</strong>, chúng tôi chào đón cả khách địa phương và du khách quốc tế.
+          Nếu bạn đang tìm kiếm một salon tóc tại Hội An trong chuyến du lịch, hãy ghé H.A.U HAIR DESIGNER
+          và để các stylist tạo nên kiểu tóc phù hợp với bạn.
+        </p>
+        <p class="beauty-note"><strong>Chúng tôi cũng cung cấp dịch vụ Nail & Spa</strong> để mang đến trải nghiệm làm đẹp trọn vẹn.</p>
+
+        <a class="hero-btn" href="#booking" onclick="openBooking(event)">
+          ĐẶT LỊCH NGAY <span>✉</span>
+        </a>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <img src="/HINH TRANG CHU/HINH-TRANG-CHU.jpg" alt="Không gian H.A.U HAIR DESIGNER tại Hội An">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-strip">
+    <div class="contact-info">
+      <div class="contact-row">
+        <span class="contact-icon location-pin" aria-hidden="true">
+          <svg viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#ef4b55" d="M12 0C5.9 0 1 4.9 1 11c0 8.3 11 21 11 21s11-12.7 11-21C23 4.9 18.1 0 12 0z"/>
+            <circle cx="12" cy="11" r="4" fill="#fff"/>
+          </svg>
+        </span>
+        <span>Số 173, Đường Nguyễn Duy Hiệu, Hội An, TP Đà Nẵng, Việt Nam</span>
+      </div>
+      <div class="contact-row"><span class="contact-icon">☎</span><span>Hotline: <strong>0333 093 033</strong></span></div>
+    </div>
+
+    <div class="social-row">
+      <a class="social zalo" href="https://zalo.me/84333093033" target="_blank" rel="noopener noreferrer"><span class="social-icon zalo-icon" aria-hidden="true"><img class="zalo-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg?v=20261007" alt="Zalo"></span> Zalo</a>
+      <a class="social facebook" href="https://www.facebook.com/hau.xavan.5/" target="_blank" rel="noopener"><span class="social-icon facebook-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M13.65 21v-8h2.7l.4-3.12h-3.1V7.89c0-.9.25-1.51 1.55-1.51h1.66V3.59c-.29-.04-1.28-.12-2.43-.12-2.41 0-4.06 1.47-4.06 4.18v2.23H7.64V13h2.73v8h3.28Z"/></svg></span> Facebook</a>
+      <a class="social instagram" href="https://www.instagram.com/salon_hoian" target="_blank" rel="noopener"><span class="social-icon instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></span> Instagram</a>
+      <a class="social tiktok" href="https://www.tiktok.com/@hair.color.hi.an" target="_blank" rel="noopener">
+        <span class="social-icon tiktok-icon" aria-hidden="true">
+          <img class="tiktok-logo-img" src="data:image/png;base64,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" alt="TikTok">
+        </span> TikTok</a>
+      <a class="social youtube" href="https://www.youtube.com/@hauhairdesigner" target="_blank" rel="noopener">
+        <span class="social-icon youtube-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#FF0000" d="M27.4 3.1a3.5 3.5 0 0 0-2.5-2.5C22.7 0 14 0 14 0S5.3 0 3.1.6A3.5 3.5 0 0 0 .6 3.1 36.2 36.2 0 0 0 0 10a36.2 36.2 0 0 0 .6 6.9 3.5 3.5 0 0 0 2.5 2.5C5.3 20 14 20 14 20s8.7 0 10.9-.6a3.5 3.5 0 0 0 2.5-2.5A36.2 36.2 0 0 0 28 10a36.2 36.2 0 0 0-.6-6.9z"/>
+            <path fill="#fff" d="M11.2 14.3 18.5 10l-7.3-4.3v8.6z"/>
+          </svg>
+        </span> YouTube</a>
+    </div>
+  </section>
+
+  <!-- H.A.U CUSTOMER REVIEWS / GOOGLE REVIEW IMAGES -->
+  <section id="hau-customer-reviews" class="hau-customer-reviews" aria-label="Khách hàng đánh giá">
+    <div class="hau-reviews-heading">
+      <h2>Khách Hàng Đánh Giá</h2>
+      <p>Những Đánh Giá Chân Thực</p>
+      <div class="hau-reviews-diamond" aria-hidden="true">H.A.U HAIR DESIGNER</div>
+      <a class="hau-review-button" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x31420bb4149c44d9:0x21690f1cf4974acb!12e1?source=g.page.m.ia._&laa=nmx-review-solicitation-ia2" target="_blank" rel="noopener noreferrer">👉 CLICK ĐỂ ĐÁNH GIÁ ⭐⭐⭐⭐⭐</a>
+    </div>
+    <div class="hau-reviews-viewport">
+      <div id="hauReviewsTrack" class="hau-reviews-track" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- H.A.U QUY TRÌNH DỊCH VỤ - FILE RIÊNG -->
+  <section id="hau-quy-trinh-dich-vu" class="hau-process-loader" aria-label="Quy trình dịch vụ chuyên nghiệp">
+    <div id="quy-trinh-dich-vu"></div>
+  </section>
+
+  <script>
+  (function () {
+    const target = document.getElementById('quy-trinh-dich-vu');
+    if (!target) return;
+    fetch('quy-trinh-dich-vu.html', { cache: 'no-store' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Không thể tải quy-trinh-dich-vu.html');
+        return response.text();
+      })
+      .then(function (html) {
+        target.innerHTML = html;
+      })
+      .catch(function (error) {
+        console.error('H.A.U Quy Trình Dịch Vụ:', error);
+      });
+  })();
+  </script>
+
+  <!-- H.A.U BẢNG GIÁ DỊCH VỤ - FILE RIÊNG -->
+  <section id="hau-bang-gia-dich-vu" class="hau-price-loader" aria-label="Bảng giá dịch vụ">
+    <div id="bang-gia-dich-vu"></div>
+  </section>
+
+  <script>
+  (function () {
+    const target = document.getElementById('bang-gia-dich-vu');
+    if (!target) return;
+    fetch('bang-gia-dich-vu.html', { cache: 'no-store' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Không thể tải bang-gia-dich-vu.html');
+        return response.text();
+      })
+      .then(function (html) {
+        target.innerHTML = html;
+      })
+      .catch(function (error) {
+        console.error('H.A.U Bảng Giá Dịch Vụ:', error);
+      });
+  })();
+  </script>
+
+
+  <!-- H.A.U CONTACT + MAP — LOADED AS A SEPARATE FILE AFTER SPA NAILS -->
+  <section id="hau-contact-after-spa-loader" aria-label="Thông tin liên hệ và vị trí salon"></section>
+  <script>
+    (function () {
+      const target = document.getElementById('hau-contact-after-spa-loader');
+      if (!target) return;
+      fetch('thong-tin-lien-he-sau-spa.html', { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Không thể tải thong-tin-lien-he-sau-spa.html');
+          return response.text();
+        })
+        .then(function (html) {
+          target.innerHTML = html;
+        })
+        .catch(function (error) {
+          console.error('H.A.U Contact After Spa:', error);
+        });
+    })();
+  </script>
+
+<section id="services" class="placeholder"></section>
+</main>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  toggle.addEventListener('click', () => mobileNav.classList.toggle('show'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('show');
+  }));
+</script>
+
+<style id="hau-v16-mobile-social-adjust">
+@media (max-width: 768px) {
+  /* Hàng 5 nút: thấp hơn 10% và nâng lên khoảng 20% */
+  .social-buttons,
+  .social-links,
+  .social-grid,
+  .contact-social,
+  .social-row {
+    transform: translateY(-20%) scaleY(0.9);
+    transform-origin: center center;
+  }
+}
+</style>
+
+
+<style id="hau-v17-mobile-social-final">
+@media (max-width: 768px) {
+  /* 5 nút: V14 = 60px -> giảm 10% còn 54px */
+  .social-row .social {
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    box-sizing: border-box !important;
+  }
+
+  /*
+    Dịch cả hàng lên bằng margin thực tế, không dùng transform
+    để tránh bị rule cũ ghi đè và để khoảng cách layout thay đổi thật.
+  */
+  .social-row {
+    margin-top: -30px !important;
+    transform: none !important;
+  }
+
+  @media (max-width: 380px) {
+    .social-row {
+      margin-top: -27px !important;
+    }
+
+    .social-row .social {
+      height: 54px !important;
+      min-height: 54px !important;
+      max-height: 54px !important;
+    }
+  }
+}
+</style>
+
+
+<script>
+/* H.A.U - luôn bắt đầu từ đầu trang sau khi F5/tải lại */
+(function () {
+  try {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  } catch (e) {}
+
+  function goTop() {
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    } catch (e) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  // Chạy ngay khi DOM sẵn sàng và thêm lần nữa sau khi toàn bộ ảnh tải xong.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', goTop, { once: true });
+  } else {
+    goTop();
+  }
+  window.addEventListener('load', goTop, { once: true });
+  window.addEventListener('pageshow', function () { setTimeout(goTop, 0); });
+
+  /*
+   * Chống cache ảnh: mỗi lần tải/F5, ảnh local được gắn một phiên bản mới.
+   * Vì vậy nếu anh thay file ảnh trên hosting bằng ảnh mới nhưng giữ nguyên tên,
+   * trình duyệt sẽ không lấy lại ảnh cũ trong cache.
+   */
+  function refreshLocalImages() {
+    var version = Date.now().toString();
+    document.querySelectorAll('img[src]').forEach(function (img) {
+      var src = img.getAttribute('src');
+      if (!src || src.indexOf('data:') === 0 || src.indexOf('blob:') === 0) return;
+
+      // Chỉ xử lý ảnh cùng website / đường dẫn tương đối, không phá link ngoài.
+      try {
+        var url = new URL(src, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        url.searchParams.set('v', version);
+        img.src = url.href;
+      } catch (e) {}
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', refreshLocalImages, { once: true });
+  } else {
+    refreshLocalImages();
+  }
+})();
+</script>
+
+<style id="zalo-whatsapp-green-v21">
+/* Zalo: nền khung dùng màu xanh WhatsApp */
+.social.zalo,
+.social-links .social.zalo,
+.social-row .social.zalo,
+a[href*="zalo.me"] {
+  background: #25D366 !important;
+  border-color: #25D366 !important;
+}
+
+/* Giữ logo Zalo rõ nét trên nền xanh */
+.social.zalo img,
+.social-links .social.zalo img,
+.social-row .social.zalo img,
+a[href*="zalo.me"] img {
+  background: transparent !important;
+}
+
+/* ===== BOOKING FORM V2: TOÀN BỘ THÔNG TIN TRONG 1 KHUNG ===== */
+.booking-modal{
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 24px 26px 22px !important;
+}
+.booking-title{margin-bottom:5px !important}
+.booking-subtitle{margin-bottom:15px !important}
+.booking-field{margin-bottom:10px !important}
+.booking-field label{margin-bottom:4px !important}
+.booking-field input,
+.booking-field select,
+.booking-field textarea{
+    padding:9px 12px !important;
+}
+.booking-field textarea{
+    min-height:58px !important;
+    height:58px !important;
+}
+.booking-submit{
+    padding:12px !important;
+    margin-top:2px !important;
+}
+@media (min-width: 601px){
+    /* 2 cột cho các trường để giảm chiều cao */
+    #bookingForm{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        column-gap:14px;
+        align-items:start;
+    }
+    #bookingForm .booking-field:nth-of-type(1),
+    #bookingForm .booking-field:nth-of-type(6),
+    #bookingForm .booking-field:nth-of-type(7),
+    #bookingForm .booking-submit{
+        grid-column:1 / -1;
+    }
+}
+@media (max-width:600px){
+    .booking-modal{
+        max-height:94vh !important;
+        overflow-y:auto !important;
+        padding:25px 17px 20px !important;
+    }
+    .booking-field{margin-bottom:11px !important}
+    .booking-field input,
+    .booking-field select,
+    .booking-field textarea{
+        padding:10px 12px !important;
+    }
+}
+
+
+/* ===== V4: CHỮ HƯỚNG DẪN SĐT/ZALO CHẠY NGANG ===== */
+
+.email-input-wrap{position:relative;overflow:hidden;width:100%;}
+.email-input-wrap input{position:relative;z-index:2;width:100%;background:transparent !important;}
+.email-hint-track{position:absolute;z-index:1;left:12px;right:12px;top:50%;transform:translateY(-50%);overflow:hidden;white-space:nowrap;pointer-events:none;font-size:14px;line-height:1.2;color:#777;}
+.email-hint-track span{display:inline-block;padding-left:100%;animation:emailHintMarquee 15s linear infinite;}
+@keyframes emailHintMarquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.email-input-wrap:focus-within .email-hint-track{display:none;}
+@media(max-width:600px){.email-hint-track{font-size:12px;left:10px;right:10px}.email-hint-track span{animation-duration:13s}}
+.phone-input-wrap{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+}
+.phone-input-wrap input{
+    position:relative;
+    z-index:2;
+    background:transparent !important;
+}
+.phone-hint-track{
+    position:absolute;
+    z-index:1;
+    left:12px;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    overflow:hidden;
+    white-space:nowrap;
+    pointer-events:none;
+    color:#999;
+    font-size:15px;
+    line-height:1;
+}
+.phone-hint-track span{
+    display:inline-block;
+    padding-left:100%;
+    animation:phoneHintMarquee 13s linear infinite;
+}
+@keyframes phoneHintMarquee{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-100%)}
+}
+.phone-input-wrap:focus-within .phone-hint-track{
+    display:none;
+}
+@media(max-width:600px){
+    .phone-hint-track{font-size:14px;left:12px;right:12px}
+    .phone-hint-track span{animation-duration:11s}
+}
+
+
+/* ===== V5: MOBILE BOOKING COMPACT ===== */
+@media (max-width:600px){
+    .booking-overlay{
+        padding:8px !important;
+        align-items:center !important;
+    }
+    .booking-modal{
+        width:calc(100vw - 16px) !important;
+        max-width:420px !important;
+        max-height:90vh !important;
+        padding:20px 14px 16px !important;
+        border-radius:15px !important;
+    }
+    .booking-close{
+        width:32px !important;
+        height:32px !important;
+        top:9px !important;
+        right:9px !important;
+        font-size:24px !important;
+        line-height:29px !important;
+    }
+    .booking-title{
+        font-size:19px !important;
+        margin-bottom:3px !important;
+        padding-right:30px !important;
+    }
+    .booking-subtitle{
+        font-size:11px !important;
+        margin-bottom:10px !important;
+    }
+    .booking-field{
+        margin-bottom:7px !important;
+    }
+    .booking-field label{
+        font-size:11px !important;
+        margin-bottom:3px !important;
+    }
+    /* Keep mobile form controls at 16px so iOS Safari does not auto-zoom when tapped. */
+    .booking-field input,
+    .booking-field select{
+        min-height:36px !important;
+        height:36px !important;
+        padding:7px 10px !important;
+        font-size:16px !important;
+        border-radius:8px !important;
+    }
+    .booking-field textarea{
+        min-height:48px !important;
+        height:48px !important;
+        padding:7px 10px !important;
+        font-size:16px !important;
+        border-radius:8px !important;
+    }
+    .booking-submit{
+        min-height:39px !important;
+        padding:9px !important;
+        font-size:14px !important;
+        border-radius:9px !important;
+        margin-top:1px !important;
+    }
+    .phone-hint-track{
+        font-size:13px !important;
+    }
+}
+
+
+/* ===== V17: MOBILE NGÀY + THỜI GIAN 100% NHƯ Ô HỌ VÀ TÊN ===== */
+@media (max-width:600px){
+  #bookingForm .booking-field.calendar-wrap,
+  #bookingForm .booking-field:has(#bookingTime){
+    width:100% !important;
+    max-width:100% !important;
+  }
+  #bookingForm #bookingDateDisplay,
+  #bookingForm #bookingTime{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    height:36px !important;
+    min-height:36px !important;
+    box-sizing:border-box !important;
+    padding:7px 10px !important;
+    font-size:16px !important;
+    border-radius:8px !important;
+  }
+}
+
+/* ===== V6: NOTE EDITOR MOBILE, KHÔNG PHÓNG TO FORM ===== */
+.note-editor-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    z-index:100001;
+}
+.note-editor-modal{
+    position:relative;
+    width:min(430px, calc(100vw - 20px));
+    max-height:88vh;
+    background:#fffdf8;
+    border:2px solid #d7b46a;
+    border-radius:16px;
+    padding:22px 16px 16px;
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+.note-editor-close{
+    position:absolute;
+    right:9px;
+    top:8px;
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:50%;
+    background:#d71920;
+    color:#fff;
+    font-size:24px;
+    line-height:28px;
+    cursor:pointer;
+}
+.note-editor-title{
+    text-align:center;
+    font-size:18px;
+    font-weight:800;
+    padding-right:30px;
+}
+.note-editor-subtitle{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    line-height:1.4;
+    margin:5px 25px 12px;
+}
+.note-editor-text{
+    display:block;
+    width:100%;
+    height:42vh;
+    min-height:180px;
+    max-height:60vh;
+    resize:vertical;
+    border:1px solid #d7d0c2;
+    border-radius:10px;
+    padding:12px;
+    font:15px/1.5 Arial,sans-serif;
+    color:#222;
+    background:#fff;
+    outline:none;
+}
+.note-editor-text:focus{
+    border-color:#c59b45;
+    box-shadow:0 0 0 3px rgba(197,155,69,.12);
+}
+.note-editor-done{
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    border:0;
+    border-radius:10px;
+    background:#111;
+    color:#fff;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+}
+@media(min-width:601px){
+    /* Desktop/tablet: chỉ dùng editor khi cần, giao diện đặt lịch chính vẫn giữ nguyên */
+    .note-editor-modal{width:min(520px,calc(100vw - 30px))}
+    .note-editor-text{height:300px}
+}
+@media(max-width:600px){
+    .note-editor-overlay{padding:8px}
+    .note-editor-modal{
+        width:calc(100vw - 16px);
+        max-width:420px;
+        max-height:88vh;
+        padding:20px 13px 13px;
+        border-radius:14px;
+    }
+    .note-editor-title{font-size:17px}
+    .note-editor-subtitle{font-size:11px}
+    .note-editor-text{
+        height:48vh;
+        min-height:170px;
+        max-height:55vh;
+        font-size:16px;
+    }
+}
+
+</style>
+
+
+<!-- H.A.U WELCOME AUDIO V33 -->
+<link rel="preload"
+      as="audio"
+      href="XIN%20CHAO.mp3?v=33"
+      type="audio/mpeg">
+
+<audio id="hauWelcomeAudio"
+       preload="auto"
+       playsinline
+       autoplay>
+  <source src="XIN%20CHAO.mp3?v=33" type="audio/mpeg">
+</audio>
+
+<script>
+(function () {
+  let started = false;
+  let audio = null;
+  let unlocked = false;
+
+  function initAudio() {
+    audio = document.getElementById('hauWelcomeAudio');
+    if (!audio) return;
+    audio.preload = 'auto';
+    audio.volume = 1.0;
+    audio.muted = false;
+
+    // Thử autoplay bình thường trước.
+    tryPlay(false);
+  }
+
+  function markStarted() {
+    started = true;
+    unlocked = true;
+    cleanup();
+  }
+
+  function tryPlay(useUnlockFallback) {
+    if (!audio || started) return;
+    audio.volume = 1.0;
+
+    try {
+      const p = audio.play();
+      if (p && typeof p.then === 'function') {
+        p.then(function () {
+          // Nếu phát thành công thì giữ âm thanh ở mức bình thường.
+          audio.muted = false;
+          markStarted();
+        }).catch(function () {
+          if (useUnlockFallback) unlockAndPlay();
+        });
+      }
+    } catch (e) {
+      if (useUnlockFallback) unlockAndPlay();
+    }
+  }
+
+  // Một số Chrome Android/Samsung chấp nhận play() khi muted trong gesture,
+  // sau đó cho phép bỏ mute ngay trong cùng thao tác chạm/cuộn.
+  function unlockAndPlay() {
+    if (!audio || started || unlocked) return;
+    try {
+      audio.muted = true;
+      const p = audio.play();
+      if (p && typeof p.then === 'function') {
+        p.then(function () {
+          try {
+            audio.muted = false;
+            audio.volume = 1.0;
+            unlocked = true;
+            started = true;
+            cleanup();
+          } catch (e) {}
+        }).catch(function () {
+          audio.muted = false;
+        });
+      }
+    } catch (e) {
+      audio.muted = false;
+    }
+  }
+
+  function userGestureStart() {
+    if (!audio || started) return;
+
+    // Ưu tiên phát có tiếng trực tiếp trong chính thao tác touch/pointer/wheel.
+    tryPlay(true);
+  }
+
+  function cleanup() {
+    const opts = {capture:true};
+    window.removeEventListener('pointerdown', userGestureStart, opts);
+    window.removeEventListener('touchstart', userGestureStart, opts);
+    window.removeEventListener('touchmove', userGestureStart, opts);
+    window.removeEventListener('touchend', userGestureStart, opts);
+    window.removeEventListener('pointerup', userGestureStart, opts);
+    window.removeEventListener('keydown', userGestureStart, opts);
+    window.removeEventListener('wheel', userGestureStart, opts);
+    window.removeEventListener('scroll', userGestureStart, opts);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAudio, {once:true});
+  } else {
+    initAudio();
+  }
+
+  // ANDROID / SAMSUNG CHROME:
+  // Ngay khi đặt ngón tay xuống hoặc bắt đầu di chuyển ngón tay, thử phát.
+  // Passive=true để tuyệt đối không cản trở thao tác cuộn.
+  const touchOpts = {capture:true, passive:true};
+  window.addEventListener('touchstart', userGestureStart, touchOpts);
+  window.addEventListener('touchmove', userGestureStart, touchOpts);
+  window.addEventListener('pointerdown', userGestureStart, touchOpts);
+  window.addEventListener('touchend', userGestureStart, touchOpts);
+  window.addEventListener('pointerup', userGestureStart, touchOpts);
+  window.addEventListener('keydown', userGestureStart, touchOpts);
+
+  // PC: lăn chuột / cuộn trang sẽ thử phát ngay.
+  window.addEventListener('wheel', userGestureStart, {capture:true, passive:true});
+  window.addEventListener('scroll', userGestureStart, {capture:true, passive:true});
+})();
+</script>
+
+
+<!-- ========================= BOOKING MODAL ========================= -->
+<div id="bookingOverlay" class="booking-overlay" aria-hidden="true">
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <button type="button" class="booking-close" onclick="closeBooking()" aria-label="Đóng">×</button>
+    <div id="bookingTitle" class="booking-title">ĐẶT LỊCH HẸN</div>
+    <div class="booking-subtitle">Vui lòng điền thông tin đặt lịch của bạn</div>
+    <form id="bookingForm" onsubmit="submitBooking(event)">
+      <div class="booking-field"><label>HỌ VÀ TÊN <span>*</span></label><input id="customerName" required autocomplete="name" placeholder="Nhập họ và tên"></div>
+      <div class="booking-field"><label>SỐ ĐIỆN THOẠI / ZALO <span>*</span></label><div class="phone-input-wrap">
+<input id="customerPhone" type="text" inputmode="numeric" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="10" placeholder="Vui Lòng Điền Số Điện Thoại / Zalo">
+
+</div></div>
+      <div class="booking-field"><label>GMAIL</label><div class="email-input-wrap">
+<input id="customerEmail" type="email" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="">
+<div class="email-hint-track" id="emailHintTrack"><span>Nếu Bạn Cung Cấp Chúng Tôi Sẽ Xác Nhận Lịch Hẹn Qua Gmail Của Bạn</span></div>
+</div></div>
+      <div class="booking-field calendar-wrap">
+        <label>Ngày Bạn Tới Làm <span>*</span></label>
+        <input id="bookingDateDisplay" type="text" readonly required placeholder="Chọn ngày / tháng / năm" onclick="toggleCalendar(event)" autocomplete="off">
+        <input id="bookingDate" type="hidden" required>
+        <div id="calendarPanel" class="calendar-panel" onclick="event.stopPropagation()">
+          <div class="calendar-head"><button type="button" onclick="changeMonth(-1)">‹</button><div id="calendarTitle" class="calendar-title"></div><button type="button" onclick="changeMonth(1)">›</button></div>
+          <div class="calendar-week"><div>T2</div><div>T3</div><div>T4</div><div>T5</div><div>T6</div><div>T7</div><div>CN</div></div>
+          <div id="calendarDays" class="calendar-days"></div>
+          <div class="calendar-hint">Ngày đã qua không thể chọn</div>
+        </div>
+      </div>
+      <div class="booking-field"><label>Thời Gian Bạn Tới Làm <span>*</span></label><input id="bookingTime" type="text" inputmode="none" readonly required autocomplete="off" placeholder="Chọn giờ / phút" style="cursor:pointer;"></div>
+      <div id="bookingValidationNotice" class="booking-validation-notice" role="status" aria-live="polite"></div>
+      <div class="booking-field"><label>Dịch Vụ Bạn Muốn Làm <span>*</span></label>
+        <select id="bookingService" required><option value="">-- Vui lòng chọn dịch vụ --</option><option>Cắt Tóc Nam</option><option>Cắt Tóc Nữ</option><option>Spa</option><option>Điều Trị Karetin</option><option>Nhuộm Tóc</option><option>Nhuộm Tẩy</option><option>Uốn Tóc</option><option>Duỗi Tóc</option><option>Phục Hồi Tóc</option><option>Gội Đầu</option><option>Nối Tóc</option><option>Tư Vấn</option></select>
+      </div>
+      <div class="booking-field"><label>Ghi Chú Cho Salon</label><textarea id="customerNote" placeholder="Không bắt buộc. Khách có thể ghi chú yêu cầu..."></textarea></div>
+      <button id="bookingSubmit" type="submit" class="booking-submit">ĐẶT LỊCH NGAY</button>
+    </form>
+  </div>
+</div>
+
+<!-- Ô nhập Ghi Chú riêng trên mobile -->
+<div id="noteEditorOverlay" class="note-editor-overlay">
+  <div class="note-editor-modal">
+    <button type="button" class="note-editor-close" onclick="closeNoteEditor()">×</button>
+    <div class="note-editor-title">GHI CHÚ CHO SALON</div>
+    <div class="note-editor-subtitle">Bạn có thể ghi yêu cầu hoặc thông tin muốn lưu ý cho salon.</div>
+    <textarea id="noteEditorText" class="note-editor-text" 
+      placeholder="Nhập ghi chú của bạn..."></textarea>
+    <button type="button" class="note-editor-done" onclick="saveNoteEditor()">XONG</button>
+  </div>
+</div>
+
+<style id="hau-phone-error-modal">
+.phone-error-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:50000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  box-sizing:border-box;
+  background:rgba(35,25,18,.48);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+.phone-error-overlay[aria-hidden="false"]{display:flex;}
+.phone-error-modal{
+  position:relative;
+  width:min(390px,calc(100vw - 40px));
+  box-sizing:border-box;
+  padding:28px 24px 22px;
+  border:1.5px solid #d6b36a;
+  border-radius:22px;
+  background:linear-gradient(180deg,#fffdf9 0%,#fff 100%);
+  box-shadow:0 24px 70px rgba(0,0,0,.30),0 0 0 5px rgba(214,179,106,.10);
+  text-align:center;
+}
+.phone-error-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#d92323;
+  color:#fff;
+  font-size:27px;
+  line-height:38px;
+  font-weight:400;
+  cursor:pointer;
+}
+.phone-error-icon{
+  width:52px;
+  height:52px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#d92323;
+  color:#fff;
+  font:800 30px/1 Arial,sans-serif;
+}
+.phone-error-title{
+  color:#4b3727;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.2px;
+  margin-bottom:10px;
+}
+.phone-error-message{
+  color:#5b5148;
+  font-size:16px;
+  line-height:1.5;
+  font-weight:600;
+  margin-bottom:20px;
+}
+.phone-error-done{
+  min-width:130px;
+  min-height:44px;
+  padding:9px 22px;
+  border:1px solid rgba(111,77,35,.28);
+  border-radius:12px;
+  background:#8f6a3f;
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+@media(max-width:600px){
+  .phone-error-modal{width:min(360px,calc(100vw - 28px));padding:27px 20px 20px;border-radius:20px;}
+  .phone-error-title{font-size:19px;}
+  .phone-error-message{font-size:15px;}
+}
+</style>
+
+<div id="phoneErrorOverlay" class="phone-error-overlay" aria-hidden="true">
+  <div class="phone-error-modal" role="dialog" aria-modal="true" aria-labelledby="phoneErrorTitle">
+    <button type="button" class="phone-error-close" aria-label="Đóng" onclick="closePhoneError()">×</button>
+    <div class="phone-error-icon">!</div>
+    <div id="phoneErrorTitle" class="phone-error-title">SỐ ĐIỆN THOẠI CHƯA ĐÚNG</div>
+    <div class="phone-error-message">Số Điện Thoại Chưa Đúng. Vui Lòng Kiểm Tra Lại</div>
+    <button type="button" class="phone-error-done" onclick="closePhoneError()">ĐÓNG</button>
+  </div>
+</div>
+
+<div id="successOverlay" class="success-overlay" aria-hidden="true">
+  <div class="success-modal" role="dialog" aria-modal="true"><div class="success-icon">✓</div><div class="success-title">ĐẶT LỊCH THÀNH CÔNG</div><div id="successMessage" class="success-message"></div><button type="button" class="success-close" onclick="closeSuccess()">ĐÓNG</button></div>
+</div>
+<audio id="bookingAudio" preload="auto"></audio>
+
+
+<script id="hau-booking-full-js">
+(function(){
+const $=id=>document.getElementById(id);
+let calendarDate=new Date();let selectedISO='';
+const monthNames=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+function vnNow(){return new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Ho_Chi_Minh'}));}
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function display(d){return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
+function setToday(){const n=vnNow();calendarDate=new Date(n.getFullYear(),n.getMonth(),1);}
+window.openBooking=function(e){if(e)e.preventDefault();$('bookingOverlay').style.display='flex';$('bookingOverlay').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setToday();renderCalendar();clearBookingNotice();updateTimeMin(); if(window.HAUFloatingButtons) window.HAUFloatingButtons.hide();};
+window.closeBooking=function(){$('bookingOverlay').style.display='none';$('bookingOverlay').setAttribute('aria-hidden','true');document.body.style.overflow='';$('calendarPanel').classList.remove('show'); if(window.HAUFloatingButtons) window.HAUFloatingButtons.show();};
+window.showPhoneError=function(){const o=$('phoneErrorOverlay');if(!o)return;o.style.display='flex';o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+window.closePhoneError=function(){const o=$('phoneErrorOverlay');if(!o)return;o.style.display='none';o.setAttribute('aria-hidden','true');if($('bookingOverlay') && $('bookingOverlay').getAttribute('aria-hidden')==='false') document.body.style.overflow='hidden'; else document.body.style.overflow='';};
+$('phoneErrorOverlay').addEventListener('click',function(e){if(e.target===this) closePhoneError();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){const o=$('phoneErrorOverlay');if(o && o.getAttribute('aria-hidden')==='false') closePhoneError();}});
+window.toggleCalendar=function(e){if(e)e.stopPropagation();$('calendarPanel').classList.toggle('show');renderCalendar();};
+window.changeMonth=function(delta){calendarDate.setMonth(calendarDate.getMonth()+delta);renderCalendar();};
+function renderCalendar(){
+ const y=calendarDate.getFullYear(),m=calendarDate.getMonth();$('calendarTitle').textContent=monthNames[m]+' '+y;
+ const grid=$('calendarDays');grid.innerHTML='';const first=new Date(y,m,1);let start=(first.getDay()+6)%7;const days=new Date(y,m+1,0).getDate();const today=vnNow();const todayISO=iso(today);
+ for(let i=0;i<start;i++){const b=document.createElement('button');b.type='button';b.className='other';b.tabIndex=-1;grid.appendChild(b);}
+ for(let d=1;d<=days;d++){const date=new Date(y,m,d),v=iso(date),b=document.createElement('button');b.type='button';b.textContent=d;if(v<todayISO){b.classList.add('past');b.setAttribute('aria-label','Ngày đã qua, không thể chọn');b.onclick=()=>showBookingNotice('Ngày này đã qua nên không thể chọn. Vui lòng chọn ngày hôm nay hoặc một ngày sắp tới.');}if(v===todayISO)b.classList.add('today');if(v===selectedISO)b.classList.add('selected');if(v>=todayISO && v===todayISO)b.onclick=()=>selectDate(date);else if(v>todayISO)b.onclick=()=>selectDate(date);grid.appendChild(b);}
+}
+function selectDate(date){selectedISO=iso(date);$('bookingDate').value=selectedISO;$('bookingDateDisplay').value=display(date);$('calendarPanel').classList.remove('show');clearBookingNotice();updateTimeMin();}
+function showBookingNotice(message){
+ const n=$('bookingValidationNotice');
+ if(!n)return;
+ n.textContent='⚠️ '+message;
+ n.classList.add('show');
+ clearTimeout(window.__hauNoticeTimer);
+ window.__hauNoticeTimer=setTimeout(()=>n.classList.remove('show'),5000);
+}
+function clearBookingNotice(){const n=$('bookingValidationNotice');if(n){n.textContent='';n.classList.remove('show');}}
+function updateTimeMin(){
+ const d=$('bookingDate').value,t=$('bookingTime');
+ if(!d){t.removeAttribute('min');return;}
+ const n=vnNow(),todayISO=iso(n);
+ if(d<todayISO){t.value='';t.removeAttribute('min');showBookingNotice('Ngày bạn chọn đã qua nên không thể đặt lịch cho ngày này.');return;}
+ if(d===todayISO){
+   const minTime=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+   t.min=minTime;
+   if(t.value && t.value<=minTime){t.value='';showBookingNotice('Thời gian này đã trôi qua. Vui lòng chọn một thời gian muộn hơn giờ hiện tại.');}
+ }else{t.removeAttribute('min');}
+}
+function validDateTime(){
+ const d=$('bookingDate').value,t=$('bookingTime').value;
+ if(!d||!t)return true;
+ const n=vnNow(),todayISO=iso(n),nowTime=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+ if(d<todayISO){showBookingNotice('Ngày bạn chọn đã qua nên không thể đặt lịch. Vui lòng chọn ngày hôm nay hoặc ngày sắp tới.');return false;}
+ if(d===todayISO && t<=nowTime){showBookingNotice('Thời gian bạn chọn đã trôi qua. Vui lòng chọn một thời gian muộn hơn giờ hiện tại.');return false;}
+ clearBookingNotice();
+ return true;
+}
+window.closeSuccess=function(){$('successOverlay').style.display='none';$('successOverlay').setAttribute('aria-hidden','true');document.body.style.overflow='';};
+function success(hasContact){const a=$('bookingAudio');const hasContactNow=!!hasContact;$('successMessage').textContent=hasContactNow?'Đặt lịch thành công. Cảm ơn bạn đã tin tưởng H.A.U Hair Designer. Chúng tôi sẽ sớm liên hệ để xác nhận lịch hẹn qua Số Điện Thoại Bạn Đã Đồng Ý Cung Cấp Hoặc Qua Zalo Của Bạn.':'Đặt lịch thành công. Cảm ơn bạn đã tin tưởng H.A.U Hair Designer. Chúng tôi đã nhận được lịch hẹn của bạn.';a.pause();a.src=hasContactNow?'LICH HEN ZALO GMAIL.mp3?v=3':'LICH HEN.mp3?v=3';a.load();a.playbackRate=1.15;$('successOverlay').style.display='flex';$('successOverlay').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';a.currentTime=0;a.play().catch(()=>{});}
+window.submitBooking=async function(e){e.preventDefault();const phone=String($('customerPhone').value||'').replace(/\D/g,'').slice(0,10);$('customerPhone').value=phone;if(!/^0[1-9]\d{8}$/.test(phone)){ $('customerPhone').focus(); showPhoneError(); return;}if(!$('bookingDate').value){alert('Vui lòng chọn ngày KH tới làm.');return;}if(!validDateTime())return;const btn=$('bookingSubmit');btn.disabled=true;btn.textContent='ĐANG XỬ LÝ...';const now=vnNow();const data={'Ngày KH Đặt Lịch Hẹn':display(now),'Họ Tên KH':$('customerName').value.trim(),'SỐ ĐIỆN THOẠI':$('customerPhone').value.trim(),'GMAIL':$('customerEmail').value.trim(),'Ngày KH Tới Làm':display(new Date($('bookingDate').value+'T00:00:00')),'Thời Gian KH Tới Làm':$('bookingTime').value,'KH Ghi Chú':$('customerNote').value.trim(),'Dịch Vụ KH Chọn':$('bookingService').value,'Loại KH':'KH ĐẶT LỊCH QUA WEBSITE'};
+ /* Khi có Google Apps Script/Webhook, đặt URL vào biến này để gửi Telegram + Excel Online. */ const BACKEND_URL='https://script.google.com/macros/s/AKfycbyRD_fLGonbkOoewBxWRqMuekLUDtnPF8RTI3dNlgTTOGK7FkiFsg65PQNKgv7x0Mo4/exec';
+ try{if(BACKEND_URL){const r=await fetch(BACKEND_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});if(!r.ok)throw new Error('backend');}closeBooking();const phoneValue=String(data['SỐ ĐIỆN THOẠI']??'').trim();const gmailValue=String(data.GMAIL??'').trim();const hasContact=phoneValue.length>0||gmailValue.length>0;success(hasContact);$('bookingForm').reset();$('customerPhone').value='';selectedISO='';setToday();renderCalendar();}catch(err){console.error(err);alert('Không thể gửi lịch đặt. Vui lòng thử lại.');}finally{btn.disabled=false;btn.textContent='ĐẶT LỊCH NGAY';}};
+$('bookingOverlay').addEventListener('click',e=>{if(e.target===$('bookingOverlay'))e.stopPropagation();});$('successOverlay').addEventListener('click',e=>{if(e.target===$('successOverlay'))e.stopPropagation();});
+$('bookingTime').addEventListener('change',function(){updateTimeMin();if(this.value && !validDateTime()){this.value='';}});
+})();
+</script>
+<script id="hau-phone-maxlength-lock">
+(function(){
+  const phone=document.getElementById('customerPhone');
+  if(!phone) return;
+  function limitPhone(){
+    const digits=String(phone.value||'').replace(/\D/g,'').slice(0,10);
+    if(phone.value!==digits) phone.value=digits;
+  }
+  phone.addEventListener('input', limitPhone);
+  phone.addEventListener('paste', function(){ setTimeout(limitPhone, 0); });
+})();
+</script>
+
+
+<script>
+(function(){
+  const phone = document.getElementById("customerPhone");
+const email = document.getElementById("customerEmail");
+  const emailHint = document.getElementById("emailHintTrack");
+  if(email && emailHint){
+    function updateEmailHint(){ emailHint.style.display = email.value ? "none" : ""; }
+    email.addEventListener("input", updateEmailHint);
+    email.addEventListener("focus", function(){ emailHint.style.display="none"; });
+    email.addEventListener("blur", updateEmailHint);
+    updateEmailHint();
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  const noteField = document.getElementById("customerNote");
+  const editorOverlay = document.getElementById("noteEditorOverlay");
+  const editorText = document.getElementById("noteEditorText");
+  if(!noteField || !editorOverlay || !editorText) return;
+
+  function isMobile(){
+    return window.matchMedia("(max-width:600px)").matches;
+  }
+
+  noteField.addEventListener("focus", function(e){
+    if(!isMobile()) return;
+    e.preventDefault();
+    noteField.blur();
+    editorText.value = noteField.value;
+    editorOverlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    setTimeout(function(){
+      editorText.focus();
+    }, 50);
+  });
+
+  window.saveNoteEditor = function(){
+    noteField.value = editorText.value;
+    editorOverlay.style.display = "none";
+    document.body.style.overflow = "hidden";
+    noteField.blur();
+  };
+
+  window.closeNoteEditor = function(){
+    noteField.value = editorText.value;
+    editorOverlay.style.display = "none";
+    document.body.style.overflow = "hidden";
+    noteField.blur();
+  };
+
+  editorOverlay.addEventListener("click", function(e){
+    if(e.target === editorOverlay) e.stopPropagation();
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+<!-- HAU_CONTACT_NAV_V60 -->
+
+
+
+
+<script id="hauFixedHeaderV67JS">
+(function(){
+  function setHeaderSpace(){
+    if(window.innerWidth < 769) {
+      document.documentElement.style.removeProperty('--hau-header-height');
+      return;
+    }
+    var h=document.querySelector('.site-header');
+    if(h){
+      document.documentElement.style.setProperty(
+        '--hau-header-height',
+        h.getBoundingClientRect().height + 'px'
+      );
+    }
+  }
+  window.addEventListener('load', setHeaderSpace);
+  window.addEventListener('resize', setHeaderSpace);
+  setTimeout(setHeaderSpace, 100);
+})();
+</script>
+
+
+
+
+<script id="hau-customer-reviews-v73-js" src="danh-gia-google.js?v=79" defer></script>
+<script src="floating-buttons.js?v=97" defer></script>
+
+<style id="hau-v83-booking-layout">
+/* V83: mobile dài hơn 20% so với V82 (63vh -> 75.6vh), sau đó căn giữa màn hình */
+@media (max-width:600px){
+  .booking-overlay.hau-booking-open{
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+  }
+  .booking-overlay.hau-booking-open .booking-modal{
+    height:75.6vh !important;
+    max-height:75.6vh !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* V83: PC + TABLET — SĐT/ZALO và GMAIL mỗi ô chiếm toàn bộ 1 hàng,
+   GMAIL nằm ngay bên dưới SĐT/ZALO giống mobile */
+@media (min-width:601px){
+  #bookingForm .booking-field:nth-of-type(2),
+  #bookingForm .booking-field:nth-of-type(3){
+    grid-column:1 / -1 !important;
+  }
+}
+</style>
+
+<style id="hau-v84-booking-layout">
+/* V84: PC + TABLET - SĐT/ZALO và GMAIL full-width, xếp dọc */
+@media (min-width:601px){
+  #bookingForm .booking-field:nth-of-type(2),
+  #bookingForm .booking-field:nth-of-type(3){
+    grid-column:1 / -1 !important;
+  }
+
+  /* Chữ hướng dẫn nhỏ, mờ và đứng yên - không chạy */
+  #bookingForm .phone-hint-track,
+  #bookingForm .email-hint-track{
+    font-size:10px !important;
+    color:#a9a9a9 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+  }
+  #bookingForm .phone-hint-track span,
+  #bookingForm .email-hint-track span{
+    padding-left:0 !important;
+    animation:none !important;
+    display:block !important;
+    width:100% !important;
+    overflow:hidden !important;
+    text-overflow:clip !important;
+  }
+}
+
+/* V84: MOBILE - form vừa màn hình, không cần cuộn để thấy nút ĐẶT LỊCH NGAY */
+@media (max-width:600px){
+  .booking-overlay{
+    padding:8px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+  }
+  .booking-modal{
+    width:calc(100vw - 16px) !important;
+    max-width:420px !important;
+    height:calc(100vh - 16px) !important;
+    max-height:calc(100vh - 16px) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+    padding:16px 14px 12px !important;
+    border-radius:15px !important;
+  }
+  .booking-title{font-size:18px !important;margin:0 30px 2px 0 !important;line-height:1.15 !important}
+  .booking-subtitle{font-size:10px !important;margin:0 0 6px !important;line-height:1.2 !important}
+  .booking-field{margin-bottom:5px !important}
+  .booking-field label{font-size:10px !important;margin-bottom:2px !important;line-height:1.15 !important}
+  .booking-field input,
+  .booking-field select{
+    min-height:32px !important;
+    height:32px !important;
+    padding:5px 9px !important;
+    font-size:15px !important;
+    border-radius:7px !important;
+  }
+  .booking-field textarea{
+    min-height:40px !important;
+    height:40px !important;
+    padding:5px 9px !important;
+    font-size:15px !important;
+    border-radius:7px !important;
+  }
+  .booking-submit{
+    min-height:36px !important;
+    height:36px !important;
+    padding:7px 9px !important;
+    font-size:13px !important;
+    border-radius:8px !important;
+    margin-top:0 !important;
+  }
+  .booking-close{width:30px !important;height:30px !important;top:7px !important;right:7px !important;font-size:22px !important;line-height:27px !important}
+  .phone-hint-track,.email-hint-track{font-size:10px !important;left:9px !important;right:9px !important}
+  .phone-hint-track span,.email-hint-track span{animation:none !important;padding-left:0 !important;display:block !important}
+
+  /* Khi mở lịch: luôn hiện trọn tháng trên màn hình, không cần cuộn */
+  #calendarPanel.show{
+    position:fixed !important;
+    left:50% !important;
+    right:auto !important;
+    top:50% !important;
+    transform:translate(-50%,-50%) !important;
+    width:calc(100vw - 24px) !important;
+    max-width:420px !important;
+    box-sizing:border-box !important;
+    padding:11px !important;
+    border-radius:14px !important;
+    z-index:40050 !important;
+    overflow:visible !important;
+  }
+  #calendarPanel .calendar-head{margin-bottom:6px !important}
+  #calendarPanel .calendar-head button{width:32px !important;height:32px !important}
+  #calendarPanel .calendar-title{font-size:14px !important}
+  #calendarPanel .calendar-week,
+  #calendarPanel .calendar-days{gap:4px !important}
+  #calendarPanel .calendar-week div{font-size:10px !important;padding:2px 0 !important}
+  #calendarPanel .calendar-days button{height:34px !important;font-size:13px !important;border-radius:7px !important}
+  #calendarPanel .calendar-hint{font-size:10px !important;margin-top:6px !important}
+}
+</style>
+
+<style id="hau-v87-booking-hints-calendar">
+/* V87: PC + TABLET + MOBILE — hướng dẫn SĐT/ZALO và GMAIL to, rõ, mờ vừa phải,
+   đứng yên và tự xuống dòng đầy đủ, không cắt nội dung / không tràn khung */
+#bookingForm .phone-hint-track,
+#bookingForm .email-hint-track{
+  white-space:normal !important;
+  overflow:hidden !important;
+  text-overflow:clip !important;
+  color:#777 !important;
+  font-size:13px !important;
+  line-height:1.18 !important;
+  display:flex !important;
+  align-items:center !important;
+  height:100% !important;
+  box-sizing:border-box !important;
+}
+#bookingForm .phone-hint-track span,
+#bookingForm .email-hint-track span{
+  display:block !important;
+  width:100% !important;
+  padding:0 !important;
+  margin:0 !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  animation:none !important;
+  transform:none !important;
+}
+#bookingForm .phone-input-wrap,
+#bookingForm .email-input-wrap{
+  min-height:46px !important;
+}
+#bookingForm .phone-input-wrap input,
+#bookingForm .email-input-wrap input{
+  min-height:46px !important;
+  height:46px !important;
+  box-sizing:border-box !important;
+}
+@media(max-width:600px){
+  #bookingForm .phone-input-wrap,
+  #bookingForm .email-input-wrap{min-height:42px !important;}
+  #bookingForm .phone-input-wrap input,
+  #bookingForm .email-input-wrap input{height:42px !important;min-height:42px !important;}
+  #bookingForm .phone-hint-track,
+  #bookingForm .email-hint-track{
+    font-size:12px !important;
+    line-height:1.15 !important;
+    left:9px !important; right:9px !important;
+  }
+}
+
+/* V87: Khi lịch đang mở, bấm ra ngoài ô lịch sẽ tự ẩn lịch.
+   Bấm trong lịch hoặc ô Ngày Bạn Tới Làm thì vẫn giữ lịch. */
+</style>
+<script id="hau-v87-calendar-outside-close">
+(function(){
+  function bindCalendarOutsideClose(){
+    const panel=document.getElementById('calendarPanel');
+    const dateInput=document.getElementById('bookingDateDisplay');
+    if(!panel || !dateInput || window.__hauCalendarOutsideCloseBound) return;
+    window.__hauCalendarOutsideCloseBound=true;
+    document.addEventListener('click',function(e){
+      if(!panel.classList.contains('show')) return;
+      if(panel.contains(e.target) || dateInput.contains(e.target)) return;
+      panel.classList.remove('show');
+    },true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindCalendarOutsideClose);
+  else bindCalendarOutsideClose();
+})();
+</script>
+
+
+<!-- H.A.U CUSTOM TIME PICKER V91 -->
+<div id="hauTimePicker" class="hau-time-picker" aria-hidden="true">
+  <div class="hau-time-card" role="dialog" aria-modal="true" aria-labelledby="hauTimeTitle">
+    <div class="hau-time-top">
+      <div><div class="hau-time-kicker">CHỌN GIỜ HẸN</div><div id="hauTimeTitle" class="hau-time-title">Thời Gian Bạn Tới Làm</div></div>
+      <button type="button" class="hau-time-x" id="hauTimeClose" aria-label="Đóng">×</button>
+    </div>
+    <div class="hau-time-preview"><span id="hauTimePreview">-- : --</span><small id="hauTimePreviewDate">Chọn giờ phù hợp với lịch hẹn</small></div>
+    <div class="hau-time-wheels">
+      <div class="hau-time-wheel-col"><div class="hau-wheel-label">GIỜ</div><div class="hau-wheel" id="hauHourWheel"></div></div>
+      <div class="hau-time-colon">:</div>
+      <div class="hau-time-wheel-col"><div class="hau-wheel-label">PHÚT</div><div class="hau-wheel" id="hauMinuteWheel"></div></div>
+    </div>
+    <div class="hau-time-note" id="hauTimeNote">Giờ đã qua hôm nay sẽ không thể chọn.</div>
+    <div class="hau-time-actions"><button type="button" id="hauTimeCancel">HỦY</button><button type="button" id="hauTimeDone">XONG</button></div>
+  </div>
+</div>
+
+<style id="hau-v89-custom-time-picker">
+/* V89: Bộ chọn giờ riêng — Android/iOS dạng cuộn, PC giao diện lịch sự */
+#bookingForm #bookingTime{
+  -webkit-appearance:none !important; appearance:none !important;
+  background:#fff !important; cursor:pointer !important;
+  caret-color:transparent !important;
+}
+.hau-time-picker{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;z-index:100500;background:rgba(17,13,9,.48);backdrop-filter:blur(5px);}
+.hau-time-picker.show{display:flex;}
+.hau-time-card{width:min(430px,calc(100vw - 36px));background:linear-gradient(180deg,#fffdf9 0%,#fff 100%);border:1px solid rgba(184,143,75,.55);border-radius:20px;box-shadow:0 22px 65px rgba(0,0,0,.28),0 0 0 5px rgba(184,143,75,.08);padding:20px 20px 16px;color:#2c2118;}
+.hau-time-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;}
+.hau-time-kicker{font-size:10px;letter-spacing:2px;font-weight:800;color:#a1783b;margin-bottom:4px;}
+.hau-time-title{font-size:19px;font-weight:800;line-height:1.2;}
+.hau-time-x{width:32px;height:32px;border:0;border-radius:50%;background:#8e1e1e;color:#fff;font-size:23px;line-height:32px;cursor:pointer;}
+.hau-time-preview{margin:17px 0 14px;padding:12px 14px;border-radius:13px;background:#f7f1e8;border:1px solid #e5d6bd;text-align:center;}
+.hau-time-preview span{display:block;font-size:30px;font-weight:800;letter-spacing:2px;color:#7e5a2d;line-height:1.05;}
+.hau-time-preview small{display:block;margin-top:5px;color:#8b8177;font-size:11px;}
+.hau-time-wheels{height:220px;display:flex;align-items:center;justify-content:center;gap:8px;position:relative;}
+.hau-time-wheels:after{display:none !important;}
+.hau-time-wheel-col{width:125px;height:100%;display:flex;flex-direction:column;align-items:center;}
+.hau-wheel-label{font-size:10px;letter-spacing:1.5px;font-weight:800;color:#9a8b78;margin-bottom:5px;}
+.hau-wheel{height:190px;width:100%;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;padding:71px 0;box-sizing:border-box;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.hau-wheel::-webkit-scrollbar{display:none;}
+.hau-wheel-item{height:48px;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;font-size:25px;font-weight:600;color:#b5aca1;opacity:.58;transition:.15s;user-select:none;}
+.hau-wheel-item.active{color:#7b582d;opacity:1;font-size:29px;font-weight:800;background:rgba(184,143,75,.13);border:1px solid rgba(184,143,75,.22);border-radius:12px;box-sizing:border-box;box-shadow:none;}
+.hau-wheel-item.disabled{color:#cfc8bf;text-decoration:line-through;opacity:.28;cursor:not-allowed;}
+.hau-time-colon{font-size:29px;font-weight:800;color:#9b7848;margin-top:21px;}
+.hau-time-note{min-height:18px;margin:5px 4px 10px;text-align:center;font-size:11px;color:#887c6d;}
+.hau-time-actions{display:flex;gap:10px;}
+.hau-time-actions button{flex:1;height:42px;border-radius:10px;font-size:13px;font-weight:800;letter-spacing:.5px;cursor:pointer;}
+#hauTimeCancel{background:#fff;border:1px solid #d9c8ae;color:#776a5b;}
+#hauTimeDone{background:linear-gradient(135deg,#8b642e,#b88a48);border:1px solid #8b642e;color:#fff;box-shadow:0 5px 14px rgba(139,100,46,.22);}
+@media (max-width:768px){
+ .hau-time-picker{padding:12px;align-items:flex-end;background:rgba(12,9,6,.42);backdrop-filter:blur(4px);}
+ .hau-time-card{width:100%;max-width:520px;border-radius:22px 22px 16px 16px;padding:17px 15px 14px;box-shadow:0 -10px 45px rgba(0,0,0,.22);}
+ .hau-time-title{font-size:18px;}
+ .hau-time-preview{margin:12px 0 8px;padding:9px;}
+ .hau-time-preview span{font-size:28px;}
+ .hau-time-wheels{height:205px;}
+ .hau-wheel{height:180px;padding:66px 0;}
+ .hau-time-wheel-col{width:44%;}
+ 
+ .hau-wheel-item{height:48px;font-size:24px;}
+ .hau-wheel-item.active{font-size:28px;}
+}
+</style>
+
+<script id="hau-v89-custom-time-script">
+(function(){
+ const input=document.getElementById('bookingTime'), picker=document.getElementById('hauTimePicker');
+ if(!input||!picker)return;
+ const hw=document.getElementById('hauHourWheel'), mw=document.getElementById('hauMinuteWheel'), preview=document.getElementById('hauTimePreview'), note=document.getElementById('hauTimeNote');
+ let tempHour=null,tempMinute=null,ignoreClick=false;
+ const pad=n=>String(n).padStart(2,'0');
+ function currentMin(){
+   const d=document.getElementById('bookingDate')?.value,n=typeof vnNow==='function'?vnNow():new Date();
+   if(d && typeof iso==='function' && d===iso(n)) return n.getHours()*60+n.getMinutes();
+   return -1;
+ }
+ function validMinute(h,m){const min=currentMin();return min<0 || h*60+m>min;}
+ function buildWheel(el,max,kind){
+   el.innerHTML='';
+   for(let i=0;i<=max;i++){
+     const b=document.createElement('div');b.className='hau-wheel-item';b.textContent=pad(i);b.dataset.value=i;
+     b.addEventListener('click',()=>{if(b.classList.contains('disabled'))return;el.scrollTo({top:i*48,behavior:'smooth'});updateTemp();});
+     el.appendChild(b);
+   }
+   el.addEventListener('scroll',()=>{clearTimeout(el._t);el._t=setTimeout(updateTemp,80);},{passive:true});
+ }
+ function markActive(el,val,kind){[...el.children].forEach(x=>x.classList.toggle('active',Number(x.dataset.value)===val));}
+ function refreshDisabled(){
+   const min=currentMin();
+   [...hw.children].forEach(x=>{const h=Number(x.dataset.value);x.classList.toggle('disabled',min>=0 && h*60+59<=min);});
+   [...mw.children].forEach(x=>{const m=Number(x.dataset.value);x.classList.toggle('disabled',tempHour!=null && !validMinute(tempHour,m));});
+ }
+ function wheelValue(el){const v=Math.round(el.scrollTop/48);return Math.max(0,Math.min(Number(el.lastElementChild.dataset.value),v));}
+ function updateTemp(){
+   tempHour=wheelValue(hw);tempMinute=wheelValue(mw);
+   if(currentMin()>=0 && !validMinute(tempHour,tempMinute)){
+     let h=tempHour,m=tempMinute;
+     if(h*60+m<=currentMin()){const n=currentMin()+1;h=Math.floor(n/60);m=n%60;if(h>23){note.textContent='Hôm nay đã hết giờ đặt lịch. Vui lòng chọn ngày khác.';} else {hw.scrollTo({top:h*48});mw.scrollTo({top:m*48});}}
+   }
+   refreshDisabled();markActive(hw,tempHour);markActive(mw,tempMinute);
+   preview.textContent=pad(tempHour)+' : '+pad(tempMinute);
+   note.textContent=(currentMin()>=0)?'Giờ đã qua hôm nay sẽ không thể chọn.':'Bạn có thể cuộn lên / xuống để chọn giờ và phút.';
+ }
+ function open(){
+   const val=input.value||'';let h,m;
+   if(/^\d{2}:\d{2}$/.test(val)){[h,m]=val.split(':').map(Number);} else {const n=typeof vnNow==='function'?vnNow():new Date();h=n.getHours();m=n.getMinutes();if(currentMin()>=0){m++;if(m>59){h++;m=0;}if(h>23)h=23;}}
+   tempHour=h;tempMinute=m;buildWheel(hw,23,'h');buildWheel(mw,59,'m');
+   requestAnimationFrame(()=>{hw.scrollTop=h*48;mw.scrollTop=m*48;updateTemp();});
+   picker.classList.add('show');picker.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+ }
+ function close(){picker.classList.remove('show');picker.setAttribute('aria-hidden','true');document.body.style.overflow='hidden';}
+ function done(){
+   if(tempHour==null||tempMinute==null)return;
+   if(!validMinute(tempHour,tempMinute)){note.textContent='⚠️ Thời gian này đã trôi qua. Vui lòng chọn thời gian muộn hơn giờ hiện tại.';return;}
+   input.value=pad(tempHour)+':'+pad(tempMinute);input.dispatchEvent(new Event('change',{bubbles:true}));close();
+ }
+ input.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open();});
+ input.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+ document.getElementById('hauTimeClose').onclick=close;document.getElementById('hauTimeCancel').onclick=close;document.getElementById('hauTimeDone').onclick=done;
+ picker.addEventListener('click',e=>{if(e.target===picker)close();});
+ window.__hauCustomTimePicker={open,close};
+})();
+</script>
+
+<script id="hau-v93-pc-wheel-script">
+(function(){
+  const isPC=()=>window.matchMedia('(min-width:769px)').matches;
+  function setupWheel(id){
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('wheel',function(e){
+      if(!isPC()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const step=48;
+      const dir=e.deltaY>0?1:-1;
+      const max=Math.max(0,(el.scrollHeight-el.clientHeight));
+      const current=Math.round(el.scrollTop/step);
+      const maxIndex=Math.round(max/step);
+      const next=Math.max(0,Math.min(maxIndex,current+dir));
+      el.scrollTop=next*step;
+      el.dispatchEvent(new Event('scroll'));
+    },{passive:false});
+  }
+  setupWheel('hauHourWheel');
+  setupWheel('hauMinuteWheel');
+})();
+</script>
+
+
+<style id="hau-v97-all-booking-colors">
+/* V97: TẤT CẢ nút ĐẶT LỊCH NGAY trên trang chủ + form đặt lịch.
+   Hai màu nền đổi qua lại mỗi 0,5 giây. */
+.site-header .booking-btn,
+.mobile-nav .mobile-booking,
+.hero .hero-btn,
+#bookingSubmit.booking-submit,
+.booking-modal #bookingSubmit.booking-submit{
+  font-family:Arial,Helvetica,sans-serif !important;
+  color:#fff !important;
+  background:#8f6a3f !important;
+  background-image:none !important;
+  transition:none !important;
+}
+</style>
+<script id="hau-v97-all-booking-color-js">
+/* V97: ĐẶT LỊCH NGAY — đổi nâu ↔ xanh mỗi 0,5 giây trên PC + Mobile */
+(function(){
+  const BROWN = '#8f6a3f';
+  const BLUE = '#2f78a8';
+  const selectors = [
+    '.site-header .booking-btn',
+    '.mobile-nav .mobile-booking',
+    '#bookingSubmit.booking-submit',
+    '.booking-modal #bookingSubmit.booking-submit'
+  ];
+  let blue = false;
+  function getButtons(){
+    const list=[];
+    selectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){ if(list.indexOf(el)<0) list.push(el); });
+    });
+    if(window.HAUFloatingButtons && typeof window.HAUFloatingButtons.getBookingButton==='function'){
+      const f=window.HAUFloatingButtons.getBookingButton();
+      if(f && list.indexOf(f)<0) list.push(f);
+    }
+    return list;
+  }
+  function apply(){
+    const color=blue ? BLUE : BROWN;
+    getButtons().forEach(function(btn){
+      btn.style.setProperty('background-color',color,'important');
+      btn.style.setProperty('background-image','none','important');
+    });
+  }
+  function start(){
+    apply();
+    setInterval(function(){ blue=!blue; apply(); },500);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
+  else start();
+})();
+</script>
+
+
+<style id="hau-v98-pc-booking-font">
+/* V98: PC - đổi font ĐẶT LỊCH NGAY sang font dễ đọc */
+@media (min-width:769px){
+  .site-header .booking-btn,
+  .hero .hero-btn,
+  #bookingSubmit.booking-submit,
+  .booking-modal #bookingSubmit.booking-submit,
+  .mobile-nav .mobile-booking{
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+    text-rendering: geometricPrecision;
+  }
+}
+</style>
+
+
+<style id="hau-v99-hero-booking-red">
+/* V100: Chỉ nút ĐẶT LỊCH NGAY ở phần hero màu đỏ cố định. */
+.hero .hero-btn{
+  background:#c62828 !important;
+  background-color:#c62828 !important;
+  background-image:none !important;
+}
+</style>
+
+
+<style id="hau-v167-mobile-note-placeholder-fix">
+/* V167: Mobile - hiển thị đầy đủ chữ mờ trong ô Ghi Chú Cho Salon, không cắt nội dung. */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open #customerNote::placeholder{
+    font-size:12px !important;
+    line-height:14px !important;
+    white-space:normal !important;
+    opacity:1 !important;
+  }
+}
+</style>
+
+
+
+<script id="hauMobileSmoothNavV191">
+(function () {
+  function isMobile() {
+    return window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  function smoothJump(event, id) {
+    if (!isMobile()) return; // PC giữ nguyên hành vi hiện tại.
+    if (event) event.preventDefault();
+
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    // Chờ 1 frame để browser ổn định layout rồi mới thực hiện DUY NHẤT 1 lần
+    // smooth scroll. Không gọi scrollTo lặp nên không còn hiện tượng giật/đẩy.
+    window.requestAnimationFrame(function () {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+
+  window.hauMobileServiceJump = function (event) {
+    smoothJump(event, 'hau-bang-gia-dich-vu');
+  };
+
+  window.hauMobileContactJump = function (event) {
+    smoothJump(event, 'hau-contact-after-spa-loader');
+  };
+})();
+</script>
+
+
+<style id="hau-v197-booking-phone-chrome-fix">
+/* V197: SĐT/ZALO bắt buộc 10 số; Gmail không bắt buộc.
+   Giảm lỗi giao diện/ô gợi ý danh bạ trên Chrome bằng input text + numeric keyboard.
+   Hint mờ tự ẩn ngay khi ô được focus. */
+#bookingForm #customerPhone:focus + .phone-hint-track,
+#bookingForm #customerEmail:focus + .email-hint-track,
+#bookingForm .phone-input-wrap:focus-within .phone-hint-track,
+#bookingForm .email-input-wrap:focus-within .email-hint-track{
+  display:none !important;
+}
+#bookingForm #customerPhone{
+  -webkit-user-select:text !important;
+  user-select:text !important;
+}
+#bookingForm #customerName:focus::placeholder,
+#bookingForm #customerPhone:focus::placeholder{
+  opacity:0 !important;
+}
+@media (max-width:600px){
+  /* Khi bàn phím Chrome/iOS mở, không để khung booking bị kéo/nhảy theo chiều cao viewport. */
+  #bookingOverlay.hau-booking-open{
+    height:100dvh !important;
+    min-height:100dvh !important;
+    max-height:100dvh !important;
+    overflow:hidden !important;
+  }
+  #bookingOverlay.hau-booking-open .booking-modal{
+    max-height:calc(100dvh - 12px) !important;
+  }
+}
+</style>
+
+<script id="hau-v198-booking-phone-validation">
+(function(){
+  const phone=document.getElementById('customerPhone');
+  const email=document.getElementById('customerEmail');
+  const phoneHint=()=>document.getElementById('phoneHintTrack');
+  const emailHint=()=>document.getElementById('emailHintTrack');
+  if(phone){
+    // Số 0 được đặt sẵn ở đầu ô SĐT/Zalo.
+    function ensureDefaultZero(){
+      
+    }
+    function cleanPhone(){
+      phone.value=phone.value.replace(/\D/g,'').slice(0,10);
+      const hint=phoneHint();
+      if(hint) hint.style.display='none';
+    }
+    phone.addEventListener('focus',function(){
+      ensureDefaultZero();
+      const hint=phoneHint();
+      if(hint) hint.style.display='none';
+    });
+    phone.addEventListener('input',cleanPhone);
+    phone.addEventListener('blur',function(){
+      cleanPhone();
+      const hint=phoneHint();
+      if(hint) hint.style.display=phone.value?'none':'';
+    });
+    // Hiển thị số 0 mặc định ngay khi form booking được mở.
+    ensureDefaultZero();
+  }
+  if(email){
+    email.addEventListener('focus',function(){
+      const hint=emailHint();
+      if(hint) hint.style.display='none';
+    });
+    email.addEventListener('input',function(){
+      const hint=emailHint();
+      if(hint) hint.style.display='none';
+    });
+    email.addEventListener('blur',function(){
+      const hint=emailHint();
+      if(hint) hint.style.display=this.value?'none':'';
+    });
+  }
+})();
+</script>
+</body>
+
+
+<style id="hau-v163-date-time-center-picker">
+/* V163: CHỈ THAY ĐỔI GIAO DIỆN BẢNG CHỌN NGÀY + GIỜ.
+   Toàn bộ phần còn lại giữ nguyên. */
+
+/* NGÀY: PC + MOBILE — luôn mở thành bảng lịch ở chính giữa màn hình */
+#calendarPanel.show{
+  position:fixed !important;
+  left:50% !important;
+  right:auto !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  width:min(390px,calc(100vw - 28px)) !important;
+  max-width:390px !important;
+  box-sizing:border-box !important;
+  padding:18px 18px 14px !important;
+  background:linear-gradient(180deg,#fffdf9 0%,#ffffff 100%) !important;
+  border:1.5px solid #d6b36a !important;
+  border-radius:20px !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.28),0 0 0 5px rgba(214,179,106,.10) !important;
+  z-index:40050 !important;
+  overflow:visible !important;
+}
+#calendarPanel .calendar-head{
+  margin-bottom:12px !important;
+  padding-bottom:10px !important;
+  border-bottom:1px solid #eee3d2 !important;
+}
+#calendarPanel .calendar-head button{
+  width:36px !important;
+  height:36px !important;
+  border:1px solid #d8c4a2 !important;
+  border-radius:10px !important;
+  background:#fff !important;
+  color:#76552f !important;
+  font-size:21px !important;
+  font-weight:700 !important;
+}
+#calendarPanel .calendar-head button:hover{
+  background:#f8efdf !important;
+}
+#calendarPanel .calendar-title{
+  font-size:17px !important;
+  font-weight:800 !important;
+  color:#4b3727 !important;
+}
+#calendarPanel .calendar-week,
+#calendarPanel .calendar-days{
+  gap:6px !important;
+}
+#calendarPanel .calendar-week div{
+  font-size:11px !important;
+  font-weight:800 !important;
+  color:#9a8064 !important;
+  padding:5px 0 !important;
+}
+#calendarPanel .calendar-days button{
+  height:38px !important;
+  min-height:38px !important;
+  border:1px solid #eadfd2 !important;
+  border-radius:9px !important;
+  background:#fff !important;
+  color:#4b4038 !important;
+  font-size:14px !important;
+  font-weight:600 !important;
+}
+#calendarPanel .calendar-days button:hover:not(:disabled){
+  border-color:#b78a43 !important;
+  background:#f8edcf !important;
+}
+#calendarPanel .calendar-days button.today{
+  border:2px solid #c99b4d !important;
+  font-weight:800 !important;
+}
+#calendarPanel .calendar-days button.selected{
+  background:#9a7545 !important;
+  color:#fff !important;
+  border-color:#9a7545 !important;
+  font-weight:800 !important;
+}
+#calendarPanel .calendar-days button.past{
+  color:#b9b0a7 !important;
+  background:#f2efeb !important;
+}
+#calendarPanel .calendar-hint{
+  margin-top:10px !important;
+  padding-top:8px !important;
+  border-top:1px solid #eee3d2 !important;
+  font-size:10px !important;
+  color:#8a7a6c !important;
+}
+
+/* GIỜ: PC + MOBILE — bảng luôn nằm chính giữa màn hình */
+.hau-time-picker{
+  align-items:center !important;
+  justify-content:center !important;
+}
+.hau-time-card{
+  width:min(430px,calc(100vw - 28px)) !important;
+  max-width:430px !important;
+  border-radius:20px !important;
+}
+
+@media(max-width:600px){
+  /* Lịch mobile: vẫn ở chính giữa, không đổi kích thước form đặt lịch phía sau */
+  #calendarPanel.show{
+    width:calc(100vw - 24px) !important;
+    max-width:420px !important;
+    padding:15px 13px 12px !important;
+    border-radius:18px !important;
+  }
+  #calendarPanel .calendar-head{
+    margin-bottom:9px !important;
+    padding-bottom:8px !important;
+  }
+  #calendarPanel .calendar-head button{
+    width:34px !important;
+    height:34px !important;
+  }
+  #calendarPanel .calendar-title{font-size:15px !important}
+  #calendarPanel .calendar-week,
+  #calendarPanel .calendar-days{gap:4px !important}
+  #calendarPanel .calendar-week div{font-size:10px !important;padding:3px 0 !important}
+  #calendarPanel .calendar-days button{
+    height:35px !important;
+    min-height:35px !important;
+    font-size:13px !important;
+    border-radius:8px !important;
+  }
+  #calendarPanel .calendar-hint{font-size:9.5px !important;margin-top:8px !important;padding-top:6px !important}
+
+  /* Bảng giờ mobile: đổi từ bottom-sheet thành hộp giữa màn hình */
+  .hau-time-picker{
+    padding:12px !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .hau-time-card{
+    width:calc(100vw - 24px) !important;
+    max-width:430px !important;
+    border-radius:20px !important;
+    padding:18px 15px 15px !important;
+    box-shadow:0 24px 65px rgba(0,0,0,.28) !important;
+  }
+}
+</style>
+
+</html>
+
+
+<style id="hau-v18-mobile-time-full-size">
+/* V18: MOBILE - ô THỜI GIAN 100% giống hệt ô HỌ VÀ TÊN */
+@media (max-width:600px){
+  #bookingForm #bookingTime{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    min-width:100% !important;
+    box-sizing:border-box !important;
+    height:36px !important;
+    min-height:36px !important;
+    max-height:36px !important;
+    margin:0 !important;
+    padding:7px 10px !important;
+    font-size:16px !important;
+    line-height:20px !important;
+    border-radius:8px !important;
+    flex:none !important;
+  }
+
+  #bookingForm .booking-field:has(#bookingTime){
+    width:100% !important;
+    max-width:none !important;
+    min-width:100% !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+
+<style id="hau-v19-layout-adjustments">
+/* V19 - Layout theo yêu cầu mới */
+
+/* PC: đưa toàn bộ dải liên hệ màu xanh (địa chỉ + hotline + 5 nút) lên khoảng 30%. */
+@media (min-width:769px){
+  .contact-strip{
+    position:relative !important;
+    transform:translateY(-30%) !important;
+    z-index:5 !important;
+  }
+}
+
+/* Nút đặt lịch trong phần trang chủ: bỏ icon lá thư. */
+.hero-btn span{display:none !important;}
+
+/* Mobile: nút ĐẶT LỊCH NGAY dưới phần lời chào, căn giữa. */
+@media (max-width:768px){
+  .hero-btn{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  /* Hình trang chủ đưa lên khoảng 20%. */
+  .hero-photo{
+    transform:translateY(-20%) !important;
+  }
+}
+</style>
+
+
+<style id="hau-v20-layout-adjustments">
+/* V20 - Điều chỉnh theo yêu cầu mới */
+
+/* PC: phần nền màu vàng bên dưới dải liên hệ chuyển thành trắng. */
+@media (min-width:769px){
+  #services{
+    background:#fff !important;
+  }
+}
+
+/* Mobile: hình trang chủ từ vị trí V19 (-20%) đưa xuống 10%,
+   tức vị trí mới là -10%. */
+@media (max-width:768px){
+  .hero-photo{
+    transform:translateY(-10%) !important;
+  }
+
+  /* Toàn bộ dải liên hệ (địa chỉ + hotline + 5 nút) đưa lên 20%. */
+  .contact-strip{
+    transform:translateY(-20%) !important;
+    position:relative !important;
+    z-index:5 !important;
+  }
+}
+</style>
+
+
+<style id="hau-v21-mobile-time-exact-size">
+/* V21: MOBILE - ô THỜI GIAN giống chính xác kích thước ô HỌ VÀ TÊN */
+@media (max-width:600px){
+  #bookingForm .booking-field:has(#bookingTime){
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  #bookingForm #bookingTime{
+    display:block !important;
+    box-sizing:border-box !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    height:36px !important;
+    min-height:36px !important;
+    max-height:36px !important;
+    margin:0 !important;
+    padding:7px 10px !important;
+    font-size:16px !important;
+    line-height:20px !important;
+    border:1px solid #d9cec0 !important;
+    border-radius:8px !important;
+    background:#fff !important;
+    -webkit-appearance:none !important;
+    appearance:none !important;
+    flex:none !important;
+  }
+
+  /* Giữ vùng bấm toàn ô để mở bảng chọn giờ. */
+  #bookingForm #bookingTime::-webkit-calendar-picker-indicator{
+    display:block !important;
+    opacity:1 !important;
+    width:18px !important;
+    height:18px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+}
+</style>
+
+
+<style id="hau-v22-final-layout">
+/* V22 */
+
+/* PC + MOBILE: dải màu vàng dưới dải xanh chuyển hoàn toàn sang trắng */
+#services{
+  background:#fff !important;
+}
+
+/* MOBILE: khung ĐẶT LỊCH HẸN mở rộng theo chiều dọc khoảng 10%
+   (mép trên lên ~5%, mép dưới xuống ~5%) */
+@media (max-width:600px){
+  .booking-modal{
+    max-height:calc(100vh - 16px) !important;
+    height:calc(100vh - 16px) !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+
+<style id="hau-v23-booking-modal-balance">
+@media (max-width:600px){
+  .booking-overlay{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .booking-modal{
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    margin:0 auto !important;
+    width:calc(100vw - 16px) !important;
+    max-width:420px !important;
+    height:calc((100vh - 16px) * 0.95) !important;
+    max-height:95vh !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+
+<style id="hau-v24-booking-close-fix">
+@media (max-width:600px){
+  .booking-close{
+    z-index:999999 !important;
+    pointer-events:auto !important;
+    touch-action:manipulation !important;
+    -webkit-tap-highlight-color:transparent !important;
+  }
+}
+</style>
+
+
+<script id="hau-v24-booking-close-fix-js">
+(function(){
+  function bindBookingClose(){
+    const btn = document.querySelector('#bookingOverlay .booking-close');
+    if(!btn || btn.dataset.hauCloseBound === '1') return;
+    btn.dataset.hauCloseBound = '1';
+
+    const closeNow = function(e){
+      if(e){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if(typeof window.closeBooking === 'function'){
+        window.closeBooking();
+      }else{
+        const overlay = document.getElementById('bookingOverlay');
+        if(overlay){
+          overlay.style.display='none';
+          overlay.setAttribute('aria-hidden','true');
+        }
+        document.body.style.overflow='';
+      }
+    };
+
+    btn.addEventListener('click', closeNow, true);
+    btn.addEventListener('touchend', closeNow, {capture:true, passive:false});
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bindBookingClose, {once:true});
+  }else{
+    bindBookingClose();
+  }
+})();
+</script>
+
+
+<style id="hau-v25-booking-overlay-fix">
+/* V25: KHÔNG tự mở đặt lịch khi vào website.
+   Chỉ hiện khi hàm openBooking() được gọi. */
+.booking-overlay{
+  display:none !important;
+}
+.booking-overlay.hau-booking-open{
+  display:flex !important;
+}
+</style>
+
+<script id="hau-v25-booking-overlay-fix-js">
+(function(){
+  const overlay = document.getElementById('bookingOverlay');
+
+  function openBookingFixed(e){
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if(!overlay) return;
+    overlay.classList.add('hau-booking-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+
+    /* V83: mọi nút ĐẶT LỊCH đều mở form xong thì ẩn toàn bộ nút nổi */
+    if(window.HAUFloatingButtons) window.HAUFloatingButtons.hide();
+
+    if(typeof setToday === 'function') setToday();
+    if(typeof renderCalendar === 'function') renderCalendar();
+    if(typeof updateTimeMin === 'function') updateTimeMin();
+  }
+
+  function closeBookingFixed(e){
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if(!overlay) return;
+    overlay.classList.remove('hau-booking-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+
+    if(window.HAUFloatingButtons) window.HAUFloatingButtons.show();
+
+    const calendar = document.getElementById('calendarPanel');
+    if(calendar) calendar.classList.remove('show');
+  }
+
+  window.openBooking = openBookingFixed;
+  window.closeBooking = closeBookingFixed;
+
+  if(overlay){
+    const closeBtn = overlay.querySelector('.booking-close');
+    if(closeBtn){
+      closeBtn.onclick = closeBookingFixed;
+      closeBtn.addEventListener('click', closeBookingFixed, true);
+      closeBtn.addEventListener('touchend', closeBookingFixed, {capture:true, passive:false});
+    }
+
+    /* Không cho bấm nền làm mở/đóng nhầm; chỉ nút X đóng. */
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  }
+})();
+</script>
+
+
+<style id="hau-v26-remove-yellow-strip">
+/* V26: bỏ hoàn toàn dải màu vàng/kem giữa dải liên hệ xanh và nền trắng.
+   Áp dụng cả PC và mobile. */
+main{
+  background:#fff !important;
+}
+
+#contact + #services,
+#services{
+  background:#fff !important;
+  background-color:#fff !important;
+}
+
+#contact{
+  margin-bottom:0 !important;
+}
+</style>
+
+
+<style id="hau-v82-mobile-booking-height">
+/* V82: MOBILE - khung ĐẶT LỊCH HẸN ngắn hơn 30%, rút từ phía dưới và căn giữa màn hình */
+@media (max-width:600px){
+  .booking-overlay.hau-booking-open{
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-modal{
+    width:calc(100vw - 16px) !important;
+    max-width:420px !important;
+    height:63vh !important;
+    max-height:63vh !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+<style id="hau-v88-note-fullwidth">
+/* V88: PC + TABLET — Ghi Chú Cho Salon chiếm toàn bộ chiều ngang như các ô full-width */
+@media (min-width:601px){
+  #bookingForm .booking-field:nth-of-type(7){
+    grid-column:1 / -1 !important;
+    width:100% !important;
+  }
+  #bookingForm #customerNote{
+    display:block !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+<style id="hau-v122-mobile-booking-final">
+/* V122 - MOBILE: khung ĐẶT LỊCH HẸN luôn nằm chính giữa màn hình,
+   toàn bộ nội dung chính hiển thị trong một khung, không cần cuộn. */
+@media (max-width:600px){
+  .booking-overlay.hau-booking-open,
+  #bookingOverlay{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    padding:0 !important;
+    display:none;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+
+  .booking-overlay.hau-booking-open{
+    display:flex !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-modal{
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    margin:0 !important;
+    width:calc(100vw - 18px) !important;
+    max-width:430px !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:92dvh !important;
+    overflow:hidden !important;
+    overflow-x:hidden !important;
+    overflow-y:hidden !important;
+    box-sizing:border-box !important;
+    padding:13px 12px 11px !important;
+    border-radius:16px !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-close{
+    width:30px !important;
+    height:30px !important;
+    top:7px !important;
+    right:7px !important;
+    font-size:22px !important;
+    line-height:28px !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-title{
+    font-size:19px !important;
+    line-height:1.1 !important;
+    margin:0 32px 2px 0 !important;
+    padding:0 !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-subtitle{
+    font-size:9.5px !important;
+    line-height:1.15 !important;
+    margin:0 0 5px !important;
+  }
+
+  .booking-overlay.hau-booking-open #bookingForm{
+    display:block !important;
+    width:100% !important;
+    margin:0 !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-field{
+    margin:0 0 4px !important;
+    width:100% !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-field label{
+    font-size:9.5px !important;
+    line-height:1.05 !important;
+    margin:0 0 2px !important;
+    letter-spacing:.15px !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-field input,
+  .booking-overlay.hau-booking-open .booking-field select{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:29px !important;
+    height:29px !important;
+    padding:4px 8px !important;
+    border-radius:7px !important;
+    font-size:14px !important;
+    line-height:20px !important;
+    box-sizing:border-box !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-field textarea,
+  .booking-overlay.hau-booking-open #customerNote{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:34px !important;
+    height:34px !important;
+    max-height:34px !important;
+    padding:5px 8px !important;
+    border-radius:7px !important;
+    font-size:13px !important;
+    line-height:16px !important;
+    resize:none !important;
+    box-sizing:border-box !important;
+    margin:0 !important;
+    display:block !important;
+    opacity:1 !important;
+  }
+
+  /* Hint nằm gọn trong ô, không làm tăng chiều cao form. */
+  .booking-overlay.hau-booking-open .phone-hint-track,
+  .booking-overlay.hau-booking-open .email-hint-track{
+    left:9px !important;
+    right:9px !important;
+    font-size:8.5px !important;
+    line-height:1 !important;
+    color:#9b9b9b !important;
+  }
+
+  .booking-overlay.hau-booking-open .phone-hint-track span,
+  .booking-overlay.hau-booking-open .email-hint-track span{
+    padding-left:0 !important;
+    animation:none !important;
+    display:block !important;
+    width:100% !important;
+    overflow:hidden !important;
+    white-space:nowrap !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-validation-notice{
+    margin:1px 0 3px !important;
+    padding:3px 6px !important;
+    font-size:8.5px !important;
+    line-height:1.15 !important;
+  }
+
+  .booking-overlay.hau-booking-open .booking-submit{
+    width:100% !important;
+    min-height:34px !important;
+    height:34px !important;
+    padding:5px 10px !important;
+    margin:3px 0 0 !important;
+    border-radius:8px !important;
+    font-size:14px !important;
+    line-height:22px !important;
+  }
+
+  /* Lịch mở ra vẫn nằm trong màn hình, không đẩy khung đặt lịch. */
+  .booking-overlay.hau-booking-open .calendar-panel{
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    top:calc(100% + 4px) !important;
+    max-height:62vh !important;
+    overflow:hidden !important;
+    padding:8px !important;
+    border-radius:12px !important;
+    box-sizing:border-box !important;
+  }
+
+  .booking-overlay.hau-booking-open .calendar-head{margin-bottom:5px !important}
+  .booking-overlay.hau-booking-open .calendar-head button{
+    width:29px !important;
+    height:29px !important;
+  }
+  .booking-overlay.hau-booking-open .calendar-title{font-size:13px !important}
+  .booking-overlay.hau-booking-open .calendar-week,
+  .booking-overlay.hau-booking-open .calendar-days{gap:3px !important}
+  .booking-overlay.hau-booking-open .calendar-week div{font-size:9px !important;padding:2px 0 !important}
+  .booking-overlay.hau-booking-open .calendar-days button{
+    height:28px !important;
+    min-height:28px !important;
+    font-size:11px !important;
+    border-radius:6px !important;
+  }
+  .booking-overlay.hau-booking-open .calendar-hint{
+    font-size:9px !important;
+    margin-top:4px !important;
+  }
+}
+</style>
+
+<style id="hau-v129-booking-final-balance">
+/* V129: PC - Ghi Chú Cho Salon luôn rộng toàn bộ hàng, bằng đúng các ô full-width */
+@media (min-width:601px){
+  #bookingForm > .booking-field:nth-of-type(7){
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+  #bookingForm > .booking-field:nth-of-type(7) #customerNote,
+  #bookingForm > .booking-field:nth-of-type(7) textarea{
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* V129: MOBILE - khung đặt lịch cố định giữa màn hình, không có cuộn dọc.
+   Nội dung sẽ tự thu nhỏ vừa màn hình nếu thiết bị có chiều cao thấp. */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-modal{
+    width:calc(100vw - 12px) !important;
+    max-width:430px !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow:hidden !important;
+    overflow-y:hidden !important;
+    box-sizing:border-box !important;
+    margin:0 !important;
+    transform:scale(var(--hau-booking-scale,1)) !important;
+    transform-origin:center center !important;
+  }
+
+  /* Các trường được nén nhẹ để giữ toàn bộ form trong một màn hình. */
+  #bookingOverlay.hau-booking-open .booking-field{
+    margin-bottom:3px !important;
+  }
+  #bookingOverlay.hau-booking-open .booking-field label{
+    margin-bottom:1px !important;
+  }
+  #bookingOverlay.hau-booking-open .booking-field input,
+  #bookingOverlay.hau-booking-open .booking-field select{
+    height:28px !important;
+    min-height:28px !important;
+    padding:3px 8px !important;
+    font-size:14px !important;
+  }
+  #bookingOverlay.hau-booking-open .booking-field textarea,
+  #bookingOverlay.hau-booking-open #customerNote{
+    height:31px !important;
+    min-height:31px !important;
+    max-height:31px !important;
+    padding:4px 8px !important;
+    font-size:14px !important;
+  }
+  #bookingOverlay.hau-booking-open .booking-submit{
+    height:32px !important;
+    min-height:32px !important;
+    padding:4px 8px !important;
+    margin-top:2px !important;
+    font-size:14px !important;
+  }
+}
+</style>
+
+<script id="hau-v129-booking-fit-js">
+(function(){
+  function fitMobileBooking(){
+    if(window.innerWidth > 600) return;
+    var overlay=document.getElementById('bookingOverlay');
+    var modal=overlay && overlay.querySelector('.booking-modal');
+    if(!overlay || !modal || !overlay.classList.contains('hau-booking-open')) return;
+
+    modal.style.setProperty('--hau-booking-scale','1');
+    modal.style.height='auto';
+
+    var availableH=Math.max(1, window.innerHeight - 10);
+    var availableW=Math.max(1, window.innerWidth - 10);
+    var neededH=modal.scrollHeight;
+    var neededW=modal.scrollWidth;
+    var scale=Math.min(1, availableH/neededH, availableW/neededW);
+    if(!isFinite(scale) || scale<=0) scale=1;
+    modal.style.setProperty('--hau-booking-scale', scale.toFixed(4));
+  }
+
+  function scheduleFit(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(fitMobileBooking);
+    });
+  }
+
+  var oldOpen=window.openBooking;
+  window.openBooking=function(e){
+    var result;
+    if(typeof oldOpen==='function') result=oldOpen.apply(this,arguments);
+    scheduleFit();
+    setTimeout(fitMobileBooking,80);
+    setTimeout(fitMobileBooking,220);
+    return result;
+  };
+
+  window.addEventListener('resize', scheduleFit, {passive:true});
+  window.addEventListener('orientationchange', function(){setTimeout(fitMobileBooking,150);}, {passive:true});
+  document.addEventListener('DOMContentLoaded', function(){setTimeout(fitMobileBooking,100);});
+})();
+</script>
+
+<style id="hau-v130-booking-mobile-comfort">
+/* V130: MOBILE - tăng chiều cao khung một chút, giữ cân giữa và tiêu đề ĐẶT LỊCH HẸN ở chính giữa */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open .booking-modal{
+    width:calc(100vw - 12px) !important;
+    max-width:430px !important;
+    padding:16px 12px 14px !important;
+    border-radius:17px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-title{
+    width:100% !important;
+    text-align:center !important;
+    margin:0 0 4px !important;
+    padding:0 !important;
+    font-size:20px !important;
+    line-height:1.15 !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-subtitle{
+    text-align:center !important;
+    margin:0 0 7px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-field{
+    margin-bottom:4px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-field input,
+  #bookingOverlay.hau-booking-open .booking-field select{
+    height:30px !important;
+    min-height:30px !important;
+    padding:4px 9px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-field textarea,
+  #bookingOverlay.hau-booking-open #customerNote{
+    height:40px !important;
+    min-height:40px !important;
+    max-height:40px !important;
+    padding:5px 9px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-submit{
+    height:36px !important;
+    min-height:36px !important;
+    padding:5px 8px !important;
+    margin-top:3px !important;
+    font-size:15px !important;
+  }
+}
+
+/* PC: Ghi Chú Cho Salon luôn full chiều ngang đúng bằng các ô full-width */
+@media (min-width:601px){
+  #bookingForm > .booking-field:nth-of-type(7),
+  #bookingForm > .booking-field:nth-of-type(7) #customerNote{
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+<style id="hau-v164-booking-targeted-fix">
+/* V164: CHỈ chỉnh 3 điểm theo yêu cầu — PC note full-width + mobile tiêu đề giữa + mobile modal cao hơn để hint không tràn. */
+
+/* PC: Ghi Chú Cho Salon rộng 100%, đúng toàn bộ chiều ngang form. */
+@media (min-width:601px){
+  #bookingForm > .booking-field:nth-of-type(7){
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    max-width:none !important;
+    justify-self:stretch !important;
+  }
+  #bookingForm > .booking-field:nth-of-type(7) #customerNote,
+  #bookingForm > .booking-field:nth-of-type(7) textarea{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* MOBILE: khung đặt lịch cao hơn và tiêu đề luôn nằm chính giữa khung. */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open{
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-modal{
+    width:calc(100vw - 16px) !important;
+    max-width:430px !important;
+    height:92vh !important;
+    max-height:92vh !important;
+    min-height:0 !important;
+    box-sizing:border-box !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    padding:18px 12px 16px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-title{
+    display:block !important;
+    width:fit-content !important;
+    max-width:calc(100% - 56px) !important;
+    margin:0 auto 7px !important;
+    text-align:center !important;
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    transform:none !important;
+    box-sizing:border-box !important;
+  }
+
+  /* Tăng nhẹ chiều cao hai ô có chữ hướng dẫn mờ để chữ không bị ép/tràn. */
+  #bookingOverlay.hau-booking-open #bookingForm .phone-input-wrap,
+  #bookingOverlay.hau-booking-open #bookingForm .email-input-wrap{
+    min-height:42px !important;
+  }
+  #bookingOverlay.hau-booking-open #bookingForm .phone-input-wrap input,
+  #bookingOverlay.hau-booking-open #bookingForm .email-input-wrap input{
+    height:42px !important;
+    min-height:42px !important;
+  }
+
+  #bookingOverlay.hau-booking-open #bookingForm .phone-hint-track,
+  #bookingOverlay.hau-booking-open #bookingForm .email-hint-track{
+    line-height:1.15 !important;
+  }
+}
+</style>
+
+
+
+<style id="hau-v165-booking-final-user-request">
+/* V165: Chỉ xử lý đúng các yêu cầu mới nhất về form ĐẶT LỊCH HẸN. */
+
+/* PC: Ghi Chú Cho Salon full 100%, đúng chiều ngang các ô full-width. */
+@media (min-width:601px){
+  #bookingForm > .booking-field:nth-of-type(7){
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+  #bookingForm > .booking-field:nth-of-type(7) #customerNote,
+  #bookingForm > .booking-field:nth-of-type(7) textarea{
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+    display:block !important;
+  }
+}
+
+/* MOBILE: khung đặt lịch luôn nằm chính giữa màn hình và ngắn hơn V164 khoảng 30%. */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-modal{
+    width:calc(100vw - 16px) !important;
+    max-width:430px !important;
+    height:64.4vh !important;
+    max-height:64.4vh !important;
+    min-height:0 !important;
+    margin:0 auto !important;
+    box-sizing:border-box !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    padding:14px 12px 12px !important;
+  }
+
+  /* Tiêu đề nằm giữa, khung cách chữ thoáng, không dính sát chữ. */
+  #bookingOverlay.hau-booking-open .booking-title{
+    display:block !important;
+    width:fit-content !important;
+    max-width:calc(100% - 64px) !important;
+    margin:0 auto 9px !important;
+    padding:8px 24px !important;
+    text-align:center !important;
+    line-height:1.2 !important;
+    border:1px solid #d9cec0 !important;
+    border-radius:12px !important;
+    box-sizing:border-box !important;
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    transform:none !important;
+  }
+
+  /* Tất cả ô nhập trên mobile: rộng 100% và cùng chiều cao với ô SĐT/ZALO. */
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field,
+  #bookingOverlay.hau-booking-open #bookingForm .phone-input-wrap,
+  #bookingOverlay.hau-booking-open #bookingForm .email-input-wrap{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field input,
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field select,
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field textarea,
+  #bookingOverlay.hau-booking-open #bookingForm #customerNote,
+  #bookingOverlay.hau-booking-open #bookingForm #bookingDateDisplay,
+  #bookingOverlay.hau-booking-open #bookingForm #bookingTime,
+  #bookingOverlay.hau-booking-open #bookingForm #customerName,
+  #bookingOverlay.hau-booking-open #bookingForm #customerPhone,
+  #bookingOverlay.hau-booking-open #bookingForm #customerEmail,
+  #bookingOverlay.hau-booking-open #bookingForm #bookingService{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    height:42px !important;
+    min-height:42px !important;
+    max-height:42px !important;
+    box-sizing:border-box !important;
+    padding:7px 10px !important;
+    border-radius:8px !important;
+    font-size:16px !important;
+    line-height:22px !important;
+  }
+
+  /* Ô ghi chú cũng cùng chiều cao/rộng với SĐT/ZALO. */
+  #bookingOverlay.hau-booking-open #bookingForm #customerNote,
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field:nth-of-type(7) textarea{
+    resize:none !important;
+  }
+
+  #bookingOverlay.hau-booking-open #bookingForm .phone-input-wrap,
+  #bookingOverlay.hau-booking-open #bookingForm .email-input-wrap{
+    min-height:42px !important;
+    height:42px !important;
+  }
+
+  /* Các khoảng cách được giữ gọn để form vừa khung mới, không thay đổi chức năng. */
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field{
+    margin-bottom:5px !important;
+  }
+  #bookingOverlay.hau-booking-open #bookingForm .booking-field label{
+    margin-bottom:3px !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-submit{
+    width:100% !important;
+  }
+}
+</style>
+
+
+<style id="hau-v166-booking-final-fix">
+/* V166: chỉ sửa đúng 2 yêu cầu mới nhất. */
+
+/* PC: ô Ghi Chú Cho Salon lấy đúng chiều rộng 100% của form,
+   không phụ thuộc nth-of-type vì form có bookingValidationNotice ở giữa. */
+@media (min-width:601px){
+  #bookingForm .booking-field:has(#customerNote){
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    max-width:none !important;
+    justify-self:stretch !important;
+    box-sizing:border-box !important;
+  }
+  #bookingForm .booking-field:has(#customerNote) #customerNote{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* MOBILE: không cho cuộn trong bảng đặt lịch. Khung được thu nhỏ theo
+   đúng chiều cao thực tế để toàn bộ thông tin luôn nhìn thấy cùng lúc. */
+@media (max-width:600px){
+  #bookingOverlay.hau-booking-open{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    padding:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+
+  #bookingOverlay.hau-booking-open .booking-modal{
+    width:calc(100vw - 16px) !important;
+    max-width:430px !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow:visible !important;
+    overflow-y:visible !important;
+    box-sizing:border-box !important;
+    margin:0 auto !important;
+    transform:scale(var(--hau-booking-scale,1)) !important;
+    transform-origin:center center !important;
+  }
+}
+</style>
+
+<script id="hau-v166-booking-fit-final">
+(function(){
+  function fitBookingMobile(){
+    if(window.innerWidth > 600) return;
+    var overlay=document.getElementById('bookingOverlay');
+    var modal=overlay && overlay.querySelector('.booking-modal');
+    if(!overlay || !modal || !overlay.classList.contains('hau-booking-open')) return;
+
+    modal.style.setProperty('--hau-booking-scale','1');
+    modal.style.height='auto';
+
+    var rect=modal.getBoundingClientRect();
+    var naturalH=modal.scrollHeight;
+    var naturalW=modal.scrollWidth;
+    var availableH=Math.max(1, window.innerHeight - 8);
+    var availableW=Math.max(1, window.innerWidth - 8);
+    var scale=Math.min(1, availableH/naturalH, availableW/naturalW);
+    if(!isFinite(scale) || scale<=0) scale=1;
+    modal.style.setProperty('--hau-booking-scale',scale.toFixed(4));
+  }
+
+  function scheduleFit(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(fitBookingMobile);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(fitBookingMobile,80);
+    setTimeout(fitBookingMobile,250);
+  });
+  window.addEventListener('resize',scheduleFit,{passive:true});
+  window.addEventListener('orientationchange',function(){setTimeout(fitBookingMobile,180);},{passive:true});
+
+  var oldOpen=window.openBooking;
+  window.openBooking=function(e){
+    var result;
+    if(typeof oldOpen==='function') result=oldOpen.apply(this,arguments);
+    scheduleFit();
+    setTimeout(fitBookingMobile,80);
+    setTimeout(fitBookingMobile,250);
+    return result;
+  };
+})();
+</script>
